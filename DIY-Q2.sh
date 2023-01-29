@@ -82,7 +82,7 @@ cp $CURRENT_DIR/DIY2/J/HawkConfig.java    $CURRENT_DIR/$DIR/app/src/main/java/co
 cp $CURRENT_DIR/DIY2/J/PlayerUtils.java   $CURRENT_DIR/$DIR/player/src/main/java/xyz/doikki/videoplayer/util/PlayerUtils.java
 
 //增加图标
-cp $CURRENT_DIR/DIY2/hm_history.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_history.png
+cp $CURRENT_DIR/DIY2/J/hm_history.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_history.png
 
 //解码修改
 cp $CURRENT_DIR/DIY2/J/解码/IjkMediaPlayer.java   $CURRENT_DIR/$DIR/player/src/main/java/tv/danmaku/ijk/media/player/IjkMediaPlayer.java
