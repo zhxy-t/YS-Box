@@ -138,7 +138,7 @@ sed -i 's/TVBox/影视Box/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.x
 sed -i 's/1.0.0/1.5.9/g'  $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.5.9/g'  $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 #共存
-sed -i 's/com.github.tvbox.osc/com.tvbox.Q/g' $CURRENT_DIR/$DIR/app/build.gradle
+sed -i 's/com.github.tvbox.osc/com.YsBox.osc/g' $CURRENT_DIR/$DIR/app/build.gradle
 
 
 #添加PY支持
