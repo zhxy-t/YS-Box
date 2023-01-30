@@ -62,9 +62,16 @@ cp $CURRENT_DIR/DIY2/J/搜索/SearchActivity.java                   $CURRENT_DIR
 
 //其他修改
 cp $CURRENT_DIR/DIY2/J/event/RefreshEvent.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/event/RefreshEvent.java
-
-
-
+cp $CURRENT_DIR/DIY2/J/index.html                         $CURRENT_DIR/$DIR/app/src/main/res/raw/index.html
+//JS内置
+cp $CURRENT_DIR/DIY2/J/JS/alist.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/alist.min.js
+cp $CURRENT_DIR/DIY2/J/JS/drpy.min.js                   $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/drpy.min.js
+cp $CURRENT_DIR/DIY2/J/JS/drpy2.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/drpy.min2.js
+cp $CURRENT_DIR/DIY2/J/JS/moban.js                      $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/moban.js
+cp $CURRENT_DIR/DIY2/J/JS/sortName.js                   $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/sortName.js
+cp $CURRENT_DIR/DIY2/J/JS/模板.js                       $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/模板.js
+cp $CURRENT_DIR/DIY2/J/JS/mod.js.js                     $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/mod.js.js
+cp $CURRENT_DIR/DIY2/J/JS/token.txt                     $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/token.txt
 //增加字体
 mv $CURRENT_DIR/DIY2/J/字体/advent_pro_extralight.ttf     $CURRENT_DIR/$DIR/app/src/main/res/font/advent_pro_extralight.ttf
 //小窗修改
