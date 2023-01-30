@@ -62,7 +62,7 @@ cp $CURRENT_DIR/DIY2/J/搜索/SearchActivity.java                   $CURRENT_DIR
 
 //其他修改
 cp $CURRENT_DIR/DIY2/J/event/RefreshEvent.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/event/RefreshEvent.java
-cp $CURRENT_DIR/DIY2/J/index.html                         $CURRENT_DIR/$DIR/app/src/main/res/raw/index.html
+cp $CURRENT_DIR/DIY2/index.html                         $CURRENT_DIR/$DIR/app/src/main/res/raw/index.html
 //JS内置
 #cp $CURRENT_DIR/DIY2/J/JS/alist.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/alist.min.js
 #cp $CURRENT_DIR/DIY2/J/JS/drpy.min.js                   $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/drpy.min.js
@@ -112,12 +112,12 @@ cp $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxh
 mv $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
 
 #背景修改
-cp $CURRENT_DIR/DIY2/背景1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
+cp $CURRENT_DIR/DIY2/背景3.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 
 #首页多排
 sed -i 's/380+200/360+200/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java 
 sed -i 's/380+200/360+200/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
-sed -i 's/380+200/360+140/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/SearchCheckboxDialog.java
+sed -i 's/380+200/340+140/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/SearchCheckboxDialog.java
 
 #首页排版边框
 sed -i 's/vs_30/vs_15/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
@@ -150,7 +150,7 @@ sed -i 's/TVBox/影视Box/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.x
 sed -i 's/1.0.0/1.5.9/g'  $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.5.9/g'  $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 #共存
-sed -i 's/com.github.tvbox.osc/com.YsBox.osc/g' $CURRENT_DIR/$DIR/app/build.gradle
+sed -i 's/com.github.tvbox.osc/com.YsBox.tv/g' $CURRENT_DIR/$DIR/app/build.gradle
 
 
 #添加PY支持
