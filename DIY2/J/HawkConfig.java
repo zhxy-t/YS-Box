@@ -29,7 +29,10 @@ public class HawkConfig {
     public static final String SEARCH_VIEW = "search_view"; // 0 列表 1 缩略图
     public static final String LIVE_SKIP_PASSWORD = "skip_password";//跳过密码
     public static final String PIC_IN_PIC = "pic_in_pic"; // true = on, false = off
-
+    
+    public static final String HOME_SEARCH_POSITION = "search_position"; // true=Up, false=Down
+    public static final String HOME_MENU_POSITION = "menu_position";     // true=Up, false=Down
+    
 
     public static final String LIVE_CHANNEL = "last_live_channel_name";
     public static final String LIVE_CHANNEL_REVERSE = "live_channel_reverse";
