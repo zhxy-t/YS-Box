@@ -249,19 +249,50 @@ public class HomeActivity extends BaseActivity {
             }
         });
             /*
-         // Button : Wifi >> Go into Android Wifi Settings -------------
+       // Button : TVBOX >> Go into Android Main Settings ------------
+        tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+            }
+        });
+        // Button : Wifi >> Go into Android Wifi Settings -------------
         tvWifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
             }
         });
+          */
+        // Button : Search --------------------------------------------
+        boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
+        if (search_pos) {
+            tvFind.setVisibility(View.VISIBLE);
+        } else {
+            tvFind.setVisibility(View.GONE);
+        }
+        tvFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumpActivity(SearchActivity.class);
+            }
+        });
         
-        
-        
-    */
-        
-          // Button : Drawer >> To go into App Drawer -------------------
+      
+        // Button : Settings >> To go into Settings --------------------
+         boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
+        if (menu_pos) {
+            tvMenu.setVisibility(View.VISIBLE);
+        } else {
+            tvMenu.setVisibility(View.GONE);
+        }
+        tvMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumpActivity(SettingActivity.class);
+            }
+        });
+        // Button : Drawer >> To go into App Drawer -------------------
         tvDraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -269,26 +300,20 @@ public class HomeActivity extends BaseActivity {
             }
         });
         
-        // Button : Search --------------------------------------------
-      boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
-        if (search_pos) {
-            tvFind.setVisibility(View.VISIBLE);
-        } else {
-            tvFind.setVisibility(View.GONE);
-        }
-        // Button : Settings >> To go into Settings --------------------
-       boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
-        if (menu_pos) {
-            tvMenu.setVisibility(View.VISIBLE);
-        } else {
-            tvMenu.setVisibility(View.GONE);
-        }
         // Button : Settings >> To go into App Settings ----------------
+        
         tvMenu.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null)));
                 return true;
+            }
+        });
+        // Button : Date >> Go into Android Date Settings --------------
+        tvDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Settings.ACTION_DATE_SETTINGS));
             }
         });
 
