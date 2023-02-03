@@ -839,7 +839,17 @@ public class ModelSettingFragment extends BaseLazyFragment {
         SettingActivity.callback = null;
     }
 
-
+void reloadActivity() {
+        Intent intent = getActivity().getApplicationContext().getPackageManager().getLaunchIntentForPackage(getActivity().getApplication().getPackageName());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("useCache", true);
+        intent.putExtras(bundle);
+        getActivity().getApplicationContext().startActivity(intent);
+        //  android.os.Process.killProcess(android.os.Process.myPid());
+        //  System.exit(0);
+    }
     String getHomeRecName(int type) {
         if (type == 1) {
             return "推荐";
