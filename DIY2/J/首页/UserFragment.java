@@ -221,6 +221,21 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         tvHotList2.setAdapter(homeHotVodAdapter);
 
         initHomeHotVod(homeHotVodAdapter);
+  
+
+        // takagen99: Initialize Icon Placement
+        boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
+        if (!search_pos) {
+            tvSearch.setVisibility(View.VISIBLE);
+        } else {
+            tvSearch.setVisibility(View.GONE);
+        }
+        boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
+        if (!menu_pos) {
+            tvSetting.setVisibility(View.VISIBLE);
+        } else {
+            tvSetting.setVisibility(View.GONE);
+        }
     }
 
     private void initHomeHotVod(HomeHotVodAdapter adapter) {
