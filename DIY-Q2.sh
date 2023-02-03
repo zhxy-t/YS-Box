@@ -64,7 +64,7 @@ cp $CURRENT_DIR/DIY2/J/首页/hm_drawer.png            $CURRENT_DIR/$DIR/app/src
 cp $CURRENT_DIR/DIY2/J/首页/AppsAdapter.java         $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/adapter/AppsAdapter.java
 cp $CURRENT_DIR/DIY2/J/首页/item_apps.xml            $CURRENT_DIR/$DIR/app/src/main/res/layout/item_apps.xml
 cp $CURRENT_DIR/DIY2/J/首页/activity_apps.xml         $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_apps.xml
-cp $CURRENT_DIR/DIY2/J/首页/shape_user_delete.xmll            $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_user_delete.xml
+cp $CURRENT_DIR/DIY2/J/首页/shape_user_delete.xml            $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_user_delete.xml
 
 //搜索修改
 cp $CURRENT_DIR/DIY2/J/搜索/dialog_checkbox_search.xml            $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_checkbox_search.xml
