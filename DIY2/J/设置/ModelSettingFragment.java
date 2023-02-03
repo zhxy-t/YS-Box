@@ -99,6 +99,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
     private TextView tvIjkCachePlay;
     
+     private TextView tvHomeIcon;
+    
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
     }
