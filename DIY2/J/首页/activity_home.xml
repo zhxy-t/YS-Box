@@ -21,8 +21,8 @@
 
           <ImageView
             android:id="@+id/tvFind"
-            android:layout_width="@dimen/vs_50"
-            android:layout_height="@dimen/vs_50"
+            android:layout_width="@dimen/vs_40"
+            android:layout_height="@dimen/vs_40"
             android:layout_marginStart="@dimen/vs_10"
             android:layout_marginLeft="@dimen/vs_10"
             android:layout_marginEnd="@dimen/vs_10"
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/tvMenu"
-            android:layout_width="@dimen/vs_50"
-            android:layout_height="@dimen/vs_50"
+            android:layout_width="@dimen/vs_40"
+            android:layout_height="@dimen/vs_40"
             android:layout_marginStart="@dimen/vs_10"
             android:layout_marginLeft="@dimen/vs_10"
             android:layout_marginEnd="@dimen/vs_10"
