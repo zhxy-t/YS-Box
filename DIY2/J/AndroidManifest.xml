@@ -57,6 +57,9 @@
         <activity
             android:name=".ui.activity.PushActivity"
             android:screenOrientation="sensorLandscape" />
+         <activity
+            android:name=".ui.activity.DriveActivity"
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".ui.activity.SearchActivity"
             android:screenOrientation="sensorLandscape" />
