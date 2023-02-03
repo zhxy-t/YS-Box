@@ -253,20 +253,19 @@ public class HomeActivity extends BaseActivity {
         });
     */
         // Button : Search --------------------------------------------
-        tvFind.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                jumpActivity(SearchActivity.class);
-            }
-        });
+      boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
+        if (search_pos) {
+            tvFind.setVisibility(View.VISIBLE);
+        } else {
+            tvFind.setVisibility(View.GONE);
+        }
         // Button : Settings >> To go into Settings --------------------
-        tvMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                jumpActivity(SettingActivity.class);
-            }
-        });
-    
+       boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
+        if (menu_pos) {
+            tvMenu.setVisibility(View.VISIBLE);
+        } else {
+            tvMenu.setVisibility(View.GONE);
+        }
         // Button : Settings >> To go into App Settings ----------------
         tvMenu.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
