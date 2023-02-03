@@ -174,17 +174,24 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         });
 
         homeHotVodAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
-            @Override
+@Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
-                if (ApiConfig.get().getSourceBeanList().isEmpty()) return true;
+                if (ApiConfig.get().getSourceBeanList().isEmpty())
+                    return false;
                 Movie.Video vod = ((Movie.Video) adapter.getItem(position));
-                Bundle bundle = new Bundle();
-                bundle.putString("title", vod.name);
-                jumpActivity(FastSearchActivity.class, bundle);
+                // Additional Check if : Home Rec 0=豆瓣, 1=推荐, 2=历史
+                if ((vod.id != null && !vod.id.isEmpty()) && (Hawk.get(HawkConfig.HOME_REC, 0) == 2)) {
+                    HawkConfig.hotVodDelete =  !HawkConfig.hotVodDelete;
+                    homeHotVodAdapter.notifyDataSetChanged();
+                } else {
+                    Intent newIntent = new Intent(mContext, FastSearchActivity.class);
+                    newIntent.putExtra("title", vod.name);
+                    newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    mActivity.startActivity(newIntent);
+                }
                 return true;
             }
         });
-
         tvHotList1.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
@@ -322,6 +329,9 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+        // takagen99: Remove Delete Mode
+        HawkConfig.hotVodDelete = false;
+        
         FastClickCheckUtil.check(v);
         if (v.getId() == R.id.tvLive) {
             jumpActivity(LivePlayActivity.class);
