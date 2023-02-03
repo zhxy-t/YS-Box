@@ -67,7 +67,7 @@ import android.view.ViewGroup;
 import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.LOG;
 
-
+import com.github.tvbox.osc.ui.dialog.HomeIconDialog;
 
 import java.util.Arrays;
 /**
