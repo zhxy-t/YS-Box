@@ -34,8 +34,11 @@ cp $CURRENT_DIR/DIY2/J/点播/button_detail_collect.xml       $CURRENT_DIR/$DIR/
 //设置界面
 cp $CURRENT_DIR/DIY2/J/设置/ModelSettingFragment.java    $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
 cp $CURRENT_DIR/DIY2/J/设置/fragment_model.xml           $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
+
 //添加了“搜索和设置”图标放置的选项 
 cp $CURRENT_DIR/DIY2/J/设置/HomeIconDialog.java    $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/HomeIconDialog.java
+cp $CURRENT_DIR/DIY2/J/设置/dialog_homeoption.xml    $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_homeoption.xml
+
 //增加版本 更新说明
 cp $CURRENT_DIR/DIY2/J/设置/VersionDialog.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/VersionDialog.java
 cp $CURRENT_DIR/DIY2/dialog_version.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_version.xml
