@@ -56,4 +56,8 @@ public class HawkConfig {
     public static final String DISPLAY_LOADING_SPEED = "display_loading_speed";
     public static final String HOME_VIEW_STYLE = "home_view_style";
     
+   public static boolean isDebug() {
+        return Hawk.get(DEBUG_OPEN, false);
+    }
+    public static boolean hotVodDelete;
 }
