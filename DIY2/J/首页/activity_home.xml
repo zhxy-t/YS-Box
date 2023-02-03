@@ -27,7 +27,7 @@
             android:layout_marginLeft="@dimen/vs_10"
             android:layout_marginEnd="@dimen/vs_10"
             android:layout_marginRight="@dimen/vs_10"
-            android:background="@drawable/button_home_sort_focus"
+            android:background="@drawable/button_home_select"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/hm_search" />
