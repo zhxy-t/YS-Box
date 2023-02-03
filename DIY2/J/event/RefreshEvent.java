@@ -23,6 +23,7 @@ public class RefreshEvent {
     public static final int TYPE_EPG_URL_CHANGE = 14;
     public static final int TYPE_FILTER_CHANGE = 15;//类型_过滤器_更改
     public static final int TYPE_SETTING_SEARCH_TV = 16;
+    public static final int TYPE_APP_REFRESH = 17;
     public int type;
     public Object obj;
 
