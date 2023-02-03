@@ -205,6 +205,25 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
         
+        //按钮位置
+        findViewById(R.id.llHomeIcon).setOnClickListener(new View.OnClickListener() {
+            private final boolean oriSearch = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
+            private final boolean oriMenu = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                HomeIconDialog dialog = new HomeIconDialog(mActivity);
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        if ((oriSearch != Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true)) || (oriMenu != Hawk.get(HawkConfig.HOME_MENU_POSITION, true))) {
+                            reloadActivity();
+                        }
+                    }
+                });
+                dialog.show();
+            }
+        });
         
         //ModelSettingFragment.java
 
