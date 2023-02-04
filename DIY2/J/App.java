@@ -63,9 +63,9 @@ public class App extends MultiDexApplication {
 //         Hawk.put(HawkConfig.HOME_NUM, 2);       // History Number
           Hawk.put(HawkConfig.DOH_URL, 2);        // DNS
           Hawk.put(HawkConfig.PLAY_RENDER, 1);        // 渲染
-          Hawk.put(HawkConfig.HOME_SEARCH_POSITION, Down);     // true=Up, false=Down
-          Hawk.put(HawkConfig.HOME_MENU_POSITION, Up);        // true=Up, false=Down
-          Hawk.put(HawkConfig.IJK_CACHE_PLA, true);        //true=开, false=关
+          Hawk.put(HawkConfig.HOME_SEARCH_POSITION, false);     // true=Up, false=Down
+          Hawk.put(HawkConfig.HOME_MENU_POSITION, true);        // true=Up, false=Down
+          Hawk.put(HawkConfig.IJK_CACHE_PLAY, true);        //true=开, false=关
             
         //  Hawk.put(HawkConfig.PLAY_SCALE, 1);       //播放比例
           //Hawk.put(HawkConfig.PLAY_TIME_STEP, 1);      
