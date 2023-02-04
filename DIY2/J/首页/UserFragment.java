@@ -232,7 +232,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
   
 
         // takagen99: Initialize Icon Placement
-        boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false);
+        boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
         if (!search_pos) {
             tvSearch.setVisibility(View.VISIBLE);
         } else {
