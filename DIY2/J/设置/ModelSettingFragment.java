@@ -809,8 +809,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
      private void onClickIjkCachePlay(View v) {
         FastClickCheckUtil.check(v);
-        Hawk.put(HawkConfig.IJK_CACHE_PLAY, !Hawk.get(HawkConfig.IJK_CACHE_PLAY, true));
-        tvIjkCachePlay.setText(Hawk.get(HawkConfig.IJK_CACHE_PLAY, true) ? "开启" : "关闭");
+        Hawk.put(HawkConfig.IJK_CACHE_PLAY, !Hawk.get(HawkConfig.IJK_CACHE_PLAY, false));
+        tvIjkCachePlay.setText(Hawk.get(HawkConfig.IJK_CACHE_PLAY, false) ? "开启" : "关闭");
     }
     
     private void onClickClearCache(View v) {
