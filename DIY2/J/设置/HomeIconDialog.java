@@ -28,7 +28,7 @@ public class HomeIconDialog extends BaseDialog {
         setContentView(R.layout.dialog_homeoption);
         setCanceledOnTouchOutside(true);
         tvHomeSearch = findViewById(R.id.tvHomeSearch);
-        tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false) ? "上方" : "下方");
+        tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true) ? "上方" : "下方");
         tvHomeMenu = findViewById(R.id.tvHomeMenu);
         tvHomeMenu.setText(Hawk.get(HawkConfig.HOME_MENU_POSITION, true) ? "上方" : "下方");
 
@@ -36,7 +36,7 @@ public class HomeIconDialog extends BaseDialog {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                Hawk.put(HawkConfig.HOME_SEARCH_POSITION, !Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false));
+                Hawk.put(HawkConfig.HOME_SEARCH_POSITION, !Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true));
                 tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false) ? "上方" : "下方");
             }
         });
