@@ -28,8 +28,8 @@
             android:shadowDy="0"
             android:shadowRadius="5"
             android:singleLine="true"
-            android:text="@string/dia_hm_icon"
-            android:textColor="@color/color_FFFFFF"
+            android:text="首页按钮位置"
+            android:textColor="@color/color_CC000000"
             android:textSize="@dimen/ts_26"
             android:textStyle="bold"
             tools:text="@string/dia_hm_icon" />
