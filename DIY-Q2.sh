@@ -67,7 +67,7 @@ cp $CURRENT_DIR/DIY2/J/首页/activity_apps.xml         $CURRENT_DIR/$DIR/app/sr
 cp $CURRENT_DIR/DIY2/J/首页/shape_user_delete.xml            $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_user_delete.xml
 cp $CURRENT_DIR/DIY2/J/首页/AppInfo.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/bean/AppInfo.java
 cp $CURRENT_DIR/DIY2/J/首页/UserFragment.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/UserFragment.java
-cp $CURRENT_DIR/DIY2/J/首页/AndroidManifest.xml            $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.xml
+cp $CURRENT_DIR/DIY2/J/AndroidManifest.xml            $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.xml
 
 //搜索修改
 cp $CURRENT_DIR/DIY2/J/搜索/dialog_checkbox_search.xml            $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_checkbox_search.xml
