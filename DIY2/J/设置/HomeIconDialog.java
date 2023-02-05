@@ -22,6 +22,9 @@ import org.jetbrains.annotations.NotNull;
 public class HomeIconDialog extends BaseDialog {
     private final TextView tvHomeSearch;
     private final TextView tvHomeMenu;
+    private final TextView tvHomePush;
+    private final TextView tvHomeDrive;
+    
 
     public HomeIconDialog(@NonNull @NotNull Context context) {
         super(context);
@@ -31,7 +34,13 @@ public class HomeIconDialog extends BaseDialog {
         tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true) ? "上方" : "下方");
         tvHomeMenu = findViewById(R.id.tvHomeMenu);
         tvHomeMenu.setText(Hawk.get(HawkConfig.HOME_MENU_POSITION, true) ? "上方" : "下方");
-
+        
+        tvHomePush = findViewById(R.id.tvHomePush);
+        tvHomePush.setText(Hawk.get(HawkConfig.HOME_PUSH_POSITION, true) ? "上方" : "下方");
+        tvHomeDrive = findViewById(R.id.tvHomeDrive);
+        tvHomeDrive.setText(Hawk.get(HawkConfig.HOME_APP_POSITION, true) ? "上方" : "下方");
+        
+        
         findViewById(R.id.llSearch).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,14 +49,35 @@ public class HomeIconDialog extends BaseDialog {
                 tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false) ? "上方" : "下方");
             }
         });
-        findViewById(R.id.llMenu).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llDrive).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                Hawk.put(HawkConfig.HOME_MENU_POSITION, !Hawk.get(HawkConfig.HOME_MENU_POSITION, true));
-                tvHomeMenu.setText(Hawk.get(HawkConfig.HOME_MENU_POSITION, true) ? "上方" : "下方");
+                Hawk.put(HawkConfig.HOME_APP_POSITION, !Hawk.get(HawkConfig.HOME_APP_POSITION, true));
+                tvHomeMenu.setText(Hawk.get(HawkConfig.HOME_APP_POSITION, true) ? "上方" : "下方");
             }
         });
+        
+        
+        
+           findViewById(R.id.llPush).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                Hawk.put(HawkConfig.HOME_PUSH_POSITION, !Hawk.get(HawkConfig.HOME_PUSH_POSITION, true));
+                tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_PUSH_POSITION, false) ? "上方" : "下方");
+            }
+        });
+        
+                findViewById(R.id.llSearch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                Hawk.put(HawkConfig.HOME_SEARCH_POSITION, !Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true));
+                tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false) ? "上方" : "下方");
+            }
+        });
+        
     }
 
 }
