@@ -242,32 +242,48 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
   
 
         // takagen99: Initialize Icon Placement
+        //搜索
         boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
         if (!search_pos) {
             tvSearch.setVisibility(View.VISIBLE);
         } else {
             tvSearch.setVisibility(View.GONE);
         }
+        //设置
         boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
         if (!menu_pos) {
             tvSetting.setVisibility(View.VISIBLE);
         } else {
             tvSetting.setVisibility(View.GONE);
         }
-        
+        //推送
         boolean push_pos = Hawk.get(HawkConfig.HOME_PUSH_POSITION, true);
         if (!push_pos) {
             tvPush.setVisibility(View.VISIBLE);
         } else {
             tvPush.setVisibility(View.GONE);
         }
+        //应用
         boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
         if (!app_pos) {
             tvDrawer.setVisibility(View.VISIBLE);
         } else {
             tvDrawer.setVisibility(View.GONE);
         }
-        
+        //历史
+         boolean hist_pos = Hawk.get(HawkConfig.HOME_HIST_POSITION, true);
+        if (!hist_pos) {
+            tvHistory.setVisibility(View.VISIBLE);
+        } else {
+            tvHistory.setVisibility(View.GONE);
+        }
+        //收藏
+        boolean fav_pos = Hawk.get(HawkConfig.HOME_FAV_POSITION, true);
+        if (!fav_pos) {
+            tvFavorite.setVisibility(View.VISIBLE);
+        } else {
+            tvFavorite.setVisibility(View.GONE);
+        }
         
     }
 
