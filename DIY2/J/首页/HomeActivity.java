@@ -97,7 +97,7 @@ public class HomeActivity extends BaseActivity {
     private ImageView tvFind;
     private ImageView tvMenu;
     private ImageView tvDrawer;
-    
+    private ImageView tvPush;
     
     private Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -139,7 +139,7 @@ public class HomeActivity extends BaseActivity {
         this.tvFind = findViewById(R.id.tvFind);
         this.tvMenu = findViewById(R.id.tvMenu);
         this.tvDrawer = findViewById(R.id.tvDrawer);
-        
+        this.tvPush = findViewById(R.id.tvPush);
         
         
         this.topLayout = findViewById(R.id.topLayout);
@@ -285,7 +285,7 @@ public class HomeActivity extends BaseActivity {
         } else {
             tvPush.setVisibility(View.GONE);
         }
-        tvFind.setOnClickListener(new View.OnClickListener() {
+        tvPush.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 jumpActivity(PushActivity.class);
