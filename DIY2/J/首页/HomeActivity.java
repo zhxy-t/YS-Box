@@ -293,14 +293,13 @@ public class HomeActivity extends BaseActivity {
             }
         });
         // Button : Drawer >> To go into App Drawer -------------------
-        /*
-        boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
-          if (menu_pos) {
+        boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
+          if (app_pos) {
             tvDraw.setVisibility(View.VISIBLE);
         } else {
             tvDraw.setVisibility(View.GONE);
         }
-        */
+       
         tvDraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
