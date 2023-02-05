@@ -300,7 +300,7 @@ public class HomeActivity extends BaseActivity {
             tvDraw.setVisibility(View.GONE);
         }
        
-        tvDraw.setOnClickListener(new View.OnClickListener() {
+       tvDraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 jumpActivity(AppsActivity.class);
