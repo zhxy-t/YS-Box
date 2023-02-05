@@ -59,7 +59,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private LinearLayout tvSearch;
     private LinearLayout tvSetting;
     private LinearLayout tvHistory;
-    private LinearLayout tvCollect;
+    private LinearLayout tvFavorite;
     private LinearLayout tvPush;
     private LinearLayout tvDrawer;
     
