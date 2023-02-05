@@ -209,6 +209,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
         findViewById(R.id.llHomeIcon).setOnClickListener(new View.OnClickListener() {
             private final boolean oriSearch = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
             private final boolean oriMenu = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
+            private final boolean oriDrive = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
+            private final boolean oriPush = Hawk.get(HawkConfig.HOME_PUSH_POSITION, true);
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -216,7 +218,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
-                        if ((oriSearch != Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true)) || (oriMenu != Hawk.get(HawkConfig.HOME_MENU_POSITION, true))) {
+                        if ((oriSearch != Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true)) || (oriMenu != Hawk.get(HawkConfig.HOME_MENU_POSITION, true))
+                            (oriDrive != Hawk.get(HawkConfig.HOME_APP_POSITION, true)) || (oriPush != Hawk.get(HawkConfig.HOME_PUSH_POSITION, true))
+                           
+                           ) {
                             reloadActivity();
                         }
                     }
