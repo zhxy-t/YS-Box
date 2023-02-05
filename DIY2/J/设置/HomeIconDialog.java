@@ -46,7 +46,7 @@ public class HomeIconDialog extends BaseDialog {
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
                 Hawk.put(HawkConfig.HOME_SEARCH_POSITION, !Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true));
-                tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, false) ? "上方" : "下方");
+                tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true) ? "上方" : "下方");
             }
         });
         findViewById(R.id.llMenu).setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class HomeIconDialog extends BaseDialog {
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
                 Hawk.put(HawkConfig.HOME_PUSH_POSITION, !Hawk.get(HawkConfig.HOME_PUSH_POSITION, true));
-                tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_PUSH_POSITION, false) ? "上方" : "下方");
+                tvHomePush.setText(Hawk.get(HawkConfig.HOME_PUSH_POSITION, true) ? "上方" : "下方");
             }
         });
         
@@ -74,7 +74,7 @@ public class HomeIconDialog extends BaseDialog {
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
                 Hawk.put(HawkConfig.HOME_APP_POSITION, !Hawk.get(HawkConfig.HOME_APP_POSITION, true));
-                tvHomeSearch.setText(Hawk.get(HawkConfig.HOME_APP_POSITION, false) ? "上方" : "下方");
+                tvHomeDrive.setText(Hawk.get(HawkConfig.HOME_APP_POSITION, true) ? "上方" : "下方");
             }
         });
         
