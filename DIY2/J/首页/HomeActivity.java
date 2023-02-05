@@ -144,7 +144,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
-        //this.tvWifi = findViewById(R.id.tvWifi);
+        this.tvWifi = findViewById(R.id.tvWifi);
         this.tvFind = findViewById(R.id.tvFind);
         this.tvMenu = findViewById(R.id.tvMenu);
         this.tvDrawer = findViewById(R.id.tvDrawer);
@@ -776,7 +776,7 @@ public class HomeActivity extends BaseActivity {
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", new float[]{1.0f, 0.0f})});
             animatorSet.setDuration(200);
             animatorSet.start();
-            //tvWifi.setFocusable(false);
+            tvWifi.setFocusable(false);
             tvFind.setFocusable(false);
             tvMenu.setFocusable(false);
             tvDrawer.setFocusable(false);
@@ -801,7 +801,7 @@ public class HomeActivity extends BaseActivity {
             animatorSet.setDuration(200);
             animatorSet.start();
 
-           // tvWifi.setFocusable(true);
+            tvWifi.setFocusable(true);
             tvFind.setFocusable(true);
             tvMenu.setFocusable(true);
             tvDrawer.setFocusable(true);
