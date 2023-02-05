@@ -8,7 +8,6 @@ import android.util.Base64;
 import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.JsLoader;
 import com.github.catvod.crawler.Spider;
-import com.github.catvod.crawler.SpiderNull;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.bean.IJKCode;
@@ -32,7 +31,6 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
-//import com.undcover.freedom.pyramid.PythonLoader;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
@@ -50,7 +48,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import java.nio.charset.StandardCharsets;
 /**
  * @author pj567
  * @date :2020/12/18
@@ -133,8 +130,7 @@ public class ApiConfig {
 
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
         // Embedded Source : Update in Strings.xml if required
-        //String apiUrl = Hawk.get(HawkConfig.API_URL, HomeActivity.getRes().getString(R.string.app_source));
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, HomeActivity.getRes().getString(R.string.app_source));
         if (apiUrl.isEmpty()) {
             callback.error("-1");
             return;
@@ -308,8 +304,6 @@ public class ApiConfig {
     }
 
     private void parseJson(String apiUrl, String jsonStr) {
-        // pyramid
-        PythonLoader.getInstance().setConfig(jsonStr);
 
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
         // spider
@@ -384,10 +378,8 @@ public class ApiConfig {
         liveChannelGroupList.clear();           //修复从后台切换重复加载频道列表
         String liveURL = Hawk.get(HawkConfig.LIVE_URL, "");
         String epgURL  = Hawk.get(HawkConfig.EPG_URL, "");
-        String liveURL_final = null;
-        
-        //        if (StringUtils.isBlank(liveURL)) {
 
+        String liveURL_final = null;
         try {
             JsonObject livesOBJ = infoJson.get("lives").getAsJsonArray().get(0).getAsJsonObject();
             String lives = livesOBJ.toString();
@@ -419,34 +411,32 @@ public class ApiConfig {
                     } else {
                         extUrlFix = liveURL;
                     }
-                     // Final Live URL
+
+                    // Final Live URL
                     liveURL_final = extUrlFix;
 
 //                    // Encoding the Live URL
 //                    extUrlFix = Base64.encodeToString(extUrlFix.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
 //                    url = url.replace(extUrl, extUrlFix);
-
                 }
 
                 // takagen99 : Getting EPG URL from File Config & put into Settings
                 if (livesOBJ.has("epg")) {
                     String epg = livesOBJ.get("epg").getAsString();
-                    
-                     System.out.println("EPG URL :" + epg);
+                    System.out.println("EPG URL :" + epg);
                     putEPGHistory(epg);
                     // Overwrite with EPG URL from Settings
                     if (StringUtils.isBlank(epgURL)) {
                         Hawk.put(HawkConfig.EPG_URL, epg);
                     } else {
                         Hawk.put(HawkConfig.EPG_URL, epgURL);
-
                     }
                 }
 
-                // Populate Live Channel Listing
-                //LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
-                //liveChannelGroup.setGroupName(url);
-                //liveChannelGroupList.add(liveChannelGroup);
+//                // Populate Live Channel Listing
+//                LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
+//                liveChannelGroup.setGroupName(url);
+//                liveChannelGroupList.add(liveChannelGroup);
 
             } else {
 
@@ -461,7 +451,7 @@ public class ApiConfig {
 
                         // takagen99 : Getting EPG URL from File Config & put into Settings
                         if (fengMiLives.has("epg")) {
-                                                 String epg = fengMiLives.get("epg").getAsString();
+                            String epg = fengMiLives.get("epg").getAsString();
                             System.out.println("EPG URL :" + epg);
                             putEPGHistory(epg);
                             // Overwrite with EPG URL from Settings
@@ -501,7 +491,7 @@ public class ApiConfig {
             LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
             liveChannelGroup.setGroupName(liveURL_final);
             liveChannelGroupList.add(liveChannelGroup);
-            
+
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -587,8 +577,8 @@ public class ApiConfig {
             }
         }
     }
-    //直播地址历史
-  private void putLiveHistory(String url) {
+
+    private void putLiveHistory(String url) {
         if (!url.isEmpty()) {
             ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
             if (!liveHistory.contains(url))
@@ -598,8 +588,8 @@ public class ApiConfig {
             Hawk.put(HawkConfig.LIVE_HISTORY, liveHistory);
         }
     }
-     //epg地址历史
-     public static void putEPGHistory(String url) {
+
+    public static void putEPGHistory(String url) {
         if (!url.isEmpty()) {
             ArrayList<String> epgHistory = Hawk.get(HawkConfig.EPG_HISTORY, new ArrayList<String>());
             if (!epgHistory.contains(url))
@@ -609,8 +599,7 @@ public class ApiConfig {
             Hawk.put(HawkConfig.EPG_HISTORY, epgHistory);
         }
     }
-    
-    
+
     public void loadLives(JsonArray livesArray) {
         liveChannelGroupList.clear();
         int groupIndex = 0;
@@ -666,37 +655,10 @@ public class ApiConfig {
             return jsLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
         }
 
-        // Getting Pyramid api
-        if (sourceBean.getApi().startsWith("py_")) {
-            try {
-                return PythonLoader.getInstance().getSpider(sourceBean.getKey(), sourceBean.getExt());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new SpiderNull();
-            }
-        }
-
         return jarLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
     }
 
     public Object[] proxyLocal(Map param) {
-
-        // Getting pyramid api
-        try {
-            if (param.containsKey("api")) {
-                String doStr = param.get("do").toString();
-                if (doStr.equals("ck"))
-                    return PythonLoader.getInstance().proxyLocal("", "", param);
-                SourceBean sourceBean = ApiConfig.get().getSource(doStr);
-                return PythonLoader.getInstance().proxyLocal(sourceBean.getKey(), sourceBean.getExt(), param);
-            } else {
-                String doStr = param.get("do").toString();
-                if (doStr.equals("live"))
-                    return PythonLoader.getInstance().proxyLocal("", "", param);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         return jarLoader.proxyInvoke(param);
     }
