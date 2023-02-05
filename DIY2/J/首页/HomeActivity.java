@@ -98,6 +98,8 @@ public class HomeActivity extends BaseActivity {
     private ImageView tvMenu;
     private ImageView tvDrawer;
     private ImageView tvPush;
+    private ImageView tvHistory;
+    private ImageView tvFavorite;
     
     private Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -140,6 +142,8 @@ public class HomeActivity extends BaseActivity {
         this.tvMenu = findViewById(R.id.tvMenu);
         this.tvDrawer = findViewById(R.id.tvDrawer);
         this.tvPush = findViewById(R.id.tvPush);
+        this.tvFavorite = findViewById(R.id.tvFavorite);
+        this.tvHistory = findViewById(R.id.tvHistory);
         
         
         this.topLayout = findViewById(R.id.topLayout);
@@ -308,14 +312,14 @@ public class HomeActivity extends BaseActivity {
             }
         });
         // Button : Drawer >> To go into App Drawer -------------------应用
-        /*
+   
         boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
           if (app_pos) {
             tvDrawer.setVisibility(View.VISIBLE);
         } else {
             tvDrawer.setVisibility(View.GONE);
         }
-       */
+ 
        tvDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -323,6 +327,41 @@ public class HomeActivity extends BaseActivity {
             }
         });
 
+       // Button : Drawer >> To go into App Drawer -------------------历史
+  
+        boolean hist_pos = Hawk.get(HawkConfig.HOME_HIST_POSITION, true);
+          if (hist_pos) {
+            tvHistory.setVisibility(View.VISIBLE);
+        } else {
+            tvHistory.setVisibility(View.GONE);
+        }
+  
+       tvHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumpActivity(HistoryActivity.class);
+            }
+        });
+        
+        
+        // Button : Drawer >> To go into App Drawer -------------------收藏
+   
+        boolean fav_pos = Hawk.get(HawkConfig.FAV_APP_POSITION, true);
+          if (fav_pos) {
+            tvFavorite.setVisibility(View.VISIBLE);
+        } else {
+            tvFavorite.setVisibility(View.GONE);
+        }
+   
+       tvDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumpActivity(CollectActivity.class);
+            }
+        });
+        
+        
+        
         // Button : Settings >> To go into App Settings ----------------
         
         tvMenu.setOnLongClickListener(new View.OnLongClickListener() {
@@ -708,6 +747,9 @@ public class HomeActivity extends BaseActivity {
             tvFind.setFocusable(false);
             tvMenu.setFocusable(false);
             tvDrawer.setFocusable(false);
+            tvFavorite.setFocusable(false);
+            tvHistory.setFocusable(false);
+            tvPush.setFocusable(false);
             return;
         }
         if (!hide && topHide == 1) {
@@ -730,6 +772,9 @@ public class HomeActivity extends BaseActivity {
             tvFind.setFocusable(true);
             tvMenu.setFocusable(true);
             tvDrawer.setFocusable(true);
+            tvFavorite.setFocusable(true);
+            tvHistory.setFocusable(true);
+            tvPush.setFocusable(true);
             return;
         }
     }
