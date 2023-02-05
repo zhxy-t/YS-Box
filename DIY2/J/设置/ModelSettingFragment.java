@@ -219,9 +219,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         if ((oriSearch != Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true)) || (oriMenu != Hawk.get(HawkConfig.HOME_MENU_POSITION, true))
-                            (oriDrive != Hawk.get(HawkConfig.HOME_APP_POSITION, true)) || (oriPush != Hawk.get(HawkConfig.HOME_PUSH_POSITION, true))
-                           
-                           ) {
+                           || (oriDrive != Hawk.get(HawkConfig.HOME_APP_POSITION, true)) || (oriPush != Hawk.get(HawkConfig.HOME_PUSH_POSITION, true))) {
                             reloadActivity();
                         }
                     }
