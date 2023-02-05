@@ -384,6 +384,10 @@ public class HomeActivity extends BaseActivity {
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
     }
+    
+    
+    
+    
   
     
 
@@ -418,6 +422,21 @@ public class HomeActivity extends BaseActivity {
             if (home != null && home.getName() != null && !home.getName().isEmpty())
                 tvName.setText(home.getName());
         }
+          
+          
+          // takagen99: If network available, check connected Wifi or Lan
+        if (isNetworkAvailable()) {
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI) {
+                tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_wifi));
+            } else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_MOBILE) {
+                tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_mobile));
+            } else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_ETHERNET) {
+                tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_lan));
+            }
+        }
+        mGridView.requestFocus();
+          
 
         if (dataInitOk && jarInitOk) {
             showLoading();
