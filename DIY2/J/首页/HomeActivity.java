@@ -423,13 +423,15 @@ public class HomeActivity extends BaseActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
 
-    private void initData() {
+   private void initData() {
         SourceBean home = ApiConfig.get().getHomeSourceBean();
 
-	@@ -232,6 +294,19 @@ private void initData() {
+        // takagen99 : Switch to show / hide source title
+        if (HomeShow) {
+            if (home != null && home.getName() != null && !home.getName().isEmpty())
                 tvName.setText(home.getName());
         }
-
+	   
         // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
