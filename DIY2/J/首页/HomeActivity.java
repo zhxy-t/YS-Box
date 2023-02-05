@@ -441,7 +441,7 @@ public class HomeActivity extends BaseActivity {
                 tvName.setText(home.getName());
         }
 	   
-	   /*
+	
         // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -454,7 +454,7 @@ public class HomeActivity extends BaseActivity {
             }
         }
         mGridView.requestFocus();
-	*/
+
         if (dataInitOk && jarInitOk) {
             showLoading();
             sourceViewModel.getSort(ApiConfig.get().getHomeSourceBean().getKey());
