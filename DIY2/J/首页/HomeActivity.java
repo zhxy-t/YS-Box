@@ -309,6 +309,8 @@ public class HomeActivity extends BaseActivity {
                 return true;
             }
         });
+        
+        /*
         // Button : Date >> Go into Android Date Settings --------------
         tvDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -321,7 +323,7 @@ public class HomeActivity extends BaseActivity {
         //mHandler.postDelayed(mFindFocus, 500);
     }
   
-    
+    */
 
     private void initViewModel() {
         sourceViewModel = new ViewModelProvider(this).get(SourceViewModel.class);
