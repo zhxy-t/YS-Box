@@ -69,7 +69,7 @@
             android:background="@drawable/button_home_select"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/tvFavorite" />
+            android:src="@drawable/icon_collect" />
         
         <ImageView
             android:id="@+id/tvMenu"
