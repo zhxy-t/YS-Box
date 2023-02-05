@@ -353,7 +353,7 @@ public class HomeActivity extends BaseActivity {
             tvFavorite.setVisibility(View.GONE);
         }
    
-       tvDrawer.setOnClickListener(new View.OnClickListener() {
+       tvFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 jumpActivity(CollectActivity.class);
