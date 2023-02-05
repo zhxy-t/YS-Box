@@ -300,6 +300,13 @@ public class HomeActivity extends BaseActivity {
             }
         });
         
+          tvDraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumpActivity(SearchActivity.class);
+            }
+        });
+        
         // Button : Settings >> To go into App Settings ----------------
         
         tvMenu.setOnLongClickListener(new View.OnLongClickListener() {
