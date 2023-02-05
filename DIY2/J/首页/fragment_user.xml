@@ -22,14 +22,14 @@
             <LinearLayout
                 android:id="@+id/tvHistory"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/vs_100"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/vs_5"
                 android:background="@drawable/shape_user_focus"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:focusable="true"
-                android:nextFocusLeft="@+id/tvSetting"
+
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/vs_15"
                 android:paddingTop="@dimen/vs_15"
@@ -38,8 +38,8 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/vs_50"
-                    android:layout_height="@dimen/vs_50"
+                    android:layout_width="@dimen/vs_40"
+                    android:layout_height="@dimen/vs_40"
                     android:layout_gravity="center"
                     android:alpha="0.75"
                     android:src="@drawable/icon_history" />
@@ -55,7 +55,7 @@
                     android:text="历史"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_40" />
+                    android:textSize="@dimen/ts_34" />
 
             </LinearLayout>
 
@@ -77,8 +77,8 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/vs_50"
-                    android:layout_height="@dimen/vs_50"
+                    android:layout_width="@dimen/vs_40"
+                    android:layout_height="@dimen/vs_40"
                     android:layout_gravity="center"
                     android:alpha="0.75"
                     android:src="@drawable/icon_live" />
@@ -94,7 +94,7 @@
                     android:text="直播"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_40" />
+                    android:textSize="@dimen/ts_34" />
 
             </LinearLayout>
 
@@ -116,8 +116,8 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/vs_50"
-                    android:layout_height="@dimen/vs_50"
+                    android:layout_width="@dimen/vs_40"
+                    android:layout_height="@dimen/vs_40"
                     android:layout_gravity="center"
                     android:alpha="0.75"
                     android:src="@drawable/icon_search" />
@@ -133,7 +133,7 @@
                     android:text="搜索"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_40" />
+                    android:textSize="@dimen/ts_34" />
 
             </LinearLayout>
 
@@ -156,8 +156,8 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/vs_50"
-                    android:layout_height="@dimen/vs_50"
+                    android:layout_width="@dimen/vs_40"
+                    android:layout_height="@dimen/vs_40"
                     android:layout_gravity="center"
                     android:alpha="0.75"
                     android:src="@drawable/icon_push" />
@@ -173,7 +173,7 @@
                     android:text="推送"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_40" />
+                    android:textSize="@dimen/ts_34" />
 
             </LinearLayout>
 
@@ -195,8 +195,8 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/vs_50"
-                    android:layout_height="@dimen/vs_50"
+                    android:layout_width="@dimen/vs_40"
+                    android:layout_height="@dimen/vs_40"
                     android:layout_gravity="center"
                     android:alpha="0.75"
                     android:src="@drawable/icon_collect" />
@@ -212,7 +212,7 @@
                     android:text="收藏"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_40" />
+                    android:textSize="@dimen/ts_34" />
 
             </LinearLayout>
 
@@ -236,8 +236,8 @@
 
 
                 <ImageView
-                    android:layout_width="@dimen/vs_50"
-                    android:layout_height="@dimen/vs_50"
+                    android:layout_width="@dimen/vs_40"
+                    android:layout_height="@dimen/vs_40"
                     android:layout_gravity="center"
                     android:alpha="0.75"
                     android:src="@drawable/icon_setting" />
@@ -253,7 +253,7 @@
                     android:text="设置"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_40" />
+                    android:textSize="@dimen/ts_34" />
 
             </LinearLayout>
 
