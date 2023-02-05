@@ -96,7 +96,7 @@ public class HomeActivity extends BaseActivity {
     private ImageView tvWifi;
     private ImageView tvFind;
     private ImageView tvMenu;
-    private ImageView tvDraw;
+    private ImageView tvDrawer;
     
     
     private Runnable mRunnable = new Runnable() {
@@ -138,7 +138,7 @@ public class HomeActivity extends BaseActivity {
         //this.tvWifi = findViewById(R.id.tvWifi);
         this.tvFind = findViewById(R.id.tvFind);
         this.tvMenu = findViewById(R.id.tvMenu);
-        this.tvDraw = findViewById(R.id.tvDrawer);
+        this.tvDrawer = findViewById(R.id.tvDrawer);
         
         
         
@@ -295,12 +295,12 @@ public class HomeActivity extends BaseActivity {
         // Button : Drawer >> To go into App Drawer -------------------
         boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
           if (app_pos) {
-            tvDraw.setVisibility(View.VISIBLE);
+            tvDrawer.setVisibility(View.VISIBLE);
         } else {
-            tvDraw.setVisibility(View.GONE);
+            tvDrawer.setVisibility(View.GONE);
         }
        
-       tvDraw.setOnClickListener(new View.OnClickListener() {
+       tvDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 jumpActivity(AppsActivity.class);
@@ -691,7 +691,7 @@ public class HomeActivity extends BaseActivity {
             //tvWifi.setFocusable(false);
             tvFind.setFocusable(false);
             tvMenu.setFocusable(false);
-            tvDraw.setFocusable(false);
+            tvDrawer.setFocusable(false);
             return;
         }
         if (!hide && topHide == 1) {
@@ -713,7 +713,7 @@ public class HomeActivity extends BaseActivity {
            // tvWifi.setFocusable(true);
             tvFind.setFocusable(true);
             tvMenu.setFocusable(true);
-            tvDraw.setFocusable(true);
+            tvDrawer.setFocusable(true);
             return;
         }
     }
