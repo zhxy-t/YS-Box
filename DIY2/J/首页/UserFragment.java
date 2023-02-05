@@ -262,7 +262,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             tvPush.setVisibility(View.GONE);
         }
         boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
-        if (!menu_pos) {
+        if (!app_pos) {
             tvDrawer.setVisibility(View.VISIBLE);
         } else {
             tvDrawer.setVisibility(View.GONE);
