@@ -69,12 +69,17 @@ import java.util.List;
 
 import android.net.ConnectivityManager;
 import me.jessyan.autosize.utils.AutoSizeUtils;
+
+import android.content.res.Resources;
+
 //图片
 import android.widget.ImageView;
 //
 import android.provider.Settings;
 import android.net.Uri;
 public class HomeActivity extends BaseActivity {
+	private static Resources res;
+	
     private LinearLayout topLayout;
     private LinearLayout contentLayout;
     private TextView tvDate;
