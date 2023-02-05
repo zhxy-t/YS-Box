@@ -93,6 +93,12 @@ public class App extends MultiDexApplication {
         return instance;
     }
 
+     private void putDefault(String key, Object value) {
+        if (!Hawk.contains(key)) {
+            Hawk.put(key, value);
+        }
+    }
+    
     @Override
     public void onTerminate() {
         super.onTerminate();
