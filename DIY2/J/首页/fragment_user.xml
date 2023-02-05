@@ -257,7 +257,7 @@
             </LinearLayout>
 
            <LinearLayout
-                android:id="@+id/tvDraw"
+                android:id="@+id/tvDrawer"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/vs_100"
                 android:layout_gravity="center"
