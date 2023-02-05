@@ -67,6 +67,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.net.ConnectivityManager;
 import me.jessyan.autosize.utils.AutoSizeUtils;
 //图片
 import android.widget.ImageView;
@@ -411,20 +412,25 @@ public class HomeActivity extends BaseActivity {
     private boolean jarInitOk = false;
 
 //数据源显示
-       // takagen99 : Switch to show / hide source title
+      // takagen99 : Switch to show / hide source title
     boolean HomeShow = Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false);
-    
-      private void initData() {
+
+    // takagen99 : Check if network is available
+    boolean isNetworkAvailable() {
+        ConnectivityManager cm
+                = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = cm.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
+
+    private void initData() {
         SourceBean home = ApiConfig.get().getHomeSourceBean();
 
-        // takagen99 : Switch to show / hide source title
-        if (HomeShow) {
-            if (home != null && home.getName() != null && !home.getName().isEmpty())
+	@@ -232,6 +294,19 @@ private void initData() {
                 tvName.setText(home.getName());
         }
-          
-          
-          // takagen99: If network available, check connected Wifi or Lan
+
+        // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
             if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI) {
@@ -436,7 +442,6 @@ public class HomeActivity extends BaseActivity {
             }
         }
         mGridView.requestFocus();
-          
 
         if (dataInitOk && jarInitOk) {
             showLoading();
