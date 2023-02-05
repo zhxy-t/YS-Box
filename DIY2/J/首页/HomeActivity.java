@@ -318,12 +318,12 @@ public class HomeActivity extends BaseActivity {
                 startActivity(new Intent(Settings.ACTION_DATE_SETTINGS));
             }
         });
-
+        */
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
     }
   
-    */
+    
 
     private void initViewModel() {
         sourceViewModel = new ViewModelProvider(this).get(SourceViewModel.class);
