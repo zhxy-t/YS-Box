@@ -293,21 +293,21 @@ public class HomeActivity extends BaseActivity {
             }
         });
         // Button : Drawer >> To go into App Drawer -------------------
+        /*
         boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
           if (menu_pos) {
             tvDraw.setVisibility(View.VISIBLE);
         } else {
             tvDraw.setVisibility(View.GONE);
         }
+        */
         tvDraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 jumpActivity(AppsActivity.class);
             }
         });
-        
 
-        
         // Button : Settings >> To go into App Settings ----------------
         
         tvMenu.setOnLongClickListener(new View.OnLongClickListener() {
