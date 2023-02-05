@@ -390,7 +390,7 @@ public class HomeActivity extends BaseActivity {
         });
         */
         setLoadSir(this.contentLayout);
-        //mHandler.postDelayed(mFindFocus, 500);
+        mHandler.postDelayed(mFindFocus, 500);
     }
     
     
@@ -422,7 +422,7 @@ public class HomeActivity extends BaseActivity {
       // takagen99 : Switch to show / hide source title
     boolean HomeShow = Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false);
 
-	
+/*	
     // takagen99 : Check if network is available
  	boolean isNetworkAvailable() {
         ConnectivityManager cm
@@ -430,7 +430,7 @@ public class HomeActivity extends BaseActivity {
         NetworkInfo activeNetworkInfo = cm.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
-   
+   */
 
    private void initData() {
         SourceBean home = ApiConfig.get().getHomeSourceBean();
