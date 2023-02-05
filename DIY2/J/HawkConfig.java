@@ -33,8 +33,11 @@ public class HawkConfig {
     
     public static final String HOME_SEARCH_POSITION = "search_position"; // true=Up, false=Down
     public static final String HOME_MENU_POSITION = "menu_position";     // true=Up, false=Down
+    public static final String HOME_HIST_POSITION = "hist_position";     // true=Up, false=Down
+    public static final String HOME_PUSH_POSITION = "push_position";     // true=Up, false=Down
+    public static final String HOME_FAV_POSITION = "fav_position";     // true=Up, false=Down
+    public static final String HOME_APP_POSITION = "app_position";     // true=Up, false=Down
     
-
     public static final String LIVE_CHANNEL = "last_live_channel_name";
     public static final String LIVE_CHANNEL_REVERSE = "live_channel_reverse";
     public static final String LIVE_CROSS_GROUP = "live_cross_group";
