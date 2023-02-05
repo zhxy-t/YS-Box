@@ -62,7 +62,7 @@ public class App extends MultiDexApplication {
             Hawk.put(HawkConfig.PLAY_TYPE, 1);// Player   0=系统, 1=IJK, 2=Exo
             Hawk.put(HawkConfig.IJK_CODEC, "硬解码");// IJK Render 软解码, 硬解码
             Hawk.put(HawkConfig.HOME_REC, 1);       // Home Rec 0=豆瓣, 1=推荐, 2=历史
-            Hawk.put(HawkConfig.HOME_NUM, 2);       // History Number
+            Hawk.put(HawkConfig.HISTORY_NUM, 2);       // History Number
             Hawk.put(HawkConfig.DOH_URL, 2);        // DNS
             Hawk.put(HawkConfig.PLAY_RENDER, 2);        // 渲染
             Hawk.put(HawkConfig.IJK_CACHE_PLAY, true);        //true=开, false=关  ijk缓存            
