@@ -204,7 +204,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/tvHistory"
+                android:id="@+id/tvHomeHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
@@ -251,7 +251,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/tvFavorite"
+                android:id="@+id/tvHomeFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
