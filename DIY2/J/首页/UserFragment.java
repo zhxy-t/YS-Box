@@ -254,6 +254,21 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         } else {
             tvSetting.setVisibility(View.GONE);
         }
+        
+        boolean push_pos = Hawk.get(HawkConfig.HOME_PUSH_POSITION, true);
+        if (!push_pos) {
+            tvPush.setVisibility(View.VISIBLE);
+        } else {
+            tvPush.setVisibility(View.GONE);
+        }
+        boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
+        if (!menu_pos) {
+            tvDrawer.setVisibility(View.VISIBLE);
+        } else {
+            tvDrawer.setVisibility(View.GONE);
+        }
+        
+        
     }
 
     private void initHomeHotVod(HomeHotVodAdapter adapter) {
