@@ -422,15 +422,15 @@ public class HomeActivity extends BaseActivity {
       // takagen99 : Switch to show / hide source title
     boolean HomeShow = Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false);
 
-	/*
+	
     // takagen99 : Check if network is available
-    boolean isNetworkAvailable() {
+ 	boolean isNetworkAvailable() {
         ConnectivityManager cm
                 = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = cm.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
-    */
+   
 
    private void initData() {
         SourceBean home = ApiConfig.get().getHomeSourceBean();
@@ -441,7 +441,7 @@ public class HomeActivity extends BaseActivity {
                 tvName.setText(home.getName());
         }
 	   
-	
+	/*
         // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -453,6 +453,7 @@ public class HomeActivity extends BaseActivity {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_lan));
             }
         }
+	*/
         mGridView.requestFocus();
 
         if (dataInitOk && jarInitOk) {
