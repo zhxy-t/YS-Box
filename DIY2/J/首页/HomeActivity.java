@@ -267,7 +267,7 @@ public class HomeActivity extends BaseActivity {
                 startActivity(new Intent(Settings.ACTION_SETTINGS));
             }
         });
-	   */
+	  
         // Button : Wifi >> Go into Android Wifi Settings -------------
         tvWifi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -275,7 +275,7 @@ public class HomeActivity extends BaseActivity {
                 startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
             }
         });
-       
+        */
         // Button : Search --------------------------------------------搜索
         boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
         if (search_pos) {
