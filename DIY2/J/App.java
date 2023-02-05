@@ -67,6 +67,16 @@ public class App extends MultiDexApplication {
           Hawk.put(HawkConfig.HOME_MENU_POSITION, true);        // true=Up, false=Down
           Hawk.put(HawkConfig.IJK_CACHE_PLAY, true);        //true=开, false=关
             
+          Hawk.put(HawkConfig.HOME_HIST_POSITION, true);     // true=Up, false=Down
+          Hawk.put(HawkConfig.HOME_PUSH_POSITION, true);        // true=Up, false=Down
+            
+          Hawk.put(HawkConfig.HOME_APP_POSITION, true);     // true=Up, false=Down
+          Hawk.put(HawkConfig.HOME_FAV_POSITION, false);        // true=Up, false=Down
+            
+            
+            
+            
+            
         //  Hawk.put(HawkConfig.PLAY_SCALE, 1);       //播放比例
           //Hawk.put(HawkConfig.PLAY_TIME_STEP, 1);      
 //          Hawk.put(HawkConfig.SEARCH_VIEW, 1);    // Text or Picture  
