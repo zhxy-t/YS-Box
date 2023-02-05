@@ -264,7 +264,7 @@ public class HomeActivity extends BaseActivity {
             }
         });
           */
-        // Button : Search --------------------------------------------
+        // Button : Search --------------------------------------------搜索
         boolean search_pos = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
         if (search_pos) {
             tvFind.setVisibility(View.VISIBLE);
@@ -278,8 +278,23 @@ public class HomeActivity extends BaseActivity {
             }
         });
         
-      
-        // Button : Settings >> To go into Settings --------------------
+        // Button : Search --------------------------------------------推送
+        boolean push_pos = Hawk.get(HawkConfig.HOME_PUSH_POSITION, true);
+        if (push_pos) {
+            tvPush.setVisibility(View.VISIBLE);
+        } else {
+            tvPush.setVisibility(View.GONE);
+        }
+        tvFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumpActivity(PushActivity.class);
+            }
+        });
+        
+        
+        
+        // Button : Settings >> To go into Settings --------------------设置
          boolean menu_pos = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
         if (menu_pos) {
             tvMenu.setVisibility(View.VISIBLE);
@@ -292,14 +307,15 @@ public class HomeActivity extends BaseActivity {
                 jumpActivity(SettingActivity.class);
             }
         });
-        // Button : Drawer >> To go into App Drawer -------------------
+        // Button : Drawer >> To go into App Drawer -------------------应用
+        /*
         boolean app_pos = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
           if (app_pos) {
             tvDrawer.setVisibility(View.VISIBLE);
         } else {
             tvDrawer.setVisibility(View.GONE);
         }
-       
+       */
        tvDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
