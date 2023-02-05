@@ -346,7 +346,7 @@ public class HomeActivity extends BaseActivity {
         
         // Button : Drawer >> To go into App Drawer -------------------收藏
    
-        boolean fav_pos = Hawk.get(HawkConfig.FAV_APP_POSITION, true);
+        boolean fav_pos = Hawk.get(HawkConfig.HOME_FAV_POSITION, true);
           if (fav_pos) {
             tvFavorite.setVisibility(View.VISIBLE);
         } else {
