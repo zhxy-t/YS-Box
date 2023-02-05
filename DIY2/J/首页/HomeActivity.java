@@ -390,7 +390,7 @@ public class HomeActivity extends BaseActivity {
         });
         */
         setLoadSir(this.contentLayout);
-        mHandler.postDelayed(mFindFocus, 500);
+        //mHandler.postDelayed(mFindFocus, 500);
     }
     
     
