@@ -71,6 +71,7 @@ import android.net.ConnectivityManager;
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
 import android.content.res.Resources;
+import android.net.NetworkInfo;
 
 //图片
 import android.widget.ImageView;
