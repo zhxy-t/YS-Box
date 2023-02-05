@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
@@ -17,25 +16,47 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <View
+            android:layout_width="@dimen/vs_5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/vs_8"
+            android:layout_marginEnd="@dimen/vs_12"
+            android:layout_marginRight="@dimen/vs_12"
+            android:layout_marginBottom="@dimen/vs_8"
+            android:background="?attr/color_theme" />
         
-           <TextView
+        <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:gravity="left|center_vertical"
+            android:nextFocusRight="@id/tvWifi"
+            android:nextFocusDown="@id/mGridViewCategory"
+            android:text="@string/app_name"
+            android:textAlignment="gravity"
+            android:textColor="@color/font_home_selector"
+            android:textSize="@dimen/ts_30"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="@dimen/vs_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:gravity="left|center_vertical"
-            android:text="@string/app_name"
             android:textAlignment="gravity"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/ts_22"
+            android:textSize="@dimen/ts_30"
             android:textStyle="bold" />
-
 
            <ImageView
             android:id="@+id/tvWifi"
-            android:layout_width="@dimen/vs_50"
-            android:layout_height="@dimen/vs_50"
+            android:layout_width="@dimen/vs_40"
+            android:layout_height="@dimen/vs_40"
             android:layout_marginStart="@dimen/vs_15"
             android:layout_marginLeft="@dimen/vs_15"
             android:layout_marginEnd="@dimen/vs_15"
@@ -158,7 +179,7 @@
        
     </LinearLayout>
 
-    <LinearLayout
+     <LinearLayout
         android:id="@+id/contentLayout"
         android:layout_width="@dimen/vs_0"
         android:layout_height="@dimen/vs_0"
@@ -169,9 +190,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topLayout">
-
         <com.owen.tvrecyclerview.widget.TvRecyclerView
-            android:id="@+id/mGridView"
+            android:id="@+id/mGridViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/vs_10"
@@ -179,7 +199,6 @@
             android:paddingLeft="@dimen/vs_50"
             android:paddingRight="@dimen/vs_50"
             app:tv_selectedItemIsCentered="true" />
-
         <com.github.tvbox.osc.ui.tv.widget.NoScrollViewPager
             android:id="@+id/mViewPager"
             android:layout_width="match_parent"
