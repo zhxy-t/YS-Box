@@ -211,6 +211,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
             private final boolean oriMenu = Hawk.get(HawkConfig.HOME_MENU_POSITION, true);
             private final boolean oriDrive = Hawk.get(HawkConfig.HOME_APP_POSITION, true);
             private final boolean oriPush = Hawk.get(HawkConfig.HOME_PUSH_POSITION, true);
+            private final boolean oriFav = Hawk.get(HawkConfig.HOME_FAV_POSITION, true);
+            private final boolean orihist = Hawk.get(HawkConfig.HOME_HIST_POSITION, true);
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -219,7 +221,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         if ((oriSearch != Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true)) || (oriMenu != Hawk.get(HawkConfig.HOME_MENU_POSITION, true))
-                           || (oriDrive != Hawk.get(HawkConfig.HOME_APP_POSITION, true)) || (oriPush != Hawk.get(HawkConfig.HOME_PUSH_POSITION, true))) {
+                           || (oriDrive != Hawk.get(HawkConfig.HOME_APP_POSITION, true)) || (oriPush != Hawk.get(HawkConfig.HOME_PUSH_POSITION, true))
+                           || (orifav != Hawk.get(HawkConfig.HOME_FAV_POSITION, true)) || (orihist != Hawk.get(HawkConfig.HOME_HIST_POSITION, true))) {
                             reloadActivity();
                         }
                     }
