@@ -354,7 +354,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             jumpActivity(PushActivity.class);
         } else if (v.getId() == R.id.tvFavorite) {
             jumpActivity(CollectActivity.class);
-          else if (v.getId() == R.id.tvDrawer) {
+         }   else if (v.getId() == R.id.tvDrawer) {
             jumpActivity(AppsActivity.class);
         }
     }
