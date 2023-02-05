@@ -8,7 +8,7 @@ import com.github.tvbox.osc.data.AppDataManager;
 import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.util.EpgUtil;
 import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.LocaleHelper;
+//import com.github.tvbox.osc.util.LocaleHelper;
 import com.github.tvbox.osc.util.OkGoHelper;
 import com.github.tvbox.osc.util.PlayerHelper;
 import com.github.tvbox.osc.util.js.JSEngine;
@@ -69,13 +69,7 @@ public class App extends MultiDexApplication {
 
     }
 
-    private void initLocale() {
-        if (Hawk.get(HawkConfig.HOME_LOCALE, 0) == 0) {
-            LocaleHelper.setLocale(App.this, "zh");
-        } else {
-            LocaleHelper.setLocale(App.this, "");
-        }
-    }
+
 
     public static App getInstance() {
         return instance;
