@@ -106,6 +106,7 @@ cp $CURRENT_DIR/DIY2/J/dimens.xml         $CURRENT_DIR/$DIR/app/src/main/res/val
 cp $CURRENT_DIR/DIY2/J/colors.xml         $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
 cp $CURRENT_DIR/DIY2/J/strings.xml        $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 cp $CURRENT_DIR/DIY2/J/HawkConfig.java    $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/HawkConfig.java
+
 //播放资源 
 cp $CURRENT_DIR/DIY2/J/PlayerUtils.java   $CURRENT_DIR/$DIR/player/src/main/java/xyz/doikki/videoplayer/util/PlayerUtils.java
 
@@ -117,11 +118,14 @@ cp $CURRENT_DIR/DIY2/J/解码/IjkMediaPlayer.java   $CURRENT_DIR/$DIR/player/src
 cp $CURRENT_DIR/DIY2/J/解码/ExoMediaPlayer.java   $CURRENT_DIR/$DIR/player/src/main/java/xyz/doikki/videoplayer/exo/ExoMediaPlayer.java
 
 
+
 //按键背景颜色
 #sed -i 's/color_6A6A6A_95/color_DDDAC6/g'         $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_bg_main.xml
 
 //按键文字颜色
-cp $CURRENT_DIR/DIY2/J/首页/dialog_select.xml     $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
+cp $CURRENT_DIR/DIY2/J/dialog_select.xml     $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
+
+
 
 #进度条颜色
 sed -i 's/color_353744/color_1890FF/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_player_control_vod_seek.xml
