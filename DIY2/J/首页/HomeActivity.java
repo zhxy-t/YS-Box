@@ -430,7 +430,7 @@ public class HomeActivity extends BaseActivity {
                 tvName.setText(home.getName());
         }
 	   
-
+}
     // takagen99 : Check if network is available 判断网络状态
  	boolean isNetworkAvailable() {
         ConnectivityManager cm
