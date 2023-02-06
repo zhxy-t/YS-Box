@@ -82,6 +82,13 @@
     <string name="dia_dns">请选择安全DNS</string>
     <string name="dia_locale">请选择应用语言</string>
 
+    <!-- Play -->
+    <string name="play_switch_parse">正在切换解析至「<xliff:g name="name">%s</xliff:g>」</string>
+    <string name="play_switch_flag">正在切换线路至「<xliff:g name="name">%s</xliff:g>」</string>
+    <string name="play_switch_site">正在切换站源至「<xliff:g name="name">%s</xliff:g>」</string>
+    
+    
+    
     // Settings Backup Restore Page //
     <string name="set_bkup_ok">备份成功!</string>
     <string name="set_bkup_del">备份删除</string>
