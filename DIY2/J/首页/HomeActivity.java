@@ -425,8 +425,7 @@ public class HomeActivity extends BaseActivity {
 	
     // takagen99 : Check if network is available
     boolean isNetworkAvailable() {
-        ConnectivityManager cm
-                = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = cm.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
@@ -442,7 +441,7 @@ public class HomeActivity extends BaseActivity {
 
         // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
-           // ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
            if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI) {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_wifi));
             } //else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_MOBILE) {
