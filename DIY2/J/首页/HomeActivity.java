@@ -421,6 +421,15 @@ public class HomeActivity extends BaseActivity {
 //数据源显示
       // takagen99 : Switch to show / hide source title
     boolean HomeShow = Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false);
+	 private void initData() {
+        SourceBean home = ApiConfig.get().getHomeSourceBean();
+
+        // takagen99 : Switch to show / hide source title
+        if (HomeShow) {
+            if (home != null && home.getName() != null && !home.getName().isEmpty())
+                tvName.setText(home.getName());
+        }
+	   
 
     // takagen99 : Check if network is available 判断网络状态
  	boolean isNetworkAvailable() {
@@ -431,18 +440,9 @@ public class HomeActivity extends BaseActivity {
     }
    
 
-   private void initData() {
-        SourceBean home = ApiConfig.get().getHomeSourceBean();
-
-        // takagen99 : Switch to show / hide source title
-        if (HomeShow) {
-            if (home != null && home.getName() != null && !home.getName().isEmpty())
-                tvName.setText(home.getName());
-        }
-	   
 	
         // takagen99: If network available, check connected Wifi or Lan  显示网络状态
-	   /*
+	 
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
             if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI) {
@@ -453,7 +453,7 @@ public class HomeActivity extends BaseActivity {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_lan));
             }
         }
-	*/
+	
         mGridView.requestFocus();
 
         if (dataInitOk && jarInitOk) {
