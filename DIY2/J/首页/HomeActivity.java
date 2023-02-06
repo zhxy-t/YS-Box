@@ -785,6 +785,7 @@ public class HomeActivity extends BaseActivity {
             tvPush.setFocusable(false);
             return;
         }
+ }    
        // Show Top =======================================================
         if (!hide && topHide == 1) {
             animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
