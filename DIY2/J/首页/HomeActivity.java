@@ -151,7 +151,7 @@ public class HomeActivity extends BaseActivity {
         this.tvPush = findViewById(R.id.tvPush);
         this.tvFavorite = findViewById(R.id.tvFavorite);
         this.tvHistory = findViewById(R.id.tvHistory);
-        
+        this.tvName = findViewById(R.id.tvName);
         
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
@@ -780,6 +780,7 @@ public class HomeActivity extends BaseActivity {
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", new float[]{1.0f, 0.0f})});
             animatorSet.setDuration(200);
             animatorSet.start();
+	    tvName.setFocusable(false);
             tvWifi.setFocusable(false);
             tvFind.setFocusable(false);
             tvMenu.setFocusable(false);
@@ -804,7 +805,7 @@ public class HomeActivity extends BaseActivity {
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", new float[]{0.0f, 1.0f})});
             animatorSet.setDuration(200);
             animatorSet.start();
-
+	    tvName.setFocusable(true);
             tvWifi.setFocusable(true);
             tvFind.setFocusable(true);
             tvMenu.setFocusable(true);
