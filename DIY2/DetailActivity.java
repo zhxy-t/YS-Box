@@ -452,6 +452,49 @@ public class DetailActivity extends BaseActivity {
 
     private List<Runnable> pauseRunnable = null;
 
+    
+    
+    
+    private void checkParse() {
+        int position = getParsePosition();
+        if (position == mParseAdapter.size() - 1) initParse();
+        if (position == mParseAdapter.size() - 1) checkFlag();
+        else nextParse(position);
+    }
+
+    private void checkFlag() {
+        int position = mBinding.flag.getSelectedPosition();
+        if (position == mFlagAdapter.size() - 1 || !getSite().isSwitchable()) checkSearch();
+        else nextFlag(position);
+    }
+
+    
+    //蜂蜜
+        private void nextParse(int position) {
+        Parse parse = (Parse) mParseAdapter.get(position + 1);
+        Notify.show(getString(R.string.play_switch_parse, parse.getName()));
+        setParseActivated(parse);
+    }
+
+    private void nextFlag(int position) {
+        Vod.Flag flag = (Vod.Flag) mFlagAdapter.get(position + 1);
+        Notify.show(getString(R.string.play_switch_flag, flag.getFlag()));
+        setFlagActivated(flag);
+    }
+
+    private void nextSite() {
+        if (mSearchAdapter.size() == 0) return;
+        Vod vod = (Vod) mSearchAdapter.get(0);
+        Notify.show(getString(R.string.play_switch_site, vod.getSiteName()));
+        mSearchAdapter.removeItems(0, 1);
+        setInitAuto(false);
+        getDetail(vod);
+    }
+    
+    
+    
+    
+    
     private void jumpToPlay() {
         if (vodInfo != null && vodInfo.seriesMap.get(vodInfo.playFlag).size() > 0) {
             preFlag = vodInfo.playFlag;
@@ -937,7 +980,7 @@ public class DetailActivity extends BaseActivity {
     ViewGroup.LayoutParams windowsPreview = null;
     ViewGroup.LayoutParams windowsFull = null;
 
-    void toggleFullPreview() {
+   public void toggleFullPreview() {
         if (windowsPreview == null) {
             windowsPreview = llPlayerFragmentContainer.getLayoutParams();
         }
