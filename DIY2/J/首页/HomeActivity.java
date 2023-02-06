@@ -763,7 +763,7 @@ public class HomeActivity extends BaseActivity {
             }
         });
 	    
-	     // Hide Top =======================================================
+   // Hide Top =======================================================
         if (hide && topHide == 0) {
             animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
                             Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 20.0f)),
@@ -785,8 +785,7 @@ public class HomeActivity extends BaseActivity {
             tvPush.setFocusable(false);
             return;
         }
- }    
-       // Show Top =======================================================
+   // Show Top =======================================================
         if (!hide && topHide == 1) {
             animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
                             Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f)),
@@ -794,7 +793,7 @@ public class HomeActivity extends BaseActivity {
                     ObjectAnimator.ofObject(viewObj, "height", new IntEvaluator(),
                             Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f)),
                             Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f))),
-                    ObjectAnimator.ofFloat(this.topLayout, "alpha", 0.0f, 1.0f))
+                    ObjectAnimator.ofFloat(this.topLayout, "alpha", 0.0f, 1.0f));
             animatorSet.setDuration(200);
             animatorSet.start();
 	    tvName.setFocusable(true);
