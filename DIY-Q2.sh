@@ -116,7 +116,6 @@ cp $CURRENT_DIR/DIY2/J/PlayerUtils.java   $CURRENT_DIR/$DIR/player/src/main/java
 //增加图标
 cp $CURRENT_DIR/DIY2/J/hm_history.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_history.png
 cp $CURRENT_DIR/DIY2/J/hm_mobile.png    $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_mobile.png
-cp $CURRENT_DIR/DIY2/J/hm_wifi.png      $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_wifi.png
 cp $CURRENT_DIR/DIY2/J/hm_lan.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_lan.png
 
 //解码修改
