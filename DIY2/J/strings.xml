@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+
+    
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="app_name">TVBox</string>
     <string name="app_home">首页</string>
     <string name="app_source"></string>
