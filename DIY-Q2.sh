@@ -82,6 +82,8 @@ cp $CURRENT_DIR/DIY2/J/搜索/SearchActivity.java                   $CURRENT_DIR
 //其他修改
 cp $CURRENT_DIR/DIY2/J/event/RefreshEvent.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/event/RefreshEvent.java
 cp $CURRENT_DIR/DIY2/index.html                         $CURRENT_DIR/$DIR/app/src/main/res/raw/index.html
+cp $CURRENT_DIR/DIY2/DetailActivity.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
+
 //JS内置
 #cp $CURRENT_DIR/DIY2/J/JS/alist.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/alist.min.js
 #cp $CURRENT_DIR/DIY2/J/JS/drpy.min.js                   $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/drpy.min.js
@@ -134,8 +136,7 @@ cp $CURRENT_DIR/DIY2/J/dialog_select.xml     $CURRENT_DIR/$DIR/app/src/main/res/
 
 #进度条颜色
 sed -i 's/color_353744/color_1890FF/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_player_control_vod_seek.xml
-#公开toggleFullPreview
-sed -i 's/ void toggleFullPreview/public void toggleFullPreview/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
+
 
 #图标修改
 cp $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-hdpi/app_icon.png
