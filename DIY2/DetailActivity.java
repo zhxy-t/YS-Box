@@ -94,6 +94,14 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class DetailActivity extends BaseActivity {
+    
+    private ArrayObjectAdapter mFlagAdapter;
+    private ArrayObjectAdapter mArrayAdapter;
+    private ArrayObjectAdapter mEpisodeAdapter;
+    private ArrayObjectAdapter mParseAdapter;
+    private ArrayObjectAdapter mPartAdapter;
+    private ArrayObjectAdapter mSearchAdapter;
+    
     private LinearLayout llLayout;
     private FragmentContainerView llPlayerFragmentContainer;
     private View llPlayerFragmentContainerBlock;
@@ -454,6 +462,17 @@ public class DetailActivity extends BaseActivity {
 
     
     
+      private int getParsePosition() {
+        for (int i = 0; i < mParseAdapter.size(); i++) if (((Parse) mParseAdapter.get(i)).isActivated()) return i;
+        return 0;
+    }
+
+    
+      private void setInitAuto(boolean initAuto) {
+        this.mInitAuto = initAuto;
+    }
+    
+   // 蜂蜜
     
     private void checkParse() {
         int position = getParsePosition();
@@ -480,6 +499,12 @@ public class DetailActivity extends BaseActivity {
         Vod.Flag flag = (Vod.Flag) mFlagAdapter.get(position + 1);
         Notify.show(getString(R.string.play_switch_flag, flag.getFlag()));
         setFlagActivated(flag);
+    }
+    
+     private void initParse() {
+        if (mParseAdapter.size() == 0) return;
+        ApiConfig.get().setParse((Parse) mParseAdapter.get(0));
+        notifyItemChanged(mBinding.control.parse, mParseAdapter);
     }
 
     private void nextSite() {
