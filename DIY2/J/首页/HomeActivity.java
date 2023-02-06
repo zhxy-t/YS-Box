@@ -91,13 +91,13 @@ public class HomeActivity extends BaseActivity {
     private SortAdapter sortAdapter;
     private HomePageAdapter pageAdapter;
     private View currentView;
-    private List<BaseLazyFragment> fragments = new ArrayList<>();
+    private final List<BaseLazyFragment> fragments = new ArrayList<>();
     private boolean isDownOrUp = false;
     private boolean sortChange = false;
     private int currentSelected = 0;
     private int sortFocused = 0;
     public View sortFocusView = null;
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     private long mExitTime = 0;
   //添加图片 tvWifi tvFind tvMenu
     private ImageView tvWifi;
@@ -108,7 +108,7 @@ public class HomeActivity extends BaseActivity {
     private ImageView tvHistory;
     private ImageView tvFavorite;
     
-    private Runnable mRunnable = new Runnable() {
+    private final Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
         @Override
         public void run() {
@@ -705,7 +705,7 @@ public class HomeActivity extends BaseActivity {
         currentView.findViewById(R.id.tvFilter).setVisibility(visible ? View.GONE : View.VISIBLE);
     }
 
-    private Runnable mDataRunnable = new Runnable() {
+    private final Runnable mDataRunnable = new Runnable() {
         @Override
         public void run() {
             if (sortChange) {
@@ -713,11 +713,7 @@ public class HomeActivity extends BaseActivity {
                 if (sortFocused != currentSelected) {
                     currentSelected = sortFocused;
                     mViewPager.setCurrentItem(sortFocused, false);
-                    if (sortFocused == 0) {
-                        changeTop(false);
-                    } else {
-                        changeTop(true);
-                    }
+			changeTop(sortFocused != 0);
                 }
             }
         }
@@ -730,6 +726,7 @@ public class HomeActivity extends BaseActivity {
             return false;
         int keyCode = event.getKeyCode();
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
+		
             if (keyCode == KeyEvent.KEYCODE_MENU) {
                 showSiteSwitch();
             }
@@ -765,19 +762,17 @@ public class HomeActivity extends BaseActivity {
 
             }
         });
+	    
+	     // Hide Top =======================================================
         if (hide && topHide == 0) {
-            animatorSet.playTogether(new Animator[]{
-                    ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
-                            new Object[]{
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 10.0f)),
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f))
-                            }),
+            animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 20.0f)),
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f))),
                     ObjectAnimator.ofObject(viewObj, "height", new IntEvaluator(),
-                            new Object[]{
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f)),
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f))
-                            }),
-                    ObjectAnimator.ofFloat(this.topLayout, "alpha", new float[]{1.0f, 0.0f})});
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f)),
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f))),
+                    ObjectAnimator.ofFloat(this.topLayout, "alpha", 1.0f, 0.0f));
+		
             animatorSet.setDuration(200);
             animatorSet.start();
 	    tvName.setFocusable(false);
@@ -790,19 +785,15 @@ public class HomeActivity extends BaseActivity {
             tvPush.setFocusable(false);
             return;
         }
+       // Show Top =======================================================
         if (!hide && topHide == 1) {
-            animatorSet.playTogether(new Animator[]{
-                    ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
-                            new Object[]{
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f)),
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 10.0f))
-                            }),
+            animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f)),
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 20.0f))),
                     ObjectAnimator.ofObject(viewObj, "height", new IntEvaluator(),
-                            new Object[]{
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f)),
-                                    Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f))
-                            }),
-                    ObjectAnimator.ofFloat(this.topLayout, "alpha", new float[]{0.0f, 1.0f})});
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f)),
+                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f))),
+                    ObjectAnimator.ofFloat(this.topLayout, "alpha", 0.0f, 1.0f))
             animatorSet.setDuration(200);
             animatorSet.start();
 	    tvName.setFocusable(true);
