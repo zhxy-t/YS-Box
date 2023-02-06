@@ -38,9 +38,9 @@ import com.github.tvbox.osc.ui.activity.HomeActivity;
  * @since 2020/12/27
  */
 public class ApiDialog extends BaseDialog {
-    private ImageView ivQRCode;
-    private TextView tvAddress;
-    private EditText inputApi;
+    private final ImageView ivQRCode;
+    private final TextView tvAddress;
+    private final EditText inputApi;
 //taka epg 直播地址
    private final EditText inputLive;
     private final EditText inputEPG;
