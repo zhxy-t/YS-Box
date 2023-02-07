@@ -465,7 +465,7 @@ public class DetailActivity extends BaseActivity {
     private List<Runnable> pauseRunnable = null;
 
     
-    
+       /*
       private int getParsePosition() {
         for (int i = 0; i < mParseAdapter.size(); i++) if (((Parse) mParseAdapter.get(i)).isActivated()) return i;
         return 0;
@@ -475,8 +475,8 @@ public class DetailActivity extends BaseActivity {
       private void setInitAuto(boolean initAuto) {
         this.mInitAuto = initAuto;
     }
-    
-    /*
+
+ 
     
    // 蜂蜜
     
