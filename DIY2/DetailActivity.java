@@ -523,7 +523,7 @@ public class DetailActivity extends BaseActivity {
     }
     
     
-    */
+  
     
         private Vod.Flag getVodFlag() {
         return (Vod.Flag) mFlagAdapter.get(mBinding.flag.getSelectedPosition());
@@ -559,7 +559,7 @@ public class DetailActivity extends BaseActivity {
             setFlagActivated(flag);
         }
     }
-    
+      */
     
     private void jumpToPlay() {
         if (vodInfo != null && vodInfo.seriesMap.get(vodInfo.playFlag).size() > 0) {
