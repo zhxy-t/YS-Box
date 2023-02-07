@@ -83,6 +83,7 @@ cp $CURRENT_DIR/DIY2/J/搜索/SearchActivity.java                   $CURRENT_DIR
 cp $CURRENT_DIR/DIY2/J/event/RefreshEvent.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/event/RefreshEvent.java
 cp $CURRENT_DIR/DIY2/index.html                         $CURRENT_DIR/$DIR/app/src/main/res/raw/index.html
 cp $CURRENT_DIR/DIY2/DetailActivity.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
+cp $CURRENT_DIR/DIY2/J/MyOkhttpDownLoader.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/picasso/MyOkhttpDownLoader.java
 
 //JS内置
 #cp $CURRENT_DIR/DIY2/J/JS/alist.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/alist.min.js
