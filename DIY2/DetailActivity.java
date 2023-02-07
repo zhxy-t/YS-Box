@@ -525,6 +525,10 @@ public class DetailActivity extends BaseActivity {
     
     */
     
+        private Vod.Flag getVodFlag() {
+        return (Vod.Flag) mFlagAdapter.get(mBinding.flag.getSelectedPosition());
+    }
+    
      private void seamless(Vod.Flag flag) {
         Vod.Flag.Episode episode = flag.find(mHistory.getVodRemarks());
         if (episode != null) {
