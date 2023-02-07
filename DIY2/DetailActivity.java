@@ -534,6 +534,12 @@ public class DetailActivity extends BaseActivity {
         }
     }
     
+        private void nextFlag(int position) {
+        Vod.Flag flag = (Vod.Flag) mFlagAdapter.get(position + 1);
+        Notify.show(ResUtil.getString(R.string.play_switch_flag, flag.getFlag()));
+        setFlagActivated(flag);
+    }
+    
     
     private void onError(String msg) {
         int position = mBinding.flag.getSelectedPosition();
