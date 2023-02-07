@@ -737,6 +737,7 @@
         android:id="@+id/tv_play_load_net_speed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/vs_10"  
                     android:layout_gravity="right"
                     android:layout_marginEnd="@dimen/vs_30"
                     android:layout_marginRight="@dimen/vs_30"
