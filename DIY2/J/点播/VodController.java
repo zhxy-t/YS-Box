@@ -225,7 +225,7 @@ public class VodController extends BaseController {
             mPlayPauseTime.setText(timeFormat.format(date));
             String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
             mPlayLoadNetSpeedRightTop.setText(speed);
-            //mPlayLoadNetSpeed.setText(speed);
+            mPlayLoadNetSpeed.setText(speed);
             String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
           mVideoSize.setText( "" + width + " X " + height +"" );
