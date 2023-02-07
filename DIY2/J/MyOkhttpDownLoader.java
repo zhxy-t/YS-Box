@@ -22,6 +22,9 @@ import androidx.annotation.VisibleForTesting;
 import com.squareup.picasso.Downloader;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.Call;
@@ -37,6 +40,8 @@ import android.util.ArrayMap;
  * A {@link Downloader} which uses OkHttp to download images.
  */
 public final class MyOkhttpDownLoader implements Downloader {
+    private final OkHttpClient mOk;
+    
     @VisibleForTesting
     final Call.Factory client;
     private final Cache cache;
@@ -88,12 +93,13 @@ public final class MyOkhttpDownLoader implements Downloader {
         return get().client().newCall(new Request.Builder().url(buildUrl(url, params)).build());
     }
 
+    /*
     private static HttpUrl buildUrl(String url, ArrayMap<String, String> params) {
         HttpUrl.Builder builder = Objects.requireNonNull(HttpUrl.parse(url)).newBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) builder.addQueryParameter(entry.getKey(), entry.getValue());
         return builder.build();
     }
-    
+    */
     
     @NonNull
     @Override
