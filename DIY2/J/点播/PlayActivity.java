@@ -1268,7 +1268,7 @@ public class PlayActivity extends BaseActivity {
                                 public void run() {
                                     String mixParseUrl = DefaultConfig.checkReplaceProxy(rs.optString("url", ""));
                                     stopParse();
-                                    setTip("正在嗅探播放地址", true, false);
+                                    setTip("", true, false);
                                     mHandler.removeMessages(100);
                                     mHandler.sendEmptyMessageDelayed(100, 20 * 1000);
                                     loadWebView(mixParseUrl);
