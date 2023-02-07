@@ -525,6 +525,31 @@ public class DetailActivity extends BaseActivity {
     
     */
     
+     private void seamless(Vod.Flag flag) {
+        Vod.Flag.Episode episode = flag.find(mHistory.getVodRemarks());
+        if (episode != null) {
+            if (mPlayers.getCurrentPosition() > 0) mHistory.setPosition(mPlayers.getCurrentPosition());
+            mHistory.setVodRemarks(episode.getName());
+            setEpisodeActivated(episode.deactivated());
+        }
+    }
+    
+    
+    private void onError(String msg) {
+        int position = mBinding.flag.getSelectedPosition();
+        if (position == mFlagAdapter.size() - 1) {
+            mBinding.widget.progress.getRoot().setVisibility(View.GONE);
+            mBinding.widget.error.setVisibility(View.VISIBLE);
+            mBinding.widget.text.setText(msg);
+            Clock.get().setCallback(null);
+            mPlayers.stop();
+        } else {
+            Vod.Flag flag = (Vod.Flag) mFlagAdapter.get(position + 1);
+            Notify.show(ResUtil.getString(R.string.play_switching, flag.getFlag()));
+            setFlagActivated(flag);
+        }
+    }
+    
     
     private void jumpToPlay() {
         if (vodInfo != null && vodInfo.seriesMap.get(vodInfo.playFlag).size() > 0) {
