@@ -98,13 +98,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DetailActivity extends BaseActivity {
     
+    /*
     private ArrayObjectAdapter mFlagAdapter;
     private ArrayObjectAdapter mArrayAdapter;
     private ArrayObjectAdapter mEpisodeAdapter;
     private ArrayObjectAdapter mParseAdapter;
     private ArrayObjectAdapter mPartAdapter;
     private ArrayObjectAdapter mSearchAdapter;
-    
+    */
     private LinearLayout llLayout;
     private FragmentContainerView llPlayerFragmentContainer;
     private View llPlayerFragmentContainerBlock;
