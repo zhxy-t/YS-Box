@@ -88,7 +88,7 @@ import android.graphics.Typeface;
 import androidx.recyclerview.widget.RecyclerView;
 
 //fm
-import androidx.leanback.widget.ArrayObjectAdapter;
+//import androidx.leanback.widget.ArrayObjectAdapter;
 
 /**
  * @author pj567
@@ -475,6 +475,8 @@ public class DetailActivity extends BaseActivity {
         this.mInitAuto = initAuto;
     }
     
+    /*
+    
    // 蜂蜜
     
     private void checkParse() {
@@ -520,7 +522,7 @@ public class DetailActivity extends BaseActivity {
     }
     
     
-    
+    */
     
     
     private void jumpToPlay() {
