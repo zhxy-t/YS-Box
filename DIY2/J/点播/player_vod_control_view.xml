@@ -735,22 +735,15 @@
 
    <TextView
         android:id="@+id/tv_play_load_net_speed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/vs_95"  
-                    android:layout_gravity="right"
-                    android:layout_marginEnd="@dimen/vs_30"
-                    android:layout_marginRight="@dimen/vs_30"
-                    android:fontFamily="@font/advent_pro_extralight"
-                    android:gravity="right"
-                    android:maxLines="1"
-                    android:shadowColor="@color/color_FF000000"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="3"
-                    android:text="0Kb/s"
-                    android:textColor="@color/color_FFFFFF"
-                    android:textSize="@dimen/ts_24"
-                    android:textStyle="bold" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/vs_40"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:tag="play_load_net_speed"
+        android:text=""
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="@dimen/ts_20" />
 
 </FrameLayout>
