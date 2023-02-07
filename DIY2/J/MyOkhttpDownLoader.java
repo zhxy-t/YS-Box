@@ -67,11 +67,11 @@ public final class MyOkhttpDownLoader implements Downloader {
     public MyOkhttpDownLoader() {
         mOk = getBuilder().build();
     }
-
+/*
     private OkHttpClient.Builder getBuilder() {
         return new OkHttpClient.Builder().addInterceptor(CronetInterceptor.newBuilder(new CronetEngine.Builder(App.get()).build()).build()).callTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS).connectTimeout(30, TimeUnit.SECONDS).hostnameVerifier(SSLSocketFactoryCompat.hostnameVerifier).sslSocketFactory(new SSLSocketFactoryCompat(), SSLSocketFactoryCompat.trustAllCert);
     }
-
+*/
     private OkHttpClient client() {
         return mOk;
     }
