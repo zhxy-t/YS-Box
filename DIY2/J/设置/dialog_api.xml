@@ -87,7 +87,7 @@
                             android:layout_marginStart="@dimen/vs_5"
                             android:layout_marginLeft="@dimen/vs_5"
 
-                            android:background="@drawable/shape_dialog_bg_main"              
+                            android:background="@drawable/shape_setting_model_focus"              
                             android:focusable="true"
                             android:gravity="center"
                             android:orientation="horizontal"
@@ -138,7 +138,7 @@
                             android:layout_marginStart="@dimen/vs_5"
                             android:layout_marginLeft="@dimen/vs_5"
       
-                            android:background="@drawable/shape_dialog_bg_main"          
+                            android:background="@drawable/shape_setting_model_focus"          
                             android:focusable="true"
                             android:gravity="center"
                             android:orientation="horizontal"
@@ -190,7 +190,7 @@
                             android:layout_marginStart="@dimen/vs_5"
                             android:layout_marginLeft="@dimen/vs_5"
 
-                            android:background="@drawable/shape_dialog_bg_main"           
+                            android:background="@drawable/shape_setting_model_focus"           
                             android:focusable="true"
                             android:gravity="center"
                             android:orientation="horizontal"
