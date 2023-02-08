@@ -20,12 +20,8 @@
             android:lineSpacingMultiplier="0"
             android:padding="@dimen/vs_20"
     
-         
-                            android:maxWidth="@dimen/vs_10"
                             android:singleLine="true"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"    
+  
                             android:maxLines="1"  
                   
         
@@ -48,11 +44,9 @@
             app:layout_constrainedHeight="true"
 
           
-                            android:maxWidth="@dimen/vs_10"
+ 
                             android:singleLine="true"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"    
+   
                             android:maxLines="1"  
                                                        
             app:layout_constraintHeight_max="@dimen/vs_410"
@@ -67,11 +61,9 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/vs_30"
-                            android:maxWidth="@dimen/vs_10"
+
                             android:singleLine="true"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"    
+
                             android:maxLines="1"   
               
             app:layout_constraintLeft_toLeftOf="parent"
