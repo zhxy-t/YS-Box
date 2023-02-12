@@ -205,7 +205,7 @@ public class DetailActivity extends BaseActivity {
             playFragment = new PlayFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
             getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
-            tvPlay.setText("全屏");
+            tvPlay.setText("");
         }
 
         mSeriesGroupView = findViewById(R.id.mSeriesGroupView);
