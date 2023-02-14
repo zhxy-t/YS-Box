@@ -48,8 +48,8 @@ cp $CURRENT_DIR/DIY2/J/colors.xml         $CURRENT_DIR/$DIR/app/src/main/res/val
 cp $CURRENT_DIR/DIY2/J/strings.xml        $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 
 #图标修改
-mv $CURRENT_DIR/DIY2/图标3.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
-
+//mv $CURRENT_DIR/DIY2/图标3.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
+mv $CURRENT_DIR/DIY2/原版透明.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
 #背景修改
 mv $CURRENT_DIR/DIY2/10.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 #自定义epg
