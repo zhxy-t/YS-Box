@@ -102,7 +102,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
      private TextView tvHomeIcon;
     
-    
+    //taka epg 直播地址
+   private final EditText inputLive;
+    private final EditText inputEPG;
     
     
     public static ModelSettingFragment newInstance() {
