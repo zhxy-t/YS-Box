@@ -137,6 +137,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvRender = findViewById(R.id.tvRenderType);
         tvScale = findViewById(R.id.tvScaleType);
         tvApi = findViewById(R.id.tvApi);
+        tvLive = findViewById(R.id.tvLive);
         tvHomeApi = findViewById(R.id.tvHomeApi);
         tvDns = findViewById(R.id.tvDns);
         tvHomeRec = findViewById(R.id.tvHomeRec);
@@ -146,7 +147,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "开启" : "关闭");
         tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统" : "XWalkView");
         tvApi.setText(Hawk.get(HawkConfig.API_URL, ""));
-
+        tvLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
+        
         tvDns.setText(OkGoHelper.dnsHttpsList.get(Hawk.get(HawkConfig.DOH_URL, 0)));
         tvHomeRec.setText(getHomeRecName(Hawk.get(HawkConfig.HOME_REC, 0)));
         tvHistoryNum.setText(HistoryHelper.getHistoryNumName(Hawk.get(HawkConfig.HISTORY_NUM, 0)));
@@ -444,30 +446,40 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
 
-  findViewById(R.id.llLive).setOnClickListener(new View.OnClickListener() {
+   //历史zb列表
+     findViewById(R.id.llLive).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FastClickCheckUtil.check(v);
-                ApiDialog dialog = new ApiDialog(mActivity);
-                EventBus.getDefault().register(dialog);
-                dialog.setOnListener(new ApiDialog.OnListener() {
+                ArrayList<String> history = Hawk.get(HawkConfig.LIVE_HISTORY , new ArrayList<String>());
+              if (history.isEmpty())
+                    return;
+                String current = Hawk.get(HawkConfig.LIVE_URL, "");               
+             if (current.isEmpty()) {
+        //    callback.error("-1");
+            return;
+        }
+                
+                int idx = 0;
+                if (history.contains(current))
+                    idx = history.indexOf(current);
+                LiveHistoryDialog dialog = new LiveHistoryDialog(getContext());
+                dialog.setTip("历史配置列表");
+                dialog.setAdapter(new LiveHistoryDialogAdapter.SelectDialogInterface() {
                     @Override
-                    public void onchange(String api) {
-                        Hawk.put(HawkConfig.LIVE_URL, api);
-                        tvApi.setText(api);
+                    public void click(String api) {
+                        Hawk.put(HawkConfig.LIVE_URL, api );
+                        tvLive.setText("https://TVBox.接口");
+                        dialog.dismiss();
                     }
-                });
-                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+
                     @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        ((BaseActivity) mActivity).hideSysBar();
-                        EventBus.getDefault().unregister(dialog);
+                    public void del(String value, ArrayList<String> data) {
+                        Hawk.put(HawkConfig.LIVE_HISTORY , data);
                     }
-                });
+                }, history, idx);
                 dialog.show();
             }
         });
-        
         
   findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
             @Override
