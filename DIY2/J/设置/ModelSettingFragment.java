@@ -499,31 +499,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     // Final Live URL
                     liveURL_final = extUrlFix;
 
-//                    // Encoding the Live URL
-//                    extUrlFix = Base64.encodeToString(extUrlFix.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
-//                    url = url.replace(extUrl, extUrlFix);
                 }
                 
-/*
-                // takagen99 : Getting EPG URL from File Config & put into Settings
-                if (livesOBJ.has("epg")) {
-                    String epg = livesOBJ.get("epg").getAsString();
-                    System.out.println("EPG URL :" + epg);
-                    putEPGHistory(epg);
-                    // Overwrite with EPG URL from Settings
-                    if (StringUtils.isBlank(epgURL)) {
-                        Hawk.put(HawkConfig.EPG_URL, epg);
-                    } else {
-                        Hawk.put(HawkConfig.EPG_URL, epgURL);
-                    }
-                }
-                
-              */  
-
-//                // Populate Live Channel Listing
-//                LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
-//                liveChannelGroup.setGroupName(url);
-//                liveChannelGroupList.add(liveChannelGroup);
 
             } else {
 
@@ -536,18 +513,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     if (type.equals("0")) {
                         String url = fengMiLives.get("url").getAsString();
 
-                        // takagen99 : Getting EPG URL from File Config & put into Settings
-                        if (fengMiLives.has("epg")) {
-                            String epg = fengMiLives.get("epg").getAsString();
-                            System.out.println("EPG URL :" + epg);
-                            //putEPGHistory(epg);
-                            // Overwrite with EPG URL from Settings
-                            if (StringUtils.isBlank(epgURL)) {
-                                Hawk.put(HawkConfig.EPG_URL, epg);
-                            } else {
-                                Hawk.put(HawkConfig.EPG_URL, epgURL);
-                            }
-                        }
 
                         if (url.startsWith("http")) {
                             // takagen99: Capture Live URL into Settings
@@ -635,6 +600,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
       */  
+        
   findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
