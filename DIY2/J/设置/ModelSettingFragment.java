@@ -70,15 +70,6 @@ import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.ui.dialog.HomeIconDialog;
 
 import java.util.Arrays;
-
-import com.google.gson.JsonObject;
-import org.json.JSONObject;
-
-import com.github.tvbox.osc.util.DefaultConfig;
-import android.net.Uri;
-import android.util.Base64;
-import org.apache.commons.lang3.StringUtils;
-import com.github.tvbox.osc.bean.LiveChannelGroup;
 /**
  * @author pj567
  * @date :2020/12/23
@@ -109,8 +100,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvIjkCachePlay;
     
      private TextView tvHomeIcon;
-    
-    private final List<LiveChannelGroup> liveChannelGroupList;
     
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
@@ -148,7 +137,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvRender = findViewById(R.id.tvRenderType);
         tvScale = findViewById(R.id.tvScaleType);
         tvApi = findViewById(R.id.tvApi);
-        //tvLive = findViewById(R.id.tvLive);
         tvHomeApi = findViewById(R.id.tvHomeApi);
         tvDns = findViewById(R.id.tvDns);
         tvHomeRec = findViewById(R.id.tvHomeRec);
@@ -158,8 +146,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "开启" : "关闭");
         tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统" : "XWalkView");
         tvApi.setText(Hawk.get(HawkConfig.API_URL, ""));
-        //tvLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
-        
+
         tvDns.setText(OkGoHelper.dnsHttpsList.get(Hawk.get(HawkConfig.DOH_URL, 0)));
         tvHomeRec.setText(getHomeRecName(Hawk.get(HawkConfig.HOME_REC, 0)));
         tvHistoryNum.setText(HistoryHelper.getHistoryNumName(Hawk.get(HawkConfig.HISTORY_NUM, 0)));
@@ -428,11 +415,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        
-        
-        
-        
-        
         findViewById(R.id.llApi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -456,138 +438,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        
-        
-        // takagen99: Check if Live URL is setup in Settings, if no, get from File Config
-        liveChannelGroupList.clear();           //修复从后台切换重复加载频道列表
-        String liveURL = Hawk.get(HawkConfig.LIVE_URL, "");
-        String epgURL  = Hawk.get(HawkConfig.EPG_URL, "");
-
-        String liveURL_final = null;
-        try {
-            JsonObject livesOBJ = infoJson.get("lives").getAsJsonArray().get(0).getAsJsonObject();
-            String lives = livesOBJ.toString();
-            int index = lives.indexOf("proxy://");
-            if (index != -1) {
-                int endIndex = lives.lastIndexOf("\"");
-                String url = lives.substring(index, endIndex);
-                url = DefaultConfig.checkReplaceProxy(url);
-
-                //clan
-                String extUrl = Uri.parse(url).getQueryParameter("ext");
-                if (extUrl != null && !extUrl.isEmpty()) {
-                    String extUrlFix;
-                    if (extUrl.startsWith("http") || extUrl.startsWith("clan://")) {
-                        extUrlFix = extUrl;
-                    } else {
-                        extUrlFix = new String(Base64.decode(extUrl, Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP), "UTF-8");
-                    }
-
-                        //if (extUrlFix.startsWith("clan://")) {
-                        //extUrlFix = clanContentFix(clanToAddress(apiUrl), extUrlFix);
-                    
-                    // takagen99: Capture Live URL into Config
-                    System.out.println("Live URL :" + extUrlFix);
-                    putLiveHistory(extUrlFix);
-                    // Overwrite with Live URL from Settings
-                    if (StringUtils.isBlank(liveURL)) {
-                        Hawk.put(HawkConfig.LIVE_URL, extUrlFix);
-                    } else {
-                        extUrlFix = liveURL;
-                    }
-
-                    // Final Live URL
-                    liveURL_final = extUrlFix;
-
-                }
-                
-
-            } else {
-
-                // if FongMi Live URL Formatting exists
-                if (!lives.contains("type")) {
-                    loadLives(infoJson.get("lives").getAsJsonArray());
-                } else {
-                    JsonObject fengMiLives = infoJson.get("lives").getAsJsonArray().get(0).getAsJsonObject();
-                    String type = fengMiLives.get("type").getAsString();
-                    if (type.equals("0")) {
-                        String url = fengMiLives.get("url").getAsString();
 
 
-                        if (url.startsWith("http")) {
-                            // takagen99: Capture Live URL into Settings
-                            System.out.println("Live URL :" + url);
-                            putLiveHistory(url);
-                            // Overwrite with Live URL from Settings
-                            if (StringUtils.isBlank(liveURL)) {
-                                Hawk.put(HawkConfig.LIVE_URL, url);
-                            } else {
-                                url = liveURL;
-                            }
-
-                            // Final Live URL
-                            liveURL_final = url;
-
-//                            url = Base64.encodeToString(url.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
-                        }
-                    }
-                }
-            }
-            
-            
-              private void putLiveHistory(String url) {
-        if (!url.isEmpty()) {
-            ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
-            if (!liveHistory.contains(url))
-                liveHistory.add(0, url);
-            if (liveHistory.size() > 20)
-                liveHistory.remove(20);
-            Hawk.put(HawkConfig.LIVE_HISTORY, liveHistory);
-        }
-    }
-
-
-         
-        
-        
-        
-/*
-   //历史zb列表
-     findViewById(R.id.llLive).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ArrayList<String> history = Hawk.get(HawkConfig.LIVE_HISTORY , new ArrayList<String>());
-              if (history.isEmpty())
-                    return;
-                String current = Hawk.get(HawkConfig.LIVE_URL, "");               
-             if (current.isEmpty()) {
-        //    callback.error("-1");
-            return;
-        }
-                
-                int idx = 0;
-                if (history.contains(current))
-                    idx = history.indexOf(current);
-                LiveHistoryDialog dialog = new LiveHistoryDialog(getContext());
-                dialog.setTip("历史配置列表");
-                dialog.setAdapter(new LiveHistoryDialogAdapter.SelectDialogInterface() {
-                    @Override
-                    public void click(String api) {
-                        Hawk.put(HawkConfig.LIVE_URL, api );
-                        tvLive.setText("https://TVBox.接口");
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void del(String value, ArrayList<String> data) {
-                        Hawk.put(HawkConfig.LIVE_HISTORY , data);
-                    }
-                }, history, idx);
-                dialog.show();
-            }
-        });
-      */  
-        
   findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
