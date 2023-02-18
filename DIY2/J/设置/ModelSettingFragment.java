@@ -70,6 +70,14 @@ import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.ui.dialog.HomeIconDialog;
 
 import java.util.Arrays;
+
+import com.google.gson.JsonObject;
+import org.json.JSONObject;
+
+import com.github.tvbox.osc.util.DefaultConfig;
+import android.net.Uri;
+import android.util.Base64;
+import org.apache.commons.lang3.StringUtils;
 /**
  * @author pj567
  * @date :2020/12/23
@@ -100,6 +108,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvIjkCachePlay;
     
      private TextView tvHomeIcon;
+    
+    private final List<LiveChannelGroup> liveChannelGroupList;
     
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
@@ -471,10 +481,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     } else {
                         extUrlFix = new String(Base64.decode(extUrl, Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP), "UTF-8");
                     }
-                    if (extUrlFix.startsWith("clan://")) {
-                        extUrlFix = clanContentFix(clanToAddress(apiUrl), extUrlFix);
-                    }
 
+                        //if (extUrlFix.startsWith("clan://")) {
+                        //extUrlFix = clanContentFix(clanToAddress(apiUrl), extUrlFix);
+                    
                     // takagen99: Capture Live URL into Config
                     System.out.println("Live URL :" + extUrlFix);
                     putLiveHistory(extUrlFix);
@@ -492,7 +502,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
 //                    extUrlFix = Base64.encodeToString(extUrlFix.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
 //                    url = url.replace(extUrl, extUrlFix);
                 }
-
+                
+/*
                 // takagen99 : Getting EPG URL from File Config & put into Settings
                 if (livesOBJ.has("epg")) {
                     String epg = livesOBJ.get("epg").getAsString();
@@ -505,6 +516,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                         Hawk.put(HawkConfig.EPG_URL, epgURL);
                     }
                 }
+                
+              */  
 
 //                // Populate Live Channel Listing
 //                LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
