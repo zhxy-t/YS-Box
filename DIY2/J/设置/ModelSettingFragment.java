@@ -540,7 +540,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                         if (fengMiLives.has("epg")) {
                             String epg = fengMiLives.get("epg").getAsString();
                             System.out.println("EPG URL :" + epg);
-                            putEPGHistory(epg);
+                            //putEPGHistory(epg);
                             // Overwrite with EPG URL from Settings
                             if (StringUtils.isBlank(epgURL)) {
                                 Hawk.put(HawkConfig.EPG_URL, epg);
@@ -568,6 +568,19 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     }
                 }
             }
+            
+            
+              private void putLiveHistory(String url) {
+        if (!url.isEmpty()) {
+            ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
+            if (!liveHistory.contains(url))
+                liveHistory.add(0, url);
+            if (liveHistory.size() > 20)
+                liveHistory.remove(20);
+            Hawk.put(HawkConfig.LIVE_HISTORY, liveHistory);
+        }
+    }
+
 
             // takagen99: Load Live Channel from settings URL (WIP)
             if (StringUtils.isBlank(liveURL_final)) {
