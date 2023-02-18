@@ -137,7 +137,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvRender = findViewById(R.id.tvRenderType);
         tvScale = findViewById(R.id.tvScaleType);
         tvApi = findViewById(R.id.tvApi);
-        tvLive = findViewById(R.id.tvLive);
+        //tvLive = findViewById(R.id.tvLive);
         tvHomeApi = findViewById(R.id.tvHomeApi);
         tvDns = findViewById(R.id.tvDns);
         tvHomeRec = findViewById(R.id.tvHomeRec);
@@ -147,7 +147,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "开启" : "关闭");
         tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统" : "XWalkView");
         tvApi.setText(Hawk.get(HawkConfig.API_URL, ""));
-        tvLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
+        //tvLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
         
         tvDns.setText(OkGoHelper.dnsHttpsList.get(Hawk.get(HawkConfig.DOH_URL, 0)));
         tvHomeRec.setText(getHomeRecName(Hawk.get(HawkConfig.HOME_REC, 0)));
@@ -445,7 +445,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-
+/*
    //历史zb列表
      findViewById(R.id.llLive).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -480,7 +480,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        
+      */  
   findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
