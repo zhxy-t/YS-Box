@@ -78,6 +78,7 @@ import com.github.tvbox.osc.util.DefaultConfig;
 import android.net.Uri;
 import android.util.Base64;
 import org.apache.commons.lang3.StringUtils;
+import com.github.tvbox.osc.bean.LiveChannelGroup;
 /**
  * @author pj567
  * @date :2020/12/23
