@@ -49,7 +49,7 @@
                     android:layout_height="@dimen/vs_50"
                     android:drawablePadding="@dimen/vs_10"
                     android:gravity="center"
-                    android:text="@string/act_settings"
+                    android:text="设置"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/ts_34"
                     android:textStyle="bold" />
