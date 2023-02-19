@@ -101,6 +101,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
      private TextView tvHomeIcon;
     
+       private final EditText inputLive;
+    private final EditText inputEPG;
+   
+    
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
     }
@@ -116,6 +120,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
     @Override
     protected void init() {
+        
+        inputLive = findViewById(R.id.input_live);
+        inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
+        
      tvHomeShow = findViewById(R.id.tvHomeShow);
        tvHomeShow.setText(Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false) ? "开启" : "关闭");
          tvPIP = findViewById(R.id.tvPIP);
