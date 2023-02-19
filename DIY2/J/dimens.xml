@@ -110,7 +110,9 @@
     <dimen name="vs_610">610mm</dimen>
     <dimen name="vs_640">640mm</dimen>
     <dimen name="vs_720">720mm</dimen>
+    <dimen name="vs_920">920mm</dimen>
     <dimen name="vs_960">960mm</dimen>
+    
     <dimen name="vs_1300">1300mm</dimen>
     <dimen name="vs_1310">1310mm</dimen>
     <dimen name="vs_1320">1320mm</dimen>
