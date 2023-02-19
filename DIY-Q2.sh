@@ -129,7 +129,7 @@ cp $CURRENT_DIR/DIY2/J/解码/ExoMediaPlayer.java   $CURRENT_DIR/$DIR/player/src
 
 //按键背景颜色
 #sed -i 's/color_6A6A6A_95/color_DDDAC6/g'         $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_bg_main.xml
-p $CURRENT_DIR/DIY2/J/shape_dialog_bg_main.xml         $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_bg_main.xml
+cp $CURRENT_DIR/DIY2/J/shape_dialog_bg_main.xml         $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_bg_main.xml
 
 //按键文字颜色
 cp $CURRENT_DIR/DIY2/J/dialog_select.xml     $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
