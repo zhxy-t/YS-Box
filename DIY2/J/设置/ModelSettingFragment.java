@@ -102,8 +102,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
      private TextView tvHomeIcon;
     
-       private final EditText inputLive;
-    private final EditText inputEPG;
+    private EditText inputLive;
+    private EditText inputEPG;
    
     
     public static ModelSettingFragment newInstance() {
