@@ -269,9 +269,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
           findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newApi = inputApi.getText().toString().trim();
+             //   String newApi = inputApi.getText().toString().trim();
                  String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
+                /*
                 if (!newApi.isEmpty()) {
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(newApi))
@@ -282,6 +283,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     listener.onchange(newApi);
                     dismiss();
                 }
+                */
   // Capture Live input into Settings & Live History (max 20)
                 Hawk.put(HawkConfig.LIVE_URL, newLive);
                 if (!newLive.isEmpty()) {
