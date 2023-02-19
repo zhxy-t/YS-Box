@@ -293,7 +293,40 @@ public class ModelSettingFragment extends BaseLazyFragment {
         });
         
         
-       
+       //直播历史列表
+        
+               findViewById(R.id.liveHistory).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
+                if (liveHistory.isEmpty())
+                    return;
+                String current = Hawk.get(HawkConfig.LIVE_URL, "");
+                int idx = 0;
+                if (liveHistory.contains(current))
+                    idx = liveHistory.indexOf(current);
+                ApiHistoryDialog dialog = new ApiHistoryDialog(getContext());
+                //dialog.setTip(HomeActivity.getRes().getString(R.string.dia_history_live));
+               dialog.setTip("历史直播列表");
+                dialog.setAdapter(new ApiHistoryDialogAdapter.SelectDialogInterface() {
+                    @Override
+                    public void click(String liveURL) {
+                        inputLive.setText(liveURL);
+                        Hawk.put(HawkConfig.LIVE_URL, liveURL);
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void del(String value, ArrayList<String> data) {
+                        Hawk.put(HawkConfig.LIVE_HISTORY, data);
+                    }
+                }, liveHistory, idx);
+                dialog.show();
+            }
+        });
+        
+        
+        
         
         
         
