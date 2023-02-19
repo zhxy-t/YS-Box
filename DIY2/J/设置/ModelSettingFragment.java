@@ -102,8 +102,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
      private TextView tvHomeIcon;
     
-    private EditText inputLive;
-    private EditText inputEPG;
+    private TextView inputLive;
+    private TextView inputEPG;
    
    // @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
