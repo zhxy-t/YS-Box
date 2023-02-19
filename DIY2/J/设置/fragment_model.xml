@@ -346,7 +346,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                            android:maxLines="1" 
+                        android:maxWidth="@dimen/vs_300"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:maxLines="1" 
              
             
                         android:textColor="@android:color/white"
