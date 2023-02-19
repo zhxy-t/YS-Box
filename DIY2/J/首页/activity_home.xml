@@ -24,7 +24,15 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true"
-            android:focusableInTouchMode="false"
+             
+            android:maxWidth="@dimen/vs_90"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:maxLines="1" 
+                  
+
             android:gravity="left|center_vertical"
             android:nextFocusRight="@id/tvWifi"
             android:nextFocusUp="@id/tvWifi"        
