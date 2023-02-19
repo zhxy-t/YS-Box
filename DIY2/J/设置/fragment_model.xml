@@ -98,12 +98,12 @@
                             android:id="@+id/input_live"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/vs_600"
-                            android:layout_marginLeft="@dimen/vs_600"                      
+                            android:layout_marginStart="@dimen/vs_720"
+                            android:layout_marginLeft="@dimen/vs_720"                      
                             android:layout_weight="1"
                             android:background="@drawable/input_dialog_api_input"
                             android:hint="1. 请输入直播源地址 (optional)"
-                            android:inputType="text"
+
                             android:maxLines="1"
 
                             android:textColor="@android:color/white"
