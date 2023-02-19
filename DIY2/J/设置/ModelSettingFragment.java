@@ -214,6 +214,20 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
         
+        public void refresh(RefreshEvent event) {
+        if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
+            inputApi.setText((String) event.obj);
+        }
+          if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
+            inputLive.setText((String) event.obj);
+        }
+        if (event.type == RefreshEvent.TYPE_EPG_URL_CHANGE) {
+            inputEPG.setText((String) event.obj);
+        }
+    }
+        
+        
+        
         //按钮位置
         findViewById(R.id.llHomeIcon).setOnClickListener(new View.OnClickListener() {
             private final boolean oriSearch = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
