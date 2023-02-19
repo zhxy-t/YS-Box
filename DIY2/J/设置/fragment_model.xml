@@ -145,6 +145,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:maxWidth="@dimen/vs_100"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:maxLines="1" 
                               
 
