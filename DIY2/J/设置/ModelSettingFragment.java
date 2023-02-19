@@ -282,8 +282,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvPIP.setText(Hawk.get(HawkConfig.PIC_IN_PIC, true) ? "开启" : "关闭");
             }
         });
-        
-        
+
           findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -302,6 +301,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     dismiss();
                 }
                 */
+                /*
   // Capture Live input into Settings & Live History (max 20)
                 Hawk.put(HawkConfig.LIVE_URL, newLive);
                 if (!newLive.isEmpty()) {
@@ -312,6 +312,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                         liveHistory.remove(20);
                     Hawk.put(HawkConfig.LIVE_HISTORY, liveHistory);
                 }
+                */
+                /*
                 // Capture EPG input into Settings
                 Hawk.put(HawkConfig.EPG_URL, newEPG);
                 if (!newEPG.isEmpty()) {
@@ -321,7 +323,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     if (EPGHistory.size() > 20)
                         EPGHistory.remove(20);
                     Hawk.put(HawkConfig.EPG_HISTORY, EPGHistory);
-                }                             
+                }  
+                */
             }
         });
         
