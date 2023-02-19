@@ -144,7 +144,7 @@
                         android:id="@+id/tvApi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="@dimen/vs_920"
+                        android:maxWidth="@dimen/vs_720"
                         android:singleLine="true"
                         android:ellipsize="marquee"
                         android:focusable="true"
@@ -251,7 +251,7 @@
                         android:inputType="text"
 
 
-                        android:maxWidth="@dimen/vs_920"
+                        android:maxWidth="@dimen/vs_720"
                         android:maxLines="1" 
                            
                         android:paddingLeft="@dimen/vs_2"
