@@ -70,6 +70,7 @@ import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.ui.dialog.HomeIconDialog;
 
 import java.util.Arrays;
+import android.widget.EditText;
 /**
  * @author pj567
  * @date :2020/12/23
