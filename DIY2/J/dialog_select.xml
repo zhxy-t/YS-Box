@@ -10,6 +10,9 @@
         android:layout_width="@dimen/vs_480"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:singleLine="true"
+        android:maxLines="1"  
+                                                       
         android:background="@drawable/shape_dialog_bg_main">
 
         <TextView
