@@ -283,54 +283,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
 
-          findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             //   String newApi = inputApi.getText().toString().trim();
-                 String newLive = inputLive.getText().toString().trim();
-                String newEPG = inputEPG.getText().toString().trim();
-                /*
-                if (!newApi.isEmpty()) {
-                    ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
-                    if (!history.contains(newApi))
-                        history.add(0, newApi);
-                    if (history.size() > 30)
-                        history.remove(30);
-                    Hawk.put(HawkConfig.API_HISTORY, history);
-                    listener.onchange(newApi);
-                    dismiss();
-                }
-                */
-                /*
-  // Capture Live input into Settings & Live History (max 20)
-                Hawk.put(HawkConfig.LIVE_URL, newLive);
-                if (!newLive.isEmpty()) {
-                    ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
-                    if (!liveHistory.contains(newLive))
-                        liveHistory.add(0, newLive);
-                    if (liveHistory.size() > 20)
-                        liveHistory.remove(20);
-                    Hawk.put(HawkConfig.LIVE_HISTORY, liveHistory);
-                }
-                */
-                /*
-                // Capture EPG input into Settings
-                Hawk.put(HawkConfig.EPG_URL, newEPG);
-                if (!newEPG.isEmpty()) {
-                    ArrayList<String> EPGHistory = Hawk.get(HawkConfig.EPG_HISTORY, new ArrayList<String>());
-                    if (!EPGHistory.contains(newEPG))
-                        EPGHistory.add(0, newEPG);
-                    if (EPGHistory.size() > 20)
-                        EPGHistory.remove(20);
-                    Hawk.put(HawkConfig.EPG_HISTORY, EPGHistory);
-                }  
-                */
-            }
-        });
-        
-        
-        
-        
+
           //历史配置列表
      findViewById(R.id.llApiHistory).setOnClickListener(new View.OnClickListener() {
             @Override
