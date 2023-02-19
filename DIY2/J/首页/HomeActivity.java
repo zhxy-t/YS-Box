@@ -816,7 +816,7 @@ public class HomeActivity extends BaseActivity {
         ControlManager.get().stopServer();
     }
 
-    void showSiteSwitch() {
+   private void showSiteSwitch() {
         List<SourceBean> sites = ApiConfig.get().getSourceBeanList();
         if (sites.size() > 0) {
             SelectDialog<SourceBean> dialog = new SelectDialog<>(HomeActivity.this);
