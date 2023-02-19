@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="@dimen/vs_0"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="@dimen/ts_40"
             android:lineSpacingMultiplier="0"
@@ -36,7 +36,7 @@
 
         <com.owen.tvrecyclerview.widget.TvRecyclerView
             android:id="@+id/list"
-            android:layout_width="@dimen/vs_0"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="@dimen/vs_30"
@@ -60,11 +60,10 @@
             app:tv_verticalSpacingWithMargins="@dimen/vs_10" />
 
         <View
-            android:layout_width="@dimen/vs_0"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/vs_30"
 
                             android:singleLine="true"
-
                             android:maxLines="1"   
               
             app:layout_constraintLeft_toLeftOf="parent"
