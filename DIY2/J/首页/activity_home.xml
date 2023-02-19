@@ -25,7 +25,7 @@
             android:clickable="true"
     
              
-            android:maxWidth="@dimen/vs_150"
+            android:maxWidth="@dimen/vs_340"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:focusable="true"
