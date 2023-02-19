@@ -144,7 +144,7 @@
                         android:id="@+id/tvApi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                            android:maxWidth="@dimen/vs_200"
+                
                             android:singleLine="true"
                             android:ellipsize="marquee"
                             android:focusable="true"
@@ -252,7 +252,7 @@
           
                            
                            
-                            android:maxWidth="@dimen/vs_200"
+
                             android:singleLine="true"
                             android:ellipsize="marquee"
                             android:focusable="true"
@@ -352,7 +352,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                           
-                            android:maxWidth="@dimen/vs_200"
+                       
                             android:singleLine="true"
                             android:ellipsize="marquee"
                             android:focusable="true"
