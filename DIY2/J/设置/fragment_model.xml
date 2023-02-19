@@ -343,8 +343,7 @@
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:maxLines="1" 
-                          
-                        android:ellipsize="middle"
+             
             
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/ts_24" />
