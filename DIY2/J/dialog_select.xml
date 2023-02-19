@@ -20,9 +20,12 @@
             android:lineSpacingMultiplier="0"
             android:padding="@dimen/vs_20"
     
-                            android:singleLine="true"
-  
-                            android:maxLines="1"  
+                        android:maxWidth="@dimen/vs_40"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:maxLines="1" 
                   
         
             android:text="11111111"
@@ -43,11 +46,12 @@
             android:paddingRight="@dimen/vs_30"
             app:layout_constrainedHeight="true"
 
-          
- 
-                            android:singleLine="true"
-   
-                            android:maxLines="1"  
+                        android:maxWidth="@dimen/vs_40"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:maxLines="1" 
                                                        
             app:layout_constraintHeight_max="@dimen/vs_410"
             app:layout_constraintLeft_toLeftOf="parent"
