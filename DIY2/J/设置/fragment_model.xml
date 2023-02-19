@@ -93,16 +93,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/input_dialog_api_input"
-                            android:hint="2. 请输入直播源地址 (optional)"
+                            android:hint="请输入直播源地址 (optional)"
                             android:inputType="text"
                             android:maxLines="1"
                             android:paddingLeft="@dimen/vs_2"
                             android:paddingTop="@dimen/vs_10"
                             android:paddingRight="@dimen/vs_2"
                             android:paddingBottom="@dimen/vs_10"
-                            android:shadowColor="@color/color_000000_60"
-                            android:shadowDx="0"
-                            android:shadowDy="0"
 
                     android:textColor="@color/color_CC000000"
                     android:textColorHint="@color/color_6C3D3D3D"
@@ -121,11 +118,28 @@
                             android:orientation="horizontal"
                             android:padding="@dimen/vs_10">
 
-                            <ImageView
-                                android:layout_width="@dimen/vs_30"
-                                android:layout_height="@dimen/vs_30"
-                                android:focusable="true"
-                                android:src="@drawable/hm_history" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal"
+                    
+                        android:text="直播历史"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/ts_24" />
+          
+                  <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/vs_10"
+                            android:layout_marginLeft="@dimen/vs_10"
+                            android:text=">"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/ts_30" />
                         </LinearLayout>
 
                     </LinearLayout>
