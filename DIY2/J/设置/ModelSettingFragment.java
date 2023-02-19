@@ -105,7 +105,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private EditText inputLive;
     private EditText inputEPG;
    
-    @Subscribe(threadMode = ThreadMode.MAIN)
+   // @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
             inputApi.setText((String) event.obj);
