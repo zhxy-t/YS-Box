@@ -79,7 +79,9 @@ import android.widget.ImageView;
 import android.provider.Settings;
 import android.net.Uri;
 
-import android.support.v7.widget.AppCompatTextView;
+androidx.appcompat.app.AppCompatActivity;
+import androidx.v7.app
+import androidx.widget.AppCompatTextView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.graphics.Rect;
