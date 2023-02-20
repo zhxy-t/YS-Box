@@ -80,6 +80,26 @@ import android.provider.Settings;
 import android.net.Uri;
 
 
+public class tvName extends TextView {
+  public tvName(Context context, AttributeSet attrs, int defStyle) {
+    super(context, attrs, defStyle);
+  }
+  public tvName(Context context, AttributeSet attrs) {
+    super(context, attrs);
+  }
+  public tvName(Context context) {
+    super(context);
+  }
+  @Override
+  public boolean isFocused() {
+  //就是把这里返回true即可
+    return true;
+  }
+}
+
+
+
+
 public class HomeActivity extends BaseActivity {
 	private static Resources res;
 	
@@ -157,7 +177,7 @@ public class HomeActivity extends BaseActivity {
         
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
-        this.tvName = findViewById(R.id.tvName);
+
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
