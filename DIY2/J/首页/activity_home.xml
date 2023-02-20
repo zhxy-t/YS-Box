@@ -27,8 +27,9 @@
              
             android:maxWidth="@dimen/vs_340"
             android:singleLine="true"
+            android:autoStart="true"      
             android:ellipsize="marquee"
-            android:focusable="true"
+            android:focusable="false"
             android:focusableInTouchMode="true"
             android:maxLines="1" 
                   
