@@ -78,6 +78,13 @@ import android.widget.ImageView;
 //
 import android.provider.Settings;
 import android.net.Uri;
+
+import android.support.v7.widget.AppCompatTextView;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.graphics.Rect;
+import android.support.annotation.Nullable;
+
 public class HomeActivity extends BaseActivity {
 	private static Resources res;
 	
