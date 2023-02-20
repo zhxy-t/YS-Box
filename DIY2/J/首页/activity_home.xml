@@ -59,7 +59,7 @@
             android:focusable="true"
             android:nextFocusLeft="@id/tvName"
             android:padding="@dimen/vs_5"
-            android:src="@drawable/hm_wifi" />
+            android:src="@drawable/hm_wifi_no" />
         
         
 
