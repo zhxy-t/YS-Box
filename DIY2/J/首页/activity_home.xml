@@ -29,7 +29,8 @@
             android:singleLine="true"
             android:autoStart="true"      
             android:ellipsize="marquee"
-            android:focusable="false"
+            android:focusable="true"
+            android:marqueeRepeatLimit="marquee_forever"      
             android:focusableInTouchMode="true"
             android:maxLines="1" 
                   
