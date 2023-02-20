@@ -80,22 +80,7 @@ import android.provider.Settings;
 import android.net.Uri;
 
 
-public class tvName extends TextView {
-  public tvName(Context context, AttributeSet attrs, int defStyle) {
-    super(context, attrs, defStyle);
-  }
-  public tvName(Context context, AttributeSet attrs) {
-    super(context, attrs);
-  }
-  public tvName(Context context) {
-    super(context);
-  }
-  @Override
-  public boolean isFocused() {
-  //就是把这里返回true即可
-    return true;
-  }
-}
+
 
 
 
