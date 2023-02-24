@@ -65,11 +65,13 @@ public class ApiDialog extends BaseDialog {
         setCanceledOnTouchOutside(false);
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
-        inputApi = findViewById(R.id.input);
-        inputApiName = findViewById(R.id.inputApiName);
+       
         
-        //内置网络接口在此处添加       
+        
+        //内置网络接口在此处添加   
+        inputApiName = findViewById(R.id.inputApiName);
         inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+        inputApi = findViewById(R.id.input);
         inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
         // takagen99: Add Live & EPG Address
         inputLive = findViewById(R.id.input_live);
