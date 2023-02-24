@@ -44,6 +44,7 @@ public class ApiDialog extends BaseDialog {
 //taka epg 直播地址
    private final EditText inputLive;
     private final EditText inputEPG;
+     private final EditText inputApiName;
    
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
@@ -65,7 +66,10 @@ public class ApiDialog extends BaseDialog {
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
         inputApi = findViewById(R.id.input);
-        //内置网络接口在此处添加
+        inputApiName = findViewById(R.id.inputApiName);
+        
+        //内置网络接口在此处添加       
+        inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
         inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
         // takagen99: Add Live & EPG Address
         inputLive = findViewById(R.id.input_live);
