@@ -181,13 +181,13 @@ sed -i 's/color_BBFFFFFF/color_FFFFFF/g' $CURRENT_DIR/$DIR/app/src/main/java/com
 #修改进度条消失时间
 sed -i 's/10000/6000/g'  $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 #名称修改
-sed -i 's/TVBox/影视Box/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+sed -i 's/TVBox/孤影TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 #版本号
 #sed -i 's/1.0.0/2/g'     $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.6.0/g'  $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.6.0/g'  $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 #共存
-sed -i 's/com.github.tvbox.osc/com.YsBox.tv/g' $CURRENT_DIR/$DIR/app/build.gradle
+sed -i 's/com.github.tvbox.osc/com.GuYing.tv/g' $CURRENT_DIR/$DIR/app/build.gradle
 
 
 #添加PY支持
