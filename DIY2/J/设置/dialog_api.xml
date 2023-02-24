@@ -69,7 +69,9 @@
                             android:shadowColor="@color/color_000000_60"
                             android:shadowDx="0"
                             android:shadowDy="0"
-                    
+                            android:textColor="@color/color_CC000000"
+                            android:textColorHint="@color/color_6C3D3D3D"
+                            android:textSize="@dimen/ts_22" />
                     
                     <LinearLayout
                         android:id="@+id/ll_apiHistory"
