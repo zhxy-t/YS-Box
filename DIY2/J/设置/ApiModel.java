@@ -7,9 +7,9 @@ public class ApiModel implements Serializable {
     private String url;
 
     public ApiModel() {
-        String str = "";
-        this.name = str;
-        this.url = str;
+       // String str = "";
+        this.name = name;
+        this.url = url;
     }
 
     public String getName() {
@@ -19,7 +19,7 @@ public class ApiModel implements Serializable {
     public String getUrl() {
         return this.url;
     }
-
+/*
     public void setName(String str) {
         this.name = str;
     }
@@ -27,4 +27,5 @@ public class ApiModel implements Serializable {
     public void setUrl(String str) {
         this.url = str;
     }
+    */
 }
