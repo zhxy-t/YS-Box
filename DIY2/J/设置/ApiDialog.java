@@ -58,9 +58,9 @@ public class ApiDialog extends BaseDialog {
             
             //inputApiName.setText((String) event.obj);
             ApiModel apiModel = (ApiModel) event.obj;
-            inputApiName.setText(apiModel.getName());
-            inputApi.setText(apiModel.getUrl());
-            
+            this.inputApiName.setText(apiModel.getName());
+            this.inputApi.setText(apiModel.getUrl());
+ 
         }
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
             inputLive.setText((String) event.obj);
@@ -77,7 +77,7 @@ public class ApiDialog extends BaseDialog {
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
        
-        
+      
         
         //内置网络接口在此处添加   
         inputApiName = findViewById(R.id.inputApiName);
@@ -98,11 +98,11 @@ public class ApiDialog extends BaseDialog {
                 String newApi = inputApi.getText().toString().trim();
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
-                if (!newApi.isEmpty()) {   
-                newApi = newApiName;            
+                if (!newApiName.isEmpty()) {   
+                newApiName = newApi;            
             ApiModel apiModel = new ApiModel();
-            apiModel.setUrl(newApiName);
-            apiModel.setName(newApi);
+            apiModel.setUrl(newApi);
+            apiModel.setName(newApiName);
             //SourceUtil.setCurrentApi(apiModel);
             //SourceUtil.addHistory(apiModel);
            listener.onchange(newApiName);
