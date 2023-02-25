@@ -9,6 +9,8 @@ public class HawkConfig {
 
     public static final String HOME_SHOW_SOURCE = "show_source";
     public static final String API_URL = "api_url";
+    public static final String API_NAME = "api_name";
+    
     public static final String EPG_URL = "epg_url";
     public static final String LIVE_URL = "live_url";
     public static final String SHOW_PREVIEW = "show_preview";
