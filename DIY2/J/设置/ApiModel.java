@@ -27,5 +27,4 @@ public class ApiModel implements Serializable {
     public void setUrl(String str) {
         this.url = str;
     }
-   
 }
