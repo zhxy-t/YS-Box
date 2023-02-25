@@ -33,7 +33,6 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 
 import com.github.tvbox.osc.bean.ApiModel;
-import com.github.tvbox.osc.event.RefreshEvent;
 
 /**
  * 描述
@@ -55,7 +54,7 @@ public class ApiDialog extends BaseDialog {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
             inputApi.setText((String) event.obj);
             
-            ApiModel apiModel = (ApiModel) refreshEvent.obj;
+            ApiModel apiModel = (ApiModel) event.obj;
             this.inputApiName.setText(apiModel.getName());
             this.inputApi.setText(apiModel.getUrl());
             
