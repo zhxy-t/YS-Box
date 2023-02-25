@@ -108,9 +108,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
    // @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         
-        if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
-            inputApi.setText((String) event.obj);
-        }
+        //if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
+            //inputApi.setText((String) event.obj);
+       // }
          if (event.type == RefreshEvent.TYPE_API_NAME_CHANGE) {
            inputApiName.setText((String) event.obj);
         }
