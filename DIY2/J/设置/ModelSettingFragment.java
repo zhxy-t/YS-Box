@@ -104,7 +104,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
     private EditText inputLive;
     private EditText inputEPG;
-    private EditText inputApiName;
+   // private EditText inputApiName;
    // @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         
@@ -144,8 +144,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
         inputLive = findViewById(R.id.input_live);
         inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
         
-        inputApiName = findViewById(R.id.inputApiName);
-        inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+        //inputApiName = findViewById(R.id.inputApiName);
+        //inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
         
         
         
