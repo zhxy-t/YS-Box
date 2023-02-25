@@ -56,7 +56,7 @@ public class ApiDialog extends BaseDialog {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
             //inputApi.setText((String) event.obj);
             
-            inputApiName.setText((String) event.obj);
+            //inputApiName.setText((String) event.obj);
             ApiModel apiModel = (ApiModel) event.obj;
             inputApiName.setText(apiModel.getName());
             inputApi.setText(apiModel.getUrl());
@@ -101,8 +101,8 @@ public class ApiDialog extends BaseDialog {
                 if (!newApi.isEmpty()) {   
                 newApiName = newApi;            
             ApiModel apiModel = new ApiModel();
-            apiModel.setUrl(newApi);
-            apiModel.setName(newApiName);
+            apiModel.setUrl(newApiName);
+            apiModel.setName(newApi);
             //SourceUtil.setCurrentApi(apiModel);
             //SourceUtil.addHistory(apiModel);
            listener.onchange(newApiName);
