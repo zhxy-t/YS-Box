@@ -104,13 +104,17 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
     private EditText inputLive;
     private EditText inputEPG;
-   
+    private EditText inputApiName;
    // @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         
-        //if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
-          //  inputApi.setText((String) event.obj);
-       // }
+        if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
+            inputApi.setText((String) event.obj);
+        }
+         if (event.type == RefreshEvent.TYPE_API_NAME_CHANGE) {
+           inputApiName.setText((String) event.obj);
+        }
+        
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
             inputLive.setText((String) event.obj);
         }
@@ -139,6 +143,11 @@ public class ModelSettingFragment extends BaseLazyFragment {
         
         inputLive = findViewById(R.id.input_live);
         inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
+        
+        inputApiName = findViewById(R.id.inputApiName);
+        inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+        
+        
         
      tvHomeShow = findViewById(R.id.tvHomeShow);
        tvHomeShow.setText(Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false) ? "开启" : "关闭");
