@@ -46,7 +46,7 @@ public class ApiDialog extends BaseDialog {
     private final ImageView ivQRCode;
     private final TextView tvAddress;
     private final EditText inputApi;
-    OnListener listener = null;
+   
 //taka epg 直播地址
    private final EditText inputLive;
     private final EditText inputEPG;
