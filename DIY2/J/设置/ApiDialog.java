@@ -46,6 +46,7 @@ public class ApiDialog extends BaseDialog {
     private final ImageView ivQRCode;
     private final TextView tvAddress;
     private final EditText inputApi;
+    OnListener listener = null;
 //taka epg 直播地址
    private final EditText inputLive;
     private final EditText inputEPG;
@@ -98,8 +99,12 @@ public class ApiDialog extends BaseDialog {
                 String newApi = inputApi.getText().toString().trim();
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
-                if (!newApiName.isEmpty()) {   
-                newApiName = newApi;            
+                if (!newApi.isEmpty()) {
+                   if (newApiName.isEmpty()) {
+                newApiName = newApi;
+            }
+                    
+               
             ApiModel apiModel = new ApiModel();
             apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
