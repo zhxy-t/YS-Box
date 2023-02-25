@@ -111,9 +111,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
         //if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
             //inputApi.setText((String) event.obj);
        // }
-         if (event.type == RefreshEvent.TYPE_API_NAME_CHANGE) {
-           inputApiName.setText((String) event.obj);
-        }
+         //if (event.type == RefreshEvent.TYPE_API_NAME_CHANGE) {
+           //inputApiName.setText((String) event.obj);
+        //}
         
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
             inputLive.setText((String) event.obj);
