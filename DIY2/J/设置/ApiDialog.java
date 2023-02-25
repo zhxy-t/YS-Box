@@ -54,11 +54,12 @@ public class ApiDialog extends BaseDialog {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
-           // inputApi.setText((String) event.obj);
+            inputApi.setText((String) event.obj);
             
-            ApiModel apiModel = (ApiModel) event.obj;
-            this.inputApiName.setText(apiModel.getName());
-            this.inputApi.setText(apiModel.getUrl());
+            inputApiName.setText((String) event.obj);
+            //ApiModel apiModel = (ApiModel) event.obj;
+            inputApiName.setText(apiModel.getName());
+            inputApi.setText(apiModel.getUrl());
             
         }
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
@@ -98,7 +99,7 @@ public class ApiDialog extends BaseDialog {
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
                 if (!newApi.isEmpty()) {   
-                //newApi = newApiName;            
+                newApiName = newApi;            
             ApiModel apiModel = new ApiModel();
             apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
