@@ -32,7 +32,9 @@ import java.util.List;
 import me.jessyan.autosize.utils.AutoSizeUtils;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 
+
 import com.github.tvbox.osc.bean.ApiModel;
+import com.github.tvbox.osc.util.SourceUtil;
 
 /**
  * 描述
@@ -70,7 +72,7 @@ public class ApiDialog extends BaseDialog {
     public ApiDialog(@NonNull @NotNull Context context) {
         super(context);
         setContentView(R.layout.dialog_api);
-        setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(true);
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
        
@@ -102,9 +104,9 @@ public class ApiDialog extends BaseDialog {
             apiModel.setName(newApi);
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
-            this.this$0.listener.onchange(newApiName);
-            this.this$0.dismiss();
-                    
+            this.listener.onchange(newApiName);
+            this.dismiss();
+                
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(newApi))
                         history.add(0, newApi);
