@@ -52,7 +52,7 @@ public class ApiDialog extends BaseDialog {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
-            inputApi.setText((String) event.obj);
+           // inputApi.setText((String) event.obj);
             
             ApiModel apiModel = (ApiModel) event.obj;
             this.inputApiName.setText(apiModel.getName());
