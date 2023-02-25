@@ -98,7 +98,7 @@ public class ApiDialog extends BaseDialog {
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
                 if (!newApi.isEmpty()) {   
-                newApi = newApiName;            
+                //newApi = newApiName;            
             ApiModel apiModel = new ApiModel();
             apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
