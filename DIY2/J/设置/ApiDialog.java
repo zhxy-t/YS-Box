@@ -95,13 +95,13 @@ public class ApiDialog extends BaseDialog {
             public void onClick(View v) {
                 String newApiName = inputApiName.getText().toString().trim();
                 String newApi = inputApi.getText().toString().trim();
-                 String newLive = inputLive.getText().toString().trim();
+                String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
                 if (!newApi.isEmpty()) {   
                 newApi = newApiName;            
             ApiModel apiModel = new ApiModel();
-            apiModel.setUrl(newApiName);
-            apiModel.setName(newApi);
+            apiModel.setUrl(newApi);
+            apiModel.setName(newApiName);
             //SourceUtil.setCurrentApi(apiModel);
             //SourceUtil.addHistory(apiModel);
             //this.listener.onchange(newApiName);
