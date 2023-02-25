@@ -83,7 +83,7 @@ public class ApiDialog extends BaseDialog {
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputApiName = inputApiName.getText().toString().trim();
+                //String newApiName = inputApiName.getText().toString().trim();
                 String newApi = inputApi.getText().toString().trim();
                  String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
