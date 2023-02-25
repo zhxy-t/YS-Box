@@ -110,8 +110,8 @@ public class ApiDialog extends BaseDialog {
             apiModel.setName(newApiName);
             //SourceUtil.setCurrentApi(apiModel);
             //SourceUtil.addHistory(apiModel);
-           this.listener.onchange(newApi);
-            this.dismiss();
+           listener.onchange(newApi);
+           dismiss();
                 
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(newApi))
