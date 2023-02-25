@@ -91,11 +91,21 @@ public class ApiDialog extends BaseDialog {
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String newApiName = inputApiName.getText().toString().trim();
+                String newApiName = inputApiName.getText().toString().trim();
                 String newApi = inputApi.getText().toString().trim();
                  String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
-                if (!newApi.isEmpty()) {
+                if (!newApi.isEmpty()) {   
+                newApi = newApiName;
+            }
+            ApiModel apiModel = new ApiModel();
+            apiModel.setUrl(newApiName);
+            apiModel.setName(newApi);
+            SourceUtil.setCurrentApi(apiModel);
+            SourceUtil.addHistory(apiModel);
+            this.this$0.listener.onchange(newApiName);
+            this.this$0.dismiss();
+                    
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(newApi))
                         history.add(0, newApi);
