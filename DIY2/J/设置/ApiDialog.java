@@ -79,6 +79,10 @@ public class ApiDialog extends BaseDialog {
         tvAddress = findViewById(R.id.tvAddress);
        
       
+        this.inputApi = editText;
+        String str = "";
+        editText.setText((CharSequence) Hawk.get("api_url", str));
+        editText = (EditText) findViewById(R.id.input);
         
         //内置网络接口在此处添加   
         inputApiName = findViewById(R.id.inputApiName);
@@ -94,14 +98,24 @@ public class ApiDialog extends BaseDialog {
         
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String newApiName = inputApiName.getText().toString().trim();
+            public void onClick(View v) {              
                 String newApi = inputApi.getText().toString().trim();
+                String newApiName = inputApiName.getText().toString().trim();
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
+                  String str = "file://";
+                    String str2 = "clan://localhost/";
+        if (trim.startsWith(str)) {
+            trim = trim.replace(str, str2);
+        } else {
+            str = "./";
+            if (trim.startsWith(str)) {
+                trim = trim.replace(str, str2);
+            }
+        }
                 if (!newApi.isEmpty()) {
                    if (!newApiName.isEmpty()) {
-                newApiName = "sad s ";
+                newApiName = newApi;
             }
                     
          
@@ -118,7 +132,7 @@ public class ApiDialog extends BaseDialog {
                     if (history.size() > 30)
                         history.remove(30);
                     Hawk.put(HawkConfig.API_HISTORY, history);
-                    listener.onchange(newApiName);
+                    listener.onchange(newApi);
                     dismiss();
                 }
   // Capture Live input into Settings & Live History (max 20)
