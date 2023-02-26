@@ -78,15 +78,15 @@ public class ApiDialog extends BaseDialog {
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
         
-        inputApi = editText;
+        this.inputApi = editText;
         String str = "";
         EditText editText = (EditText) findViewById(R.id.input);
         editText.setText((CharSequence) Hawk.get("api_url", str));
 
-        
-        inputApiName = editText;
-        EditText editText = (EditText) findViewById(R.id.inputApiName);
+        this.inputApiName = editText;
+        editText = (EditText) findViewById(R.id.inputApiName);     
         editText.setText((CharSequence) Hawk.get("api_name", str));
+        
 
         
         //内置网络接口在此处添加   
