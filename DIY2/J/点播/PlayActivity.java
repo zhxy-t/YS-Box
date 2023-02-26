@@ -1007,11 +1007,11 @@ public class PlayActivity extends BaseActivity {
         if (vs.url.startsWith(str2)) {
             str = "tvbox-xg://";
             if (vs.url.startsWith(str)) {
-                vs.url = vodSeries.url.replace(str, str2);
+                vs.url = vs.url.replace(str, str2);
             }
-            if (!TextUtils.isEmpty(vodSeries.url.substring(9))) {
+            if (!TextUtils.isEmpty(vs.url.substring(9))) {
                 this.mController.showParse(false);
-                playUrl(jianpian.JPUrlDec(vodSeries.url.substring(9)), null);
+                playUrl(jianpian.JPUrlDec(vs.url.substring(9)), null);
                 return;
             }
         }
@@ -1156,7 +1156,7 @@ public class PlayActivity extends BaseActivity {
                     JSONObject jsonObject = new JSONObject(pb.getExt());
                     if (jsonObject.has("header")) {
                         JSONObject headerJson = jsonObject.optJSONObject("header");
-                        Iterator<String> keys = headerJson.keys();
+                        //Iterator<String> keys = headerJson.keys();
                         while (keys.hasNext()) {
                             String key = keys.next();
                             if (key.equalsIgnoreCase("user-agent")) {
@@ -1180,7 +1180,7 @@ public class PlayActivity extends BaseActivity {
                 JSONObject jsonObject = new JSONObject(pb.getExt());
                 if (jsonObject.has("header")) {
                     JSONObject headerJson = jsonObject.optJSONObject("header");
-                    Iterator<String> keys = headerJson.keys();
+                    //Iterator<String> keys = headerJson.keys();
                     while (keys.hasNext()) {
                         String key = keys.next();
                         reqHeaders.put(key, headerJson.optString(key, ""));
