@@ -975,7 +975,7 @@ public class PlayActivity extends BaseActivity {
         }
         
        String str = "tvbox-drive://";
-     
+       String str2 = "tvbox-xg:";
         HashMap hashMap = null;
         if (vs.url.startsWith(str)) {
             this.mController.showParse(false);
@@ -995,7 +995,7 @@ public class PlayActivity extends BaseActivity {
             return;
         }
    
-       String str2 = "tvbox-xg:";
+       
         if (vs.url.startsWith(str2)) {
             str = "tvbox-xg://";
             if (vs.url.startsWith(str)) {
@@ -1127,11 +1127,11 @@ public class PlayActivity extends BaseActivity {
     private void doParse(ParseBean pb) {
 
         stopParse();
-        String str = "header";
-        String str2 = "";
+       // String str = "header";
+       // String str2 = "";
         JSONObject jSONObject;
         JSONObject optJSONObject;
-        Iterator keys;
+       // Iterator keys;
         String str3;
         initParseLoadFound();
         if (pb.getType() == 0) {
