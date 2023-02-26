@@ -101,7 +101,7 @@ public class ApiDialog extends BaseDialog {
                 String newEPG = inputEPG.getText().toString().trim();
                 if (!newApi.isEmpty()) {
                    if (!newApiName.isEmpty()) {
-                newApiName = newApi;
+                newApiName = "sad s ";
             }
                     
          
@@ -118,7 +118,7 @@ public class ApiDialog extends BaseDialog {
                     if (history.size() > 30)
                         history.remove(30);
                     Hawk.put(HawkConfig.API_HISTORY, history);
-                    listener.onchange(newApi);
+                    listener.onchange(newApiName);
                     dismiss();
                 }
   // Capture Live input into Settings & Live History (max 20)
