@@ -80,7 +80,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import org.xwalk.core.XWalkJavascriptResult;
 import org.xwalk.core.XWalkResourceClient;
 import org.xwalk.core.XWalkSettings;
@@ -110,12 +109,6 @@ import xyz.doikki.videoplayer.player.ProgressManager;
 
 //taka
 import android.net.Uri;
-
-import com.github.tvbox.osc.util.js.jianpian;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.github.tvbox.osc.bean.VodSeries;
 
 public class PlayActivity extends BaseActivity {
     private MyVideoView mVideoView;
@@ -979,46 +972,6 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(progressKey), 0);
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
-        
-        
-        
-        String str = "tvbox-drive://";
-        HashMap hashMap = null;
-        /*
-        if (VodInfo.VodSeries.url.startsWith(str)) {
-            this.mController.showParse(false);
-            if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
-                JsonObject asJsonObject = JsonParser.parseString(this.mVodInfo.playerCfg).getAsJsonObject();
-                String str3 = "headers";
-                if (asJsonObject.has(str3)) {
-                    hashMap = new HashMap();
-                    Iterator it = asJsonObject.getAsJsonArray(str3).iterator();
-                    while (it.hasNext()) {
-                        JsonObject asJsonObject2 = ((JsonElement) it.next()).getAsJsonObject();
-                        hashMap.put(asJsonObject2.get("name").getAsString(), asJsonObject2.get("value").getAsString());
-                    }
-                }
-            }
-            playUrl(vodSeries.url.replace(str, str2), hashMap);
-            return;
-        }
-        
-       String str2 = "tvbox-xg:";
-        if (vs.url.startsWith(str2)) {
-            str = "tvbox-xg://";
-            if (vs.url.startsWith(str)) {
-                vs.url = vs.url.replace(str, str2);
-            }
-            if (!TextUtils.isEmpty(vs.url.substring(9))) {
-                this.mController.showParse(false);
-                playUrl(jianpian.JPUrlDec(vs.url.substring(9)), null);
-                return;
-            }
-        }
-        
-  
-    */
-        
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
             @Override
             public void status(int code, String info) {
@@ -1137,13 +1090,6 @@ public class PlayActivity extends BaseActivity {
 
     private void doParse(ParseBean pb) {
         stopParse();
-        String str = "header";
-        String str2 = "";
-        //JSONObject jSONObject;
-        //JSONObject optJSONObject;
-        Iterator keys;
-        String str3;
-        
         initParseLoadFound();
         if (pb.getType() == 0) {
             setTip("", true, false);
