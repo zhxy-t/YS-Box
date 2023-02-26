@@ -98,22 +98,20 @@ public class ApiDialog extends BaseDialog {
         
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {              
+            public void onClick(View view) {
+                ArrayList arrayList;
                 String newApi = inputApi.getText().toString().trim();
                 String newApiName = inputApiName.getText().toString().trim();
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
 
                 if (!newApi.isEmpty()) {
-                   if (!newApiName.isEmpty()) {
+                    if (!newApiName.isEmpty()) {
                 newApiName = newApi;
             }
-                    
-         
+  
             ApiModel apiModel = new ApiModel();
-   
- 
-             apiModel.setUrl("");
+             apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
                  
 
