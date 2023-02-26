@@ -115,7 +115,7 @@ import com.github.tvbox.osc.util.js.jianpian;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.github.tvbox.osc.bean.VodInfo.VodSeries;
+import com.github.tvbox.osc.bean.VodSeries;
 
 public class PlayActivity extends BaseActivity {
     private MyVideoView mVideoView;
@@ -982,7 +982,7 @@ public class PlayActivity extends BaseActivity {
         
         String str = "tvbox-drive://";
         HashMap hashMap = null;
-        if (vodSeries.url.startsWith(str)) {
+        if (VodInfo.VodSeries.url.startsWith(str)) {
             this.mController.showParse(false);
             if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
                 JsonObject asJsonObject = JsonParser.parseString(this.mVodInfo.playerCfg).getAsJsonObject();
@@ -1134,8 +1134,8 @@ public class PlayActivity extends BaseActivity {
         stopParse();
         String str = "header";
         String str2 = "";
-        JSONObject jSONObject;
-        JSONObject optJSONObject;
+        //JSONObject jSONObject;
+        //JSONObject optJSONObject;
         Iterator keys;
         String str3;
         
