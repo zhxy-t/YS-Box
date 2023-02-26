@@ -980,8 +980,11 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
         
+        
+        
         String str = "tvbox-drive://";
         HashMap hashMap = null;
+        /*
         if (VodInfo.VodSeries.url.startsWith(str)) {
             this.mController.showParse(false);
             if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
@@ -999,6 +1002,7 @@ public class PlayActivity extends BaseActivity {
             playUrl(vodSeries.url.replace(str, str2), hashMap);
             return;
         }
+        */
        String str2 = "tvbox-xg:";
         if (vodSeries.url.startsWith(str2)) {
             str = "tvbox-xg://";
@@ -1012,6 +1016,7 @@ public class PlayActivity extends BaseActivity {
             }
         }
         
+  
     
         
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
