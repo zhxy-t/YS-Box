@@ -77,16 +77,21 @@ public class ApiDialog extends BaseDialog {
         setCanceledOnTouchOutside(true);
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
-        EditText editText = (EditText) findViewById(R.id.input);
-      
-       inputApi = editText;
+        
+        inputApi = editText;
         String str = "";
+        EditText editText = (EditText) findViewById(R.id.input);
         editText.setText((CharSequence) Hawk.get("api_url", str));
-        editText = (EditText) findViewById(R.id.input);
+
+        
+        inputApiName = editText;
+        EditText editText = (EditText) findViewById(R.id.inputApiName);
+        editText.setText((CharSequence) Hawk.get("api_name", str));
+
         
         //内置网络接口在此处添加   
-        inputApiName = findViewById(R.id.inputApiName);
-        inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+        //inputApiName = findViewById(R.id.inputApiName);
+        //inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
         
         //inputApi = findViewById(R.id.input);
         //inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
