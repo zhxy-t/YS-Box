@@ -111,9 +111,9 @@ public class ApiDialog extends BaseDialog {
                     
          
             ApiModel apiModel = new ApiModel();
-             String str = "";       
-             String apiName = getApiName(str);
-             apiModel.setUrl(str);
+   
+ 
+             apiModel.setUrl("");
             apiModel.setName(newApiName);
                  
 
