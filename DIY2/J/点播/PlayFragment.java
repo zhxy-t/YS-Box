@@ -113,6 +113,11 @@ import android.content.Intent;
 import android.net.Uri;
 import com.github.tvbox.osc.ui.activity.DetailActivity;
 
+import com.github.tvbox.osc.util.js.jianpian;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 public class PlayFragment extends BaseLazyFragment {
     private MyVideoView mVideoView;
     private TextView mPlayLoadTip;
@@ -870,6 +875,42 @@ private String videoURL;
             CacheManager.delete(MD5.string2MD5(progressKey), 0);
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
+        
+               String str = "tvbox-drive://";
+       String str2 = "tvbox-xg:";
+        HashMap hashMap = null;
+        if (vs.url.startsWith(str)) {
+            this.mController.showParse(false);
+            if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
+                JsonObject asJsonObject = JsonParser.parseString(this.mVodInfo.playerCfg).getAsJsonObject();
+                String str3 = "headers";
+                if (asJsonObject.has(str3)) {
+                    hashMap = new HashMap();
+                    Iterator it = asJsonObject.getAsJsonArray(str3).iterator();
+                    while (it.hasNext()) {
+                        JsonObject asJsonObject2 = ((JsonElement) it.next()).getAsJsonObject();
+                        hashMap.put(asJsonObject2.get("name").getAsString(), asJsonObject2.get("value").getAsString());
+                    }
+                }
+            }
+            playUrl(vs.url.replace(str, str2), hashMap);
+            return;
+        }
+   
+       
+        if (vs.url.startsWith(str2)) {
+            str = "tvbox-xg://";
+            if (vs.url.startsWith(str)) {
+                vs.url = vs.url.replace(str, str2);
+            }
+            if (!TextUtils.isEmpty(vs.url.substring(9))) {
+                this.mController.showParse(false);
+                playUrl(jianpian.JPUrlDec(vs.url.substring(9)), null);
+                return;
+            }
+        }
+        
+        
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
             @Override
             public void status(int code, String info) {
@@ -981,6 +1022,9 @@ private String videoURL;
 
     private void doParse(ParseBean pb) {
         stopParse();
+        JSONObject jSONObject;
+        JSONObject optJSONObject;
+        
         initParseLoadFound();
         if (pb.getType() == 0) {
             setTip("", true, false);
