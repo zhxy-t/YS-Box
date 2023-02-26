@@ -77,7 +77,7 @@ public class ApiDialog extends BaseDialog {
         setCanceledOnTouchOutside(true);
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
-       
+        EditText editText = (EditText) findViewById(R.id.input);
       
         this.inputApi = editText;
         String str = "";
@@ -105,12 +105,12 @@ public class ApiDialog extends BaseDialog {
                 String newEPG = inputEPG.getText().toString().trim();
                   String str = "file://";
                     String str2 = "clan://localhost/";
-        if (trim.startsWith(str)) {
-            trim = trim.replace(str, str2);
+        if (newApi.startsWith(str)) {
+            newApi = trim.replace(str, str2);
         } else {
             str = "./";
-            if (trim.startsWith(str)) {
-                trim = trim.replace(str, str2);
+            if (newApi.startsWith(str)) {
+                newApi = trim.replace(str, str2);
             }
         }
                 if (!newApi.isEmpty()) {
