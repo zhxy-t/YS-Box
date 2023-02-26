@@ -1010,11 +1010,11 @@ public class PlayActivity extends BaseActivity {
                 return;
             }
         }
-        
+       String str2 = "data";
+        String str3 = "url";
         JSONObject jsonParse(String str, String str2) throws JSONException {
         JSONObject jSONObject = new JSONObject(str2);
-        String str2 = "data";
-        String str3 = "url";
+
         String str2 = jSONObject.has(str2) ? jSONObject.getJSONObject(str2).getString(str3) : jSONObject.getString(str3);
         String str4 = "";
         jSONObject.optString("msg", str4);
