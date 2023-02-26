@@ -1021,6 +1021,46 @@ public class PlayActivity extends BaseActivity {
                 }
             }
 
+               JSONObject jsonParse(String str, String str2) throws JSONException {
+        JSONObject jSONObject = new JSONObject(str2);
+        str2 = "data";
+        String str3 = "url";
+        str2 = jSONObject.has(str2) ? jSONObject.getJSONObject(str2).getString(str3) : jSONObject.getString(str3);
+        String str4 = "";
+        jSONObject.optString("msg", str4);
+        if (str2.startsWith("//")) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("https:");
+            stringBuilder.append(str2);
+            str2 = stringBuilder.toString();
+        }
+        if (!str2.startsWith("http")) {
+            return null;
+        }
+        JSONObject jSONObject2 = new JSONObject();
+        String optString = jSONObject.optString("user-agent", str4);
+        String str5 = " ";
+        if (optString.trim().length() > 0) {
+            StringBuilder stringBuilder2 = new StringBuilder();
+            stringBuilder2.append(str5);
+            stringBuilder2.append(optString);
+            jSONObject2.put("User-Agent", stringBuilder2.toString());
+        }
+        str = jSONObject.optString("referer", str4);
+        if (str.trim().length() > 0) {
+            StringBuilder stringBuilder3 = new StringBuilder();
+            stringBuilder3.append(str5);
+            stringBuilder3.append(str);
+            jSONObject2.put("Referer", stringBuilder3.toString());
+        }
+        jSONObject = new JSONObject();
+        jSONObject.put("header", jSONObject2);
+        jSONObject.put(str3, str2);
+        return jSONObject;
+    }
+            
+            
+            
             @Override
             public void list(String playList) {
             }
