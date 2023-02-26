@@ -79,7 +79,7 @@ public class ApiDialog extends BaseDialog {
         tvAddress = findViewById(R.id.tvAddress);
         EditText editText = (EditText) findViewById(R.id.input);
       
-        this.inputApi = editText;
+       inputApi = editText;
         String str = "";
         editText.setText((CharSequence) Hawk.get("api_url", str));
         editText = (EditText) findViewById(R.id.input);
@@ -87,8 +87,9 @@ public class ApiDialog extends BaseDialog {
         //内置网络接口在此处添加   
         inputApiName = findViewById(R.id.inputApiName);
         inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
-        inputApi = findViewById(R.id.input);
-        inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
+        
+        //inputApi = findViewById(R.id.input);
+        //inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
         // takagen99: Add Live & EPG Address
         inputLive = findViewById(R.id.input_live);
         inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
@@ -103,16 +104,7 @@ public class ApiDialog extends BaseDialog {
                 String newApiName = inputApiName.getText().toString().trim();
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
-                  String str = "file://";
-                    String str2 = "clan://localhost/";
-        if (newApi.startsWith(str)) {
-            newApi = trim.replace(str, str2);
-        } else {
-            str = "./";
-            if (newApi.startsWith(str)) {
-                newApi = trim.replace(str, str2);
-            }
-        }
+
                 if (!newApi.isEmpty()) {
                    if (!newApiName.isEmpty()) {
                 newApiName = newApi;
