@@ -110,6 +110,8 @@ import xyz.doikki.videoplayer.player.ProgressManager;
 //taka
 import android.net.Uri;
 
+import com.github.tvbox.osc.util.js.jianpian;
+
 public class PlayActivity extends BaseActivity {
     private MyVideoView mVideoView;
     private TextView mPlayLoadTip;
@@ -973,23 +975,23 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
         
-         str = "tvbox-drive://";
+         //str = "tvbox-drive://";
         HashMap hashMap = null;
-        if (vodSeries.url.startsWith(str)) {
+        if (vodSeries.url.startsWith("tvbox-drive://")) {
             this.mController.showParse(false);
             if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
                 JsonObject asJsonObject = JsonParser.parseString(this.mVodInfo.playerCfg).getAsJsonObject();
                 String str3 = "headers";
-                if (asJsonObject.has(str3)) {
+                if (asJsonObject.has("headers")) {
                     hashMap = new HashMap();
-                    Iterator it = asJsonObject.getAsJsonArray(str3).iterator();
+                    Iterator it = asJsonObject.getAsJsonArray("headers").iterator();
                     while (it.hasNext()) {
                         JsonObject asJsonObject2 = ((JsonElement) it.next()).getAsJsonObject();
                         hashMap.put(asJsonObject2.get("name").getAsString(), asJsonObject2.get("value").getAsString());
                     }
                 }
             }
-            playUrl(vodSeries.url.replace(str, str2), hashMap);
+            playUrl(vodSeries.url.replace("tvbox-drive://", "tvbox-xg:"), hashMap);
             return;
         }
         str2 = "tvbox-xg:";
