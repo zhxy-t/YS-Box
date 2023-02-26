@@ -115,7 +115,7 @@ import com.github.tvbox.osc.util.js.jianpian;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
+import com.github.tvbox.osc.bean.VodSeries;
 
 public class PlayActivity extends BaseActivity {
     private MyVideoView mVideoView;
