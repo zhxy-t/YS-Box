@@ -80,7 +80,7 @@ public class ApiDialog extends BaseDialog {
         
         this.inputApi = editText;
         String str = "";
-        EditText editText = (EditText) findViewById(R.id.input);
+        editText = (EditText) findViewById(R.id.input);
         editText.setText((CharSequence) Hawk.get("api_url", str));
 
         this.inputApiName = editText;
