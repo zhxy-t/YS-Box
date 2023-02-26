@@ -54,8 +54,11 @@ public class SourceUtil {
 
     public static ApiModel setCurrentApi(String str) {
         String apiName = getApiName(str);
-        Hawk.put("api_name", apiName);
-        Hawk.put("api_url", str);
+
+        Hawk.put(HawkConfig.API_NAME, api_name);
+        Hawk.put(HawkConfig.API_URL, api_url);
+        
+
         ApiModel apiModel = new ApiModel();
         apiModel.setUrl(str);
         apiModel.setName(apiName);
@@ -130,8 +133,10 @@ public class SourceUtil {
 
     public static void clearCurrentApi() {
         String str = "";
-        Hawk.put("api_name", str);
-        Hawk.put("api_url", str);
+        //Hawk.put("api_name", str);
+        //Hawk.put("api_url", str);
+        Hawk.put(HawkConfig.API_NAME, str);
+        Hawk.put(HawkConfig.API_URL, str);
     }
 
     public static String getApiName(String str) {
