@@ -975,9 +975,9 @@ public class PlayActivity extends BaseActivity {
         }
         
        String str = "tvbox-drive://";
-        /*
+     
         HashMap hashMap = null;
-        if (vodSeries.url.startsWith(str)) {
+        if (vs.url.startsWith(str)) {
             this.mController.showParse(false);
             if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
                 JsonObject asJsonObject = JsonParser.parseString(this.mVodInfo.playerCfg).getAsJsonObject();
@@ -991,10 +991,10 @@ public class PlayActivity extends BaseActivity {
                     }
                 }
             }
-            playUrl(vodSeries.url.replace(str, str2), hashMap);
+            playUrl(vs.url.replace(str, str2), hashMap);
             return;
         }
-        */
+   
        String str2 = "tvbox-xg:";
         if (vs.url.startsWith(str2)) {
             str = "tvbox-xg://";
