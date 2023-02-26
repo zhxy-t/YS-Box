@@ -974,7 +974,7 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(progressKey), 0);
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
-        
+        /*
          //str = "tvbox-drive://";
         HashMap hashMap = null;
         if (vodSeries.url.startsWith("tvbox-drive://")) {
@@ -1006,6 +1006,7 @@ public class PlayActivity extends BaseActivity {
                 return;
             }
         }
+        */
         
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
             @Override
