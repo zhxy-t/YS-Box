@@ -38,7 +38,7 @@ public class SourceUtil {
         Iterator it = ((JsonObject) new Gson().fromJson(str, JsonObject.class)).getAsJsonArray("storeHouse").iterator();
         while (it.hasNext()) {
             JsonObject jsonObject = (JsonObject) ((JsonElement) it.next());
-            httpGet(jsonObject.get("sourceUrl").getAsString().trim(), new 4(jsonObject, callback));
+            //httpGet(jsonObject.get("sourceUrl").getAsString().trim(), new 4(jsonObject, callback));
         }
     }
 
@@ -71,10 +71,11 @@ public class SourceUtil {
         return history;
     }
 
+    /*
     public static void httpGet(String str, Callback<String> callback) {
         ((GetRequest) ((GetRequest) ((GetRequest) JsonObject.get(str).headers("User-Agent", userAgent)).headers("Accept", requestAccept)).cacheMode(CacheMode.NO_CACHE)).execute(new 1(callback));
     }
-
+*/
     public static Integer indexOf(String str) {
         for (int i = 0; i < history.size(); i++) {
             if (StringUtils.equals(((ApiModel) history.get(i)).getUrl(), str)) {
@@ -143,11 +144,11 @@ public class SourceUtil {
         Hawk.put("api_url", apiModel.getUrl());
         return apiModel;
     }
-
+/*
     public static void addSource(String str, Callback<String> callback) {
         httpGet(str, new 2(callback));
     }
-
+*/
     public static List<ApiModel> getHistory() {
         return history;
     }
@@ -159,8 +160,9 @@ public class SourceUtil {
     public static List<ApiModel> getHistoryFromDB(List<ApiModel> list) {
         return (List) Hawk.get("api_history", list);
     }
-
+/*
     public static void replaceAllSource(String str, Callback<String> callback) {
         httpGet(str, new 3(callback));
     }
+    */
 }
