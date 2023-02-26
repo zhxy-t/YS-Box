@@ -107,6 +107,7 @@ import tv.danmaku.ijk.media.player.IjkTimedText;
 import xyz.doikki.videoplayer.player.AbstractPlayer;
 import xyz.doikki.videoplayer.player.ProgressManager;
 
+import com.github.tvbox.osc.util.js.jianpian;
 //taka
 import android.net.Uri;
 
@@ -973,7 +974,7 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
         
-        str = "tvbox-drive://";
+       String str = "tvbox-drive://";
         /*
         HashMap hashMap = null;
         if (vodSeries.url.startsWith(str)) {
@@ -994,13 +995,13 @@ public class PlayActivity extends BaseActivity {
             return;
         }
         */
-        str2 = "tvbox-xg:";
+       String str2 = "tvbox-xg:";
         if (vs.url.startsWith(str2)) {
             str = "tvbox-xg://";
             if (vs.url.startsWith(str)) {
                 vs.url = vs.url.replace(str, str2);
             }
-            if (!TextUtils.isEmpty(vodSeries.url.substring(9))) {
+            if (!TextUtils.isEmpty(vs.url.substring(9))) {
                 this.mController.showParse(false);
                 playUrl(jianpian.JPUrlDec(vs.url.substring(9)), null);
                 return;
