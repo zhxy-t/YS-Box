@@ -77,24 +77,18 @@ public class ApiDialog extends BaseDialog {
         setCanceledOnTouchOutside(true);
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
-        
-        this.inputApi = editText;
-        String str = "";
-        editText = (EditText) findViewById(R.id.input);
-        editText.setText((CharSequence) Hawk.get("api_url", str));
-
-        this.inputApiName = editText;
-        editText = (EditText) findViewById(R.id.inputApiName);     
-        editText.setText((CharSequence) Hawk.get("api_name", str));
+ 
         
 
         
         //内置网络接口在此处添加   
-        //inputApiName = findViewById(R.id.inputApiName);
-        //inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+
         
-        //inputApi = findViewById(R.id.input);
-        //inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
+        inputApi = findViewById(R.id.input);
+        inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
+        
+        inputApiName = findViewById(R.id.inputApiName);
+        inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
         // takagen99: Add Live & EPG Address
         inputLive = findViewById(R.id.input_live);
         inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
@@ -117,8 +111,8 @@ public class ApiDialog extends BaseDialog {
                     
          
             ApiModel apiModel = new ApiModel();
-            apiModel.setUrl(newApi);
-            apiModel.setName(newApiName);
+            //apiModel.setUrl(newApi);
+            //apiModel.setName(newApiName);
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
 
