@@ -101,12 +101,12 @@ public class ApiDialog extends BaseDialog {
                 String newEPG = inputEPG.getText().toString().trim();
                 if (!newApi.isEmpty()) {
                    if (!newApiName.isEmpty()) {
-                newApi = newApiName;
+                newApiName = newApi;
             }
                     
                
             ApiModel apiModel = new ApiModel();
-            apiModel.setUrl(newApi);
+            apiModel.setUrl(newApiName);
             apiModel.setName(newApiName);
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
