@@ -979,7 +979,7 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
         
-        str = "tvbox-drive://";
+        String str = "tvbox-drive://";
         HashMap hashMap = null;
         if (vodSeries.url.startsWith(str)) {
             this.mController.showParse(false);
@@ -998,7 +998,7 @@ public class PlayActivity extends BaseActivity {
             playUrl(vodSeries.url.replace(str, str2), hashMap);
             return;
         }
-        str2 = "tvbox-xg:";
+       String str2 = "tvbox-xg:";
         if (vodSeries.url.startsWith(str2)) {
             str = "tvbox-xg://";
             if (vodSeries.url.startsWith(str)) {
