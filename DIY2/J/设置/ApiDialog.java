@@ -100,7 +100,7 @@ public class ApiDialog extends BaseDialog {
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
                 if (!newApi.isEmpty()) {
-                   if (newApiName.isEmpty()) {
+                   if (!newApiName.isEmpty()) {
                 newApiName = newApi;
             }
                     
@@ -110,7 +110,7 @@ public class ApiDialog extends BaseDialog {
             apiModel.setName(newApiName);
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
-           listener.onchange(newApi);
+           listener.onchange(newApiName);
            dismiss();
                 
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
