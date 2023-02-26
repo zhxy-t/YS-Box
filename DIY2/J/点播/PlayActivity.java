@@ -1125,7 +1125,14 @@ public class PlayActivity extends BaseActivity {
     }
 
     private void doParse(ParseBean pb) {
+
         stopParse();
+        String str = "header";
+        String str2 = "";
+        JSONObject jSONObject;
+        JSONObject optJSONObject;
+        Iterator keys;
+        String str3;
         initParseLoadFound();
         if (pb.getType() == 0) {
             setTip("", true, false);
