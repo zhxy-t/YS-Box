@@ -1156,7 +1156,7 @@ public class PlayActivity extends BaseActivity {
                     JSONObject jsonObject = new JSONObject(pb.getExt());
                     if (jsonObject.has("header")) {
                         JSONObject headerJson = jsonObject.optJSONObject("header");
-                        //Iterator<String> keys = headerJson.keys();
+                        Iterator<String> keys = headerJson.keys();
                         while (keys.hasNext()) {
                             String key = keys.next();
                             if (key.equalsIgnoreCase("user-agent")) {
@@ -1180,7 +1180,7 @@ public class PlayActivity extends BaseActivity {
                 JSONObject jsonObject = new JSONObject(pb.getExt());
                 if (jsonObject.has("header")) {
                     JSONObject headerJson = jsonObject.optJSONObject("header");
-                    //Iterator<String> keys = headerJson.keys();
+                    Iterator<String> keys = headerJson.keys();
                     while (keys.hasNext()) {
                         String key = keys.next();
                         reqHeaders.put(key, headerJson.optString(key, ""));
