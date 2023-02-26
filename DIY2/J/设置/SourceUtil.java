@@ -55,8 +55,8 @@ public class SourceUtil {
     public static ApiModel setCurrentApi(String str) {
         String apiName = getApiName(str);
 
-        Hawk.put(HawkConfig.API_NAME, api_name);
-        Hawk.put(HawkConfig.API_URL, api_url);
+        Hawk.put(HawkConfig.API_NAME, str);
+        Hawk.put(HawkConfig.API_URL, str);
         
 
         ApiModel apiModel = new ApiModel();
