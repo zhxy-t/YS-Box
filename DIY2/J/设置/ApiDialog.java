@@ -34,7 +34,7 @@ import com.github.tvbox.osc.ui.activity.HomeActivity;
 
 
 import com.github.tvbox.osc.bean.ApiModel;
-//import com.github.tvbox.osc.util.SourceUtil;
+import com.github.tvbox.osc.util.SourceUtil;
 
 /**
  * 描述
@@ -108,8 +108,8 @@ public class ApiDialog extends BaseDialog {
             ApiModel apiModel = new ApiModel();
             apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
-            //SourceUtil.setCurrentApi(apiModel);
-            //SourceUtil.addHistory(apiModel);
+            SourceUtil.setCurrentApi(apiModel);
+            SourceUtil.addHistory(apiModel);
            listener.onchange(newApi);
            dismiss();
                 
