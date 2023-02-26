@@ -111,12 +111,11 @@ public class ApiDialog extends BaseDialog {
                     
          
             ApiModel apiModel = new ApiModel();
-             //apiModel.setUrl(newApi);
-            //apiModel.setName(newApiName);
+             String apiName = getApiName(str);
+             apiModel.setUrl(str);
+            apiModel.setName(newApiName);
                  
-        String str = "";
-        apiModel.setUrl((String) Hawk.get("api_url", str));
-        apiModel.setName((String) Hawk.get("api_name", str));
+
             
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
