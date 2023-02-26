@@ -107,7 +107,7 @@ public class ApiDialog extends BaseDialog {
 
                 if (!newApi.isEmpty()) {
                     if (!newApiName.isEmpty()) {
-                newApiName = newApi;
+               String newApiName = newApi;
             }
   
             ApiModel apiModel = new ApiModel();
