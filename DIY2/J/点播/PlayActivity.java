@@ -1004,10 +1004,10 @@ public class PlayActivity extends BaseActivity {
         }
         */
        String str2 = "tvbox-xg:";
-        if (vodSeries.url.startsWith(str2)) {
+        if (vs.url.startsWith(str2)) {
             str = "tvbox-xg://";
-            if (vodSeries.url.startsWith(str)) {
-                vodSeries.url = vodSeries.url.replace(str, str2);
+            if (vs.url.startsWith(str)) {
+                vs.url = vodSeries.url.replace(str, str2);
             }
             if (!TextUtils.isEmpty(vodSeries.url.substring(9))) {
                 this.mController.showParse(false);
