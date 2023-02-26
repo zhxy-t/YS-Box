@@ -80,6 +80,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import org.xwalk.core.XWalkJavascriptResult;
 import org.xwalk.core.XWalkResourceClient;
 import org.xwalk.core.XWalkSettings;
@@ -111,6 +112,9 @@ import xyz.doikki.videoplayer.player.ProgressManager;
 import android.net.Uri;
 
 import com.github.tvbox.osc.util.js.jianpian;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 public class PlayActivity extends BaseActivity {
     private MyVideoView mVideoView;
