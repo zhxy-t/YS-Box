@@ -8,8 +8,8 @@ public class ApiModel implements Serializable {
 
     public ApiModel() {
         String str = "";
-        this.name = str;
-        this.url = str;
+        this.name = name;
+        this.url = url;
     }
 
     public String getName() {
@@ -21,10 +21,10 @@ public class ApiModel implements Serializable {
     }
 
     public void setName(String str) {
-        this.name = str;
+        this.name = name;
     }
 
     public void setUrl(String str) {
-        this.url = str;
+        this.url = url;
     }
 }
