@@ -59,8 +59,8 @@ public class ApiDialog extends BaseDialog {
             
             //inputApiName.setText((String) event.obj);
             ApiModel apiModel = (ApiModel) event.obj;
-            this.inputApiName.setText(apiModel.getName());
-            this.inputApi.setText(apiModel.getUrl());
+            inputApiName.setText(apiModel.getName());
+            inputApi.setText(apiModel.getUrl());
  
         }
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
@@ -99,17 +99,17 @@ public class ApiDialog extends BaseDialog {
                 String newApi = inputApi.getText().toString().trim();
                 String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
-                if (!newApi.isEmpty()) {
-                   if (!newApiName.isEmpty()) {
-                newApiName = newApi;
+                if (!newApiName.isEmpty()) {
+                   if (!newApi.isEmpty()) {
+                newApi = newApiName;
             }
                     
          
             ApiModel apiModel = new ApiModel();
             apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
-            //SourceUtil.setCurrentApi(apiModel);
-            //SourceUtil.addHistory(apiModel);
+            SourceUtil.setCurrentApi(apiModel);
+            SourceUtil.addHistory(apiModel);
 
                 
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
