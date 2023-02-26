@@ -53,7 +53,7 @@ cp $CURRENT_DIR/DIY2/J/直播/LivePlayActivity.java    $CURRENT_DIR/$DIR/app/src
 #cp $CURRENT_DIR/DIY2/J/build.gradle    $CURRENT_DIR/$DIR/app/build.gradle
 
 cp $CURRENT_DIR/DIY2/J/设置/ApiModel.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/bean/ApiModel.java
-//cp $CURRENT_DIR/DIY2/J/设置/SourceUtil.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/SourceUtil.java
+cp $CURRENT_DIR/DIY2/J/设置/SourceUtil.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/SourceUtil.java
 //首页顶部修改
 cp $CURRENT_DIR/DIY2/J/首页/HomeActivity.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 cp $CURRENT_DIR/DIY2/J/首页/activity_home.xml            $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
