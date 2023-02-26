@@ -59,8 +59,8 @@ public class ApiDialog extends BaseDialog {
             
             inputApiName.setText((String) event.obj);
             ApiModel apiModel = (ApiModel) event.obj;
-            inputApiName.setText(apiModel.getName(newApiName));
-            inputApi.setText(apiModel.getUrl(newApi));
+            inputApiName.setText(apiModel.getName());
+            inputApi.setText(apiModel.getUrl());
  
         }
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
@@ -113,9 +113,6 @@ public class ApiDialog extends BaseDialog {
             ApiModel apiModel = new ApiModel();
              apiModel.setUrl(newApi);
             apiModel.setName(newApiName);
-                 
-
-            
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
 
