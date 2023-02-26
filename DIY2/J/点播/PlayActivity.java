@@ -1002,7 +1002,7 @@ public class PlayActivity extends BaseActivity {
             playUrl(vodSeries.url.replace(str, str2), hashMap);
             return;
         }
-        */
+        
        String str2 = "tvbox-xg:";
         if (vs.url.startsWith(str2)) {
             str = "tvbox-xg://";
@@ -1017,7 +1017,7 @@ public class PlayActivity extends BaseActivity {
         }
         
   
-    
+    */
         
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
             @Override
