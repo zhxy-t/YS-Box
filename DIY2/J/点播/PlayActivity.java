@@ -972,6 +972,39 @@ public class PlayActivity extends BaseActivity {
             CacheManager.delete(MD5.string2MD5(progressKey), 0);
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
         }
+        
+         str = "tvbox-drive://";
+        HashMap hashMap = null;
+        if (vodSeries.url.startsWith(str)) {
+            this.mController.showParse(false);
+            if (this.mVodInfo.playerCfg != null && this.mVodInfo.playerCfg.length() > 0) {
+                JsonObject asJsonObject = JsonParser.parseString(this.mVodInfo.playerCfg).getAsJsonObject();
+                String str3 = "headers";
+                if (asJsonObject.has(str3)) {
+                    hashMap = new HashMap();
+                    Iterator it = asJsonObject.getAsJsonArray(str3).iterator();
+                    while (it.hasNext()) {
+                        JsonObject asJsonObject2 = ((JsonElement) it.next()).getAsJsonObject();
+                        hashMap.put(asJsonObject2.get("name").getAsString(), asJsonObject2.get("value").getAsString());
+                    }
+                }
+            }
+            playUrl(vodSeries.url.replace(str, str2), hashMap);
+            return;
+        }
+        str2 = "tvbox-xg:";
+        if (vodSeries.url.startsWith(str2)) {
+            str = "tvbox-xg://";
+            if (vodSeries.url.startsWith(str)) {
+                vodSeries.url = vodSeries.url.replace(str, str2);
+            }
+            if (!TextUtils.isEmpty(vodSeries.url.substring(9))) {
+                this.mController.showParse(false);
+                playUrl(jianpian.JPUrlDec(vodSeries.url.substring(9)), null);
+                return;
+            }
+        }
+        
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
             @Override
             public void status(int code, String info) {
