@@ -833,7 +833,7 @@ public class HomeActivity extends BaseActivity {
             //spanCount = Math.min(spanCount, 1);
             //tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
 		
-	    int min = Math.min((int) Math.floor((double) (sites.size() / 10)), 3);
+	    int min = Math.min((int) Math.floor((double) (sites.size() / 10)), 1);
 	    tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), min + 1));
             ((ConstraintLayout) dialog.findViewById(R.id.cl_root)).getLayoutParams().width = AutoSizeUtils.mm2px(dialog.getContext(), (float) ((min * 250) + 340));
 		
@@ -842,7 +842,7 @@ public class HomeActivity extends BaseActivity {
             ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
             //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
             dialog.setTip("首页固定数据源");
-	         dialog.a(new a(this), new b(this), h, arrayList.indexOf(l3.c().e()));
+	         //dialog.a(new a(this), new b(this), sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
             dialog.show();
 		
 		/*
