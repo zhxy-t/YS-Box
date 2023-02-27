@@ -842,13 +842,14 @@ public class HomeActivity extends BaseActivity {
             ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
             //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
             dialog.setTip("首页固定数据源");
-	         dialog.a(TipDialog.OnListener(), new Runnable(this), sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
-		
-            dialog.show();
-		
-		/*
+
             dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
+		sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
+            dialog.show();
+		    
+		    /*
                 @Override
+		    
                 public void click(SourceBean value, int pos) {
                     ApiConfig.get().setSourceBean(value);
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -862,10 +863,12 @@ public class HomeActivity extends BaseActivity {
 		    
 		   
                 @Override
+		    
                 public String getDisplay(SourceBean val) {
                     return val.getName();
                 }
-            }, new DiffUtil.ItemCallback<SourceBean>() {
+            }, 
+		 new DiffUtil.ItemCallback<SourceBean>() {
                 @Override
                 public boolean areItemsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem == newItem;
@@ -875,10 +878,11 @@ public class HomeActivity extends BaseActivity {
                 public boolean areContentsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem.getKey().equals(newItem.getKey());
                 }
-            }, sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
-            dialog.show();
+            }, 
+		*/	      
+
 	    
-	    */
+	   
         }
     }
 }
