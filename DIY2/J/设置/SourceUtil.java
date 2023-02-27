@@ -33,7 +33,7 @@ public class SourceUtil {
             setCurrentApi((ApiModel) history.get(0));
         }
     }
-
+/*
     public static void loadStoreHouse(String str, Callback<Map<String, String>> callback) {
         Iterator it = ((JsonObject) new Gson().fromJson(str, JsonObject.class)).getAsJsonArray("storeHouse").iterator();
         while (it.hasNext()) {
@@ -42,7 +42,7 @@ public class SourceUtil {
             httpGet(jsonObject.get("sourceUrl").getAsString().trim(), new 4(jsonObject, callback));
         }
     }
-
+*/
     public static List<ApiModel> putHistory(List<ApiModel> list) {
         historyMap = new HashMap();
         history = list;
