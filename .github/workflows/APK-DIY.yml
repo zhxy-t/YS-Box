@@ -36,5 +36,5 @@ jobs:
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: 孤影TV
+          name: 影视One
           path: ${{ github.workspace }}/apk/*
