@@ -843,6 +843,7 @@ public class HomeActivity extends BaseActivity {
             //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
             dialog.setTip("首页固定数据源");
 	         //dialog.a(new a(this), new b(this), sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
+		sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
             dialog.show();
 		
 		/*
