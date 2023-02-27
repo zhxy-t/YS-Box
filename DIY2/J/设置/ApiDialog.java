@@ -45,12 +45,13 @@ import com.github.tvbox.osc.util.SourceUtil;
 public class ApiDialog extends BaseDialog {
     private final ImageView ivQRCode;
     private final TextView tvAddress;
-    private final EditText inputApi;
+    
    
 //taka epg 直播地址
+   private final EditText inputApi;  
    private final EditText inputLive;
-    private final EditText inputEPG;
-     private final EditText inputApiName;
+   private final EditText inputEPG;
+   private final EditText inputApiName; 
    
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
@@ -72,18 +73,40 @@ public class ApiDialog extends BaseDialog {
     }
 
     public ApiDialog(@NonNull @NotNull Context context) {
+        
+        
+        super(context);
+        setContentView(R.layout.dialog_api);
+        setCanceledOnTouchOutside(true);
+        this.ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
+        this.tvAddress = (TextView) findViewById(R.id.tvAddress);
+        EditText editText = (EditText) findViewById(R.id.input);
+        
+        this.inputApi = editText;
+        String str = "";
+        editText.setText((CharSequence) Hawk.get("api_url", str));
+        
+        editText = (EditText) findViewById(R.id.inputApiName);
+        this.inputApiName = editText;
+        editText.setText((CharSequence) Hawk.get("api_name", str));
+        
+        editText = (EditText) findViewById(R.id.input_live);
+        this.inputLive = editText;
+        editText.setText((CharSequence) Hawk.get("live_url", str));
+        
+        editText = (EditText) findViewById(R.id.input_epg);
+        this.inputEPG = editText;
+        editText.setText((CharSequence) Hawk.get("epg_url", str));
+        
+        
+        
+        /*
         super(context);
         setContentView(R.layout.dialog_api);
         setCanceledOnTouchOutside(true);
         ivQRCode = findViewById(R.id.ivQRCode);
-        tvAddress = findViewById(R.id.tvAddress);
- 
-        
-
-        
-        //内置网络接口在此处添加   
-
-        
+        tvAddress = findViewById(R.id.tvAddress);       
+        //内置网络接口在此处添加          
         inputApi = findViewById(R.id.input);
         inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
         
@@ -95,7 +118,7 @@ public class ApiDialog extends BaseDialog {
         inputEPG = findViewById(R.id.input_epg);
         inputEPG.setText(Hawk.get(HawkConfig.EPG_URL, ""));
         
-        
+       */ 
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
