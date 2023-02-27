@@ -120,6 +120,71 @@ public class ApiDialog extends BaseDialog {
         
        */ 
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
+            
+               final /* synthetic */ ApiDialog this$0;
+
+    public void onClick(View view) {
+        ArrayList arrayList;
+        String trim = ApiDialog.access$000(this.this$0).getText().toString().trim();
+        String trim2 = ApiDialog.access$100(this.this$0).getText().toString().trim();
+        String trim3 = ApiDialog.access$200(this.this$0).getText().toString().trim();
+        String trim4 = ApiDialog.access$300(this.this$0).getText().toString().trim();
+        String str = "file://";
+        String str2 = "clan://localhost/";
+        if (trim.startsWith(str)) {
+            trim = trim.replace(str, str2);
+        } else {
+            str = "./";
+            if (trim.startsWith(str)) {
+                trim = trim.replace(str, str2);
+            }
+        }
+        if (!trim.isEmpty()) {
+            if (trim2.isEmpty()) {
+                trim2 = trim;
+            }
+            ApiModel apiModel = new ApiModel();
+            apiModel.setUrl(trim);
+            apiModel.setName(trim2);
+            SourceUtil.setCurrentApi(apiModel);
+            SourceUtil.addHistory(apiModel);
+            this.this$0.listener.onchange(trim);
+            this.this$0.dismiss();
+        }
+        Hawk.put("live_url", trim3);
+        if (!trim3.isEmpty()) {
+            String str3 = "live_history";
+            arrayList = (ArrayList) Hawk.get(str3, new ArrayList());
+            if (!arrayList.contains(trim3)) {
+                arrayList.add(0, trim3);
+            }
+            if (arrayList.size() > 20) {
+                arrayList.remove(20);
+            }
+            Hawk.put(str3, arrayList);
+        }
+        Hawk.put("epg_url", trim4);
+        if (!trim4.isEmpty()) {
+            trim3 = "epg_history";
+            arrayList = (ArrayList) Hawk.get(trim3, new ArrayList());
+            if (!arrayList.contains(trim4)) {
+                arrayList.add(0, trim4);
+            }
+            if (arrayList.size() > 20) {
+                arrayList.remove(20);
+            }
+            Hawk.put(trim3, arrayList);
+        }
+    }
+
+    ApiDialog$1(ApiDialog apiDialog) {
+        this.this$0 = apiDialog;
+    }
+}
+   });          
+            
+           /* 
+            
             @Override
             public void onClick(View view) {
                 ArrayList arrayList;
@@ -171,6 +236,10 @@ public class ApiDialog extends BaseDialog {
                 }                             
             }
         });
+        
+        */
+        
+        
         findViewById(R.id.apiHistory).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
