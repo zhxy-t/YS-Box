@@ -39,7 +39,7 @@ public class SourceUtil {
         while (it.hasNext()) {
             HttpGet httpGet = new HttpGet(url);
             JsonObject jsonObject = (JsonObject) ((JsonElement) it.next());
-            //httpGet(jsonObject.get("sourceUrl").getAsString().trim(), new 4(jsonObject, callback));
+            httpGet(jsonObject.get("sourceUrl").getAsString().trim(), new 4(jsonObject, callback));
         }
     }
 
