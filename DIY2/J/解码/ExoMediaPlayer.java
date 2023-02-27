@@ -56,7 +56,7 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
     private LoadControl mLoadControl;
     private RenderersFactory mRenderersFactory;
     private TrackSelector mTrackSelector;
-
+    protected TrackSelectionArray mTrackSelections;
     public ExoMediaPlayer(Context context) {
         mAppContext = context.getApplicationContext();
         mMediaSourceHelper = ExoMediaSourceHelper.getInstance(context);
@@ -260,8 +260,28 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
 
     @Override
     public long getTcpSpeed() {
-        // no support
-        return 0;
+        if (mAppContext == null || unsupported()) {
+            return 0;
+        }
+        //使用getUidRxBytes方法获取该进程总接收量
+        long total = TrafficStats.getTotalRxBytes();
+        //记录当前的时间
+        long time = System.currentTimeMillis();
+        //数据接收量除以数据接收的时间，就计算网速了。
+        long diff = total - lastTotalRxBytes;
+        long speed = diff / Math.max(time - lastTimeStamp, 1);
+        //当前时间存到上次时间这个变量，供下次计算用
+        lastTimeStamp = time;
+        //当前总接收量存到上次接收总量这个变量，供下次计算用
+        lastTotalRxBytes = total;
+        LOG.e("TcpSpeed",speed * 1024 + "");
+        return speed * 1024;
+    }
+
+    @Override
+    public void onTracksChanged(@NonNull TrackGroupArray trackGroups, @NonNull TrackSelectionArray trackSelections) {
+        trackNameProvider = new ExoTrackNameProvider(mAppContext.getResources());
+        mTrackSelections = trackSelections;
     }
 
     @Override
