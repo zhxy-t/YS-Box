@@ -121,7 +121,7 @@ public class ApiDialog extends BaseDialog {
        */ 
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             
-               final ApiDialog this$0;
+         
 
     public void onClick(View view) {
         ArrayList arrayList;
@@ -153,8 +153,8 @@ public class ApiDialog extends BaseDialog {
             apiModel.setName(trim2);
             SourceUtil.setCurrentApi(apiModel);
             SourceUtil.addHistory(apiModel);
-            this.this$0.listener.onchange(trim);
-            this.this$0.dismiss();
+            listener.onchange(trim);
+            dismiss();
         }
         Hawk.put("live_url", trim3);
         if (!trim3.isEmpty()) {
@@ -181,8 +181,7 @@ public class ApiDialog extends BaseDialog {
             Hawk.put(trim3, arrayList);
         }
     }
-             ApiDialog (ApiDialog apiDialog) {
-        this.this$0 = apiDialog;
+
     }
    });          
             
