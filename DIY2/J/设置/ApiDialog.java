@@ -182,7 +182,6 @@ public class ApiDialog extends BaseDialog {
         }
     }
 
-    }
    });          
             
            /* 
