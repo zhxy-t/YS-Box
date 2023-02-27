@@ -87,14 +87,19 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
         mTrackSelector = trackSelector;
     }
 
+    
     public void setRenderersFactory(RenderersFactory renderersFactory) {
         mRenderersFactory = renderersFactory;
     }
 
-    public void setLoadControl(LoadControl loadControl) {
-        mLoadControl = loadControl;
-    }
+  //  public void setLoadControl(LoadControl loadControl) {
+       // mLoadControl = loadControl;
+   // }
 
+    
+     public DefaultTrackSelector getTrackSelector() {
+        return mTrackSelector;
+    }
     @Override
     public void setDataSource(String path, Map<String, String> headers) {
         mMediaSource = mMediaSourceHelper.getMediaSource(path, headers);
