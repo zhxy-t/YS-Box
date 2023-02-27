@@ -78,25 +78,25 @@ public class ApiDialog extends BaseDialog {
         super(context);
         setContentView(R.layout.dialog_api);
         setCanceledOnTouchOutside(true);
-        this.ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
-        this.tvAddress = (TextView) findViewById(R.id.tvAddress);
+        ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
+        tvAddress = (TextView) findViewById(R.id.tvAddress);
         EditText editText = (EditText) findViewById(R.id.input);
         
-        this.inputApi = editText;
+        inputApi = editText;
         String str = "";
         editText = (EditText) findViewById(R.id.input);
         editText.setText((CharSequence) Hawk.get("api_url", str));
         
         editText = (EditText) findViewById(R.id.inputApiName);
-        this.inputApiName = editText;
+        inputApiName = editText;
         editText.setText((CharSequence) Hawk.get("api_name", str));
         
         editText = (EditText) findViewById(R.id.input_live);
-        this.inputLive = editText;
+        inputLive = editText;
         editText.setText((CharSequence) Hawk.get("live_url", str));
         
         editText = (EditText) findViewById(R.id.input_epg);
-        this.inputEPG = editText;
+        inputEPG = editText;
         editText.setText((CharSequence) Hawk.get("epg_url", str));
         
         
@@ -149,11 +149,11 @@ public class ApiDialog extends BaseDialog {
             if (trim2.isEmpty()) {
                 trim2 = trim;
             }
-            ApiModel apiModel = new ApiModel();
-            apiModel.setUrl(trim);
-            apiModel.setName(trim2);
-            SourceUtil.setCurrentApi(apiModel);
-            SourceUtil.addHistory(apiModel);
+            //ApiModel apiModel = new ApiModel();
+            //apiModel.setUrl(trim);
+            //apiModel.setName(trim2);
+           // SourceUtil.setCurrentApi(apiModel);
+            //SourceUtil.addHistory(apiModel);
             
               ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(trim))
