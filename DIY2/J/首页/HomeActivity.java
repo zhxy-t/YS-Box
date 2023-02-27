@@ -833,9 +833,9 @@ public class HomeActivity extends BaseActivity {
             //spanCount = Math.min(spanCount, 1);
             //tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
 		
-	    int min = Math.min((int) Math.floor((double) (sites.size() / 10)), 1);
+	    int min = Math.min((int) Math.floor((double) (sites.size() / 4)), 1);
 	    tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), min + 1));
-            ((ConstraintLayout) dialog.findViewById(R.id.cl_root)).getLayoutParams().width = AutoSizeUtils.mm2px(dialog.getContext(), (float) ((min * 250) + 340));
+            ((ConstraintLayout) dialog.findViewById(R.id.cl_root)).getLayoutParams().width = AutoSizeUtils.mm2px(dialog.getContext(), (float) ((min * 200) + 360));
 		
 
             ConstraintLayout cl_root = dialog.findViewById(R.id.cl_root);
@@ -844,10 +844,7 @@ public class HomeActivity extends BaseActivity {
             dialog.setTip("首页固定数据源");
 
             dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
-		sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
-            dialog.show();
-		    
-		    /*
+
                 @Override
 		    
                 public void click(SourceBean value, int pos) {
@@ -878,10 +875,9 @@ public class HomeActivity extends BaseActivity {
                 public boolean areContentsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem.getKey().equals(newItem.getKey());
                 }
-            }, 
-		*/	      
+            }, 		sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
+            dialog.show();
 
-	    
 	   
         }
     }
