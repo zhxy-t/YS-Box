@@ -181,7 +181,7 @@ public class ApiDialog extends BaseDialog {
             Hawk.put(trim3, arrayList);
         }
     }
-             ApiDialog$1(ApiDialog apiDialog) {
+             ApiDialog (ApiDialog apiDialog) {
         this.this$0 = apiDialog;
     }
    });          
