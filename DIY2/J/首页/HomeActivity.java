@@ -842,6 +842,10 @@ public class HomeActivity extends BaseActivity {
             ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
             //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
             dialog.setTip("首页固定数据源");
+	         dialog.a(new a(this), new b(this), h, arrayList.indexOf(l3.c().e()));
+            dialog.show();
+		
+		/*
             dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
                 @Override
                 public void click(SourceBean value, int pos) {
@@ -854,6 +858,8 @@ public class HomeActivity extends BaseActivity {
                     HomeActivity.this.startActivity(intent);
                 }
 
+		    
+		   
                 @Override
                 public String getDisplay(SourceBean val) {
                     return val.getName();
@@ -870,6 +876,8 @@ public class HomeActivity extends BaseActivity {
                 }
             }, sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
             dialog.show();
+	    
+	    */
         }
     }
 }
