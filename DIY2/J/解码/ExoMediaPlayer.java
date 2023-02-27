@@ -41,9 +41,6 @@ import java.util.Map;
 import xyz.doikki.videoplayer.player.AbstractPlayer;
 import xyz.doikki.videoplayer.player.VideoViewManager;
 
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import androidx.annotation.NonNull;
 
 public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
 
@@ -59,11 +56,7 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
     private LoadControl mLoadControl;
     private RenderersFactory mRenderersFactory;
     private TrackSelector mTrackSelector;
-    protected ExoPlayer mMediaPlayer;
-    protected TrackSelectionArray mTrackSelections;
-    private DefaultRenderersFactory mRenderersFactory;
-    private DefaultTrackSelector mTrackSelector;
-    
+
     public ExoMediaPlayer(Context context) {
         mAppContext = context.getApplicationContext();
         mMediaSourceHelper = ExoMediaSourceHelper.getInstance(context);
@@ -71,37 +64,6 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
 
     @Override
     public void initPlayer() {
-          if (mRenderersFactory == null) {
-            mRenderersFactory = new DefaultRenderersFactory(mAppContext);
-        }
-        mRenderersFactory.setExtensionRendererMode(DefaultRenderersFactory.EXTENSION_RENDERER_MODE_PREFER);
-        if (mTrackSelector == null) {
-            mTrackSelector = new DefaultTrackSelector(mAppContext);
-        }
-        if (mLoadControl == null) {
-            mLoadControl =new DefaultLoadControl();
-        }
-        mTrackSelector.setParameters(mTrackSelector.getParameters().buildUpon().setTunnelingEnabled(true));
-        /*mMediaPlayer = new SimpleExoPlayer.Builder(
-                mAppContext,
-                mRenderersFactory,
-                mTrackSelector,
-                new DefaultMediaSourceFactory(mAppContext),
-                mLoadControl,
-                DefaultBandwidthMeter.getSingletonInstance(mAppContext),
-                new AnalyticsCollector(Clock.DEFAULT))
-                .build();*/
-        mMediaPlayer = new ExoPlayer.Builder(mAppContext)
-                .setLoadControl(mLoadControl)
-                .setRenderersFactory(mRenderersFactory)
-                .setTrackSelector(mTrackSelector).build();
-
-        setOptions();
-
-        mMediaPlayer.addListener(this);
-    }
-    /*
-    
         mInternalPlayer = new SimpleExoPlayer.Builder(
                 mAppContext,
                 mRenderersFactory == null ? mRenderersFactory = new DefaultRenderersFactory(mAppContext) : mRenderersFactory,
@@ -129,15 +91,15 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
     public void setRenderersFactory(RenderersFactory renderersFactory) {
         mRenderersFactory = renderersFactory;
     }
-*/
-  //  public void setLoadControl(LoadControl loadControl) {
-       // mLoadControl = loadControl;
-   // }
+
+    public void setLoadControl(LoadControl loadControl) {
+       mLoadControl = loadControl;
+    }
 
     
-     public DefaultTrackSelector getTrackSelector() {
-        return mTrackSelector;
-    }
+   //  public DefaultTrackSelector getTrackSelector() {
+       // return mTrackSelector;
+    //}
     @Override
     public void setDataSource(String path, Map<String, String> headers) {
         mMediaSource = mMediaSourceHelper.getMediaSource(path, headers);
@@ -298,28 +260,8 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
 
     @Override
     public long getTcpSpeed() {
-        if (mAppContext == null || unsupported()) {
-            return 0;
-        }
-        //使用getUidRxBytes方法获取该进程总接收量
-        long total = TrafficStats.getTotalRxBytes();
-        //记录当前的时间
-        long time = System.currentTimeMillis();
-        //数据接收量除以数据接收的时间，就计算网速了。
-        long diff = total - lastTotalRxBytes;
-        long speed = diff / Math.max(time - lastTimeStamp, 1);
-        //当前时间存到上次时间这个变量，供下次计算用
-        lastTimeStamp = time;
-        //当前总接收量存到上次接收总量这个变量，供下次计算用
-        lastTotalRxBytes = total;
-        LOG.e("TcpSpeed",speed * 1024 + "");
-        return speed * 1024;
-    }
-
-    @Override
-    public void onTracksChanged(@NonNull TrackGroupArray trackGroups, @NonNull TrackSelectionArray trackSelections) {
-        trackNameProvider = new ExoTrackNameProvider(mAppContext.getResources());
-        mTrackSelections = trackSelections;
+        // no support
+        return 0;
     }
 
     @Override
