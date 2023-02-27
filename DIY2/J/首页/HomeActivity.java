@@ -828,13 +828,19 @@ public class HomeActivity extends BaseActivity {
         if (sites.size() > 0) {
             SelectDialog<SourceBean> dialog = new SelectDialog<>(HomeActivity.this);
             TvRecyclerView tvRecyclerView = dialog.findViewById(R.id.list);
-            int spanCount;
-            spanCount = (int)Math.floor(sites.size()/4);
-            spanCount = Math.min(spanCount, 1);
-            tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
+		  //int spanCount;
+	    //spanCount = (int)Math.floor(sites.size()/4);
+            //spanCount = Math.min(spanCount, 1);
+            //tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
+		
+	    int min = Math.min((int) Math.floor((double) (arrayList.size() / 10)), 3);
+	    tvRecyclerView.setLayoutManager(new V7GridLayoutManager(jcVar.getContext(), min + 1));
+            ((ConstraintLayout) jcVar.findViewById(2131230839)).getLayoutParams().width = AutoSizeUtils.mm2px(jcVar.getContext(), (float) ((min * 250) + 340));
+		
+
             ConstraintLayout cl_root = dialog.findViewById(R.id.cl_root);
             ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
-            clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);
+            //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
             dialog.setTip("首页固定数据源");
             dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
                 @Override
