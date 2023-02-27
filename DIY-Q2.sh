@@ -125,7 +125,7 @@ cp $CURRENT_DIR/DIY2/J/hm_lan.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/
 
 //解码修改
 cp $CURRENT_DIR/DIY2/J/解码/IjkMediaPlayer.java   $CURRENT_DIR/$DIR/player/src/main/java/tv/danmaku/ijk/media/player/IjkMediaPlayer.java
-//cp $CURRENT_DIR/DIY2/J/解码/ExoMediaPlayer.java   $CURRENT_DIR/$DIR/player/src/main/java/xyz/doikki/videoplayer/exo/ExoMediaPlayer.java
+cp $CURRENT_DIR/DIY2/J/解码/ExoMediaPlayer.java   $CURRENT_DIR/$DIR/player/src/main/java/xyz/doikki/videoplayer/exo/ExoMediaPlayer.java
 
 
 
