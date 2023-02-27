@@ -84,7 +84,7 @@ public class ApiDialog extends BaseDialog {
         
         this.inputApi = editText;
         String str = "";
-        editText = (EditText) findViewById(R.id.inputApi);
+        editText = (EditText) findViewById(R.id.input);
         editText.setText((CharSequence) Hawk.get("api_url", str));
         
         editText = (EditText) findViewById(R.id.inputApiName);
@@ -156,8 +156,8 @@ public class ApiDialog extends BaseDialog {
             SourceUtil.addHistory(apiModel);
             
               ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
-                    if (!history.contains(newApi))
-                        history.add(0, newApi);
+                    if (!history.contains(trim))
+                        history.add(0, trim);
                     if (history.size() > 30)
                         history.remove(30);
                     Hawk.put(HawkConfig.API_HISTORY, history);
