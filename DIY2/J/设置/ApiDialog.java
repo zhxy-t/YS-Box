@@ -135,7 +135,6 @@ public class ApiDialog extends BaseDialog {
        // String trim2 = ApiDialog.access$100(this.this$0).getText().toString().trim();
        // String trim3 = ApiDialog.access$200(this.this$0).getText().toString().trim();
        // String trim4 = ApiDialog.access$300(this.this$0).getText().toString().trim();
-        /*
         String str = "file://";
         String str2 = "clan://localhost/";
         if (trim.startsWith(str)) {
@@ -150,13 +149,12 @@ public class ApiDialog extends BaseDialog {
             if (trim2.isEmpty()) {
                 trim2 = trim;
             }
-            //ApiModel apiModel = new ApiModel();
-            //apiModel.setUrl(trim);
-            //apiModel.setName(trim2);
+            ApiModel apiModel = new ApiModel();
+            apiModel.setUrl(trim);
+            apiModel.setName(trim2);
            // SourceUtil.setCurrentApi(apiModel);
             //SourceUtil.addHistory(apiModel);
             
-            */
               ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(trim))
                         history.add(0, trim);
