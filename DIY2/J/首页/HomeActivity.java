@@ -196,48 +196,6 @@ public class HomeActivity extends BaseActivity {
                 }
             }
 
-		
-		
-		public class MarqueeView extends AppCompatTextView {
-
-    private static final String TAG = "MarqueeView";
-
-    public MarqueeView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    @Override
-    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
-        if (focused) {
-            super.onFocusChanged(true, direction, previouslyFocusedRect);
-        }
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasWindowFocus) {
-        if (hasWindowFocus) {
-            super.onWindowFocusChanged(true);
-        }
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-    }
-
-    private void init() {
-        setSingleLine();
-        setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        setMarqueeRepeatLimit(-1);
-        setFocusable(true);
-        setFocusableInTouchMode(true);
-    }
-}
-		
-		
-		
-		
             public void onItemSelected(TvRecyclerView tvRecyclerView, View view, int position) {
                 if (view != null) {
                     HomeActivity.this.currentView = view;
@@ -491,14 +449,12 @@ public class HomeActivity extends BaseActivity {
         // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-
 	/*	
-
            if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI) {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_wifi));
             } else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_MOBILE) {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_mobile));
-            }/* else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_ETHERNET) {
+            } else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_ETHERNET) {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_lan));
             }
 	    */
@@ -872,25 +828,16 @@ public class HomeActivity extends BaseActivity {
         if (sites.size() > 0) {
             SelectDialog<SourceBean> dialog = new SelectDialog<>(HomeActivity.this);
             TvRecyclerView tvRecyclerView = dialog.findViewById(R.id.list);
-		  //int spanCount;
-	    //spanCount = (int)Math.floor(sites.size()/4);
-            //spanCount = Math.min(spanCount, 1);
-            //tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
-		
-	    int min = Math.min((int) Math.floor((double) (sites.size() / 4)), 1);
-	    tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), min + 1));
-            ((ConstraintLayout) dialog.findViewById(R.id.cl_root)).getLayoutParams().width = AutoSizeUtils.mm2px(dialog.getContext(), (float) ((min * 200) + 360));
-		
-
+            int spanCount;
+            spanCount = (int)Math.floor(sites.size()/4);
+            spanCount = Math.min(spanCount, 1);
+            tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
             ConstraintLayout cl_root = dialog.findViewById(R.id.cl_root);
             ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
-            //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
+            clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);
             dialog.setTip("首页固定数据源");
-
             dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
-
                 @Override
-		    
                 public void click(SourceBean value, int pos) {
                     ApiConfig.get().setSourceBean(value);
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -901,15 +848,11 @@ public class HomeActivity extends BaseActivity {
                     HomeActivity.this.startActivity(intent);
                 }
 
-		    
-		   
                 @Override
-		    
                 public String getDisplay(SourceBean val) {
                     return val.getName();
                 }
-            }, 
-		 new DiffUtil.ItemCallback<SourceBean>() {
+            }, new DiffUtil.ItemCallback<SourceBean>() {
                 @Override
                 public boolean areItemsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem == newItem;
@@ -919,10 +862,8 @@ public class HomeActivity extends BaseActivity {
                 public boolean areContentsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem.getKey().equals(newItem.getKey());
                 }
-            }, 		sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
+            }, sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
             dialog.show();
-
-	   
         }
     }
 }
