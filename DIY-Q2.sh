@@ -142,11 +142,14 @@ cp $CURRENT_DIR/DIY2/J/dialog_select.xml     $CURRENT_DIR/$DIR/app/src/main/res/
 sed -i 's/color_353744/color_1890FF/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_player_control_vod_seek.xml
 
 
+
 #图标修改 图标1 原版透明
 cp $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-hdpi/app_icon.png
 cp $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xhdpi/app_icon.png
 cp $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxhdpi/app_icon.png
 mv $CURRENT_DIR/DIY2/图标1.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
+
+
 
 
 
@@ -183,13 +186,18 @@ sed -i 's/color_BBFFFFFF/color_FFFFFF/g' $CURRENT_DIR/$DIR/app/src/main/java/com
 #修改进度条消失时间
 sed -i 's/10000/6000/g'  $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 #名称修改
+
 sed -i 's/TVBox/影视One/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+
+
 #版本号
 #sed -i 's/1.0.0/2/g'     $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.6.0/g'  $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.6.0/g'  $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 #共存
+
 sed -i 's/com.github.tvbox.osc/com.YsOne.tv/g' $CURRENT_DIR/$DIR/app/build.gradle
+
 
 
 #添加PY支持
