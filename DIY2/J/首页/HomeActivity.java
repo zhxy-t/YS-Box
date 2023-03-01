@@ -78,6 +78,13 @@ import android.widget.ImageView;
 //
 import android.provider.Settings;
 import android.net.Uri;
+
+
+
+
+
+
+
 public class HomeActivity extends BaseActivity {
 	private static Resources res;
 	
@@ -142,7 +149,7 @@ public class HomeActivity extends BaseActivity {
         }
         initData();
     }
-
+	
     private void initView() {
         this.tvWifi = findViewById(R.id.tvWifi);
         this.tvFind = findViewById(R.id.tvFind);
@@ -155,7 +162,7 @@ public class HomeActivity extends BaseActivity {
         
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
-        this.tvName = findViewById(R.id.tvName);
+
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
@@ -484,7 +491,9 @@ public class HomeActivity extends BaseActivity {
         // takagen99: If network available, check connected Wifi or Lan
         if (isNetworkAvailable()) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-		
+
+	/*	
+
            if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI) {
                 tvWifi.setImageDrawable(res.getDrawable(R.drawable.hm_wifi));
             } else if (cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_MOBILE) {
@@ -858,21 +867,30 @@ public class HomeActivity extends BaseActivity {
         ControlManager.get().stopServer();
     }
 
-    void showSiteSwitch() {
+   private void showSiteSwitch() {
         List<SourceBean> sites = ApiConfig.get().getSourceBeanList();
         if (sites.size() > 0) {
             SelectDialog<SourceBean> dialog = new SelectDialog<>(HomeActivity.this);
             TvRecyclerView tvRecyclerView = dialog.findViewById(R.id.list);
-            int spanCount;
-            spanCount = (int)Math.floor(sites.size()/4);
-            spanCount = Math.min(spanCount, 1);
-            tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
+		  //int spanCount;
+	    //spanCount = (int)Math.floor(sites.size()/4);
+            //spanCount = Math.min(spanCount, 1);
+            //tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
+		
+	    int min = Math.min((int) Math.floor((double) (sites.size() / 4)), 1);
+	    tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), min + 1));
+            ((ConstraintLayout) dialog.findViewById(R.id.cl_root)).getLayoutParams().width = AutoSizeUtils.mm2px(dialog.getContext(), (float) ((min * 200) + 360));
+		
+
             ConstraintLayout cl_root = dialog.findViewById(R.id.cl_root);
             ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
-            clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);
+            //clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);;
             dialog.setTip("首页固定数据源");
+
             dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
+
                 @Override
+		    
                 public void click(SourceBean value, int pos) {
                     ApiConfig.get().setSourceBean(value);
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -883,11 +901,15 @@ public class HomeActivity extends BaseActivity {
                     HomeActivity.this.startActivity(intent);
                 }
 
+		    
+		   
                 @Override
+		    
                 public String getDisplay(SourceBean val) {
                     return val.getName();
                 }
-            }, new DiffUtil.ItemCallback<SourceBean>() {
+            }, 
+		 new DiffUtil.ItemCallback<SourceBean>() {
                 @Override
                 public boolean areItemsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem == newItem;
@@ -897,8 +919,10 @@ public class HomeActivity extends BaseActivity {
                 public boolean areContentsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                     return oldItem.getKey().equals(newItem.getKey());
                 }
-            }, sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
+            }, 		sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
             dialog.show();
+
+	   
         }
     }
 }

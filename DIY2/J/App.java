@@ -20,14 +20,18 @@ import com.orhanobut.hawk.Hawk;
 
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
-
+import com.p2p.P2PClass;
+import com.github.tvbox.osc.util.js.jianpian;
 /**
  * @author pj567
  * @date :2020/12/17
  * @description:
  */
 public class App extends MultiDexApplication {
+        public static String burl;
     private static App instance;
+    private static P2PClass p;
+    private Activity homeActivity;
 
     @Override
     public void onCreate() {
@@ -78,8 +82,20 @@ public class App extends MultiDexApplication {
             
             
         }
+   
+ }
+    
+     public static P2PClass getp2p() {
+        try {
+            if (p == null) {
+                p = new P2PClass(instance.getExternalCacheDir().getAbsolutePath());
+            }
+            return p;
+        } catch (Exception unused) {
+            return null;
+        }
     }
-
+    
     public static App getInstance() {
         return instance;
     }

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.github.tvbox.osc.R;
+
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
@@ -31,6 +32,10 @@ import java.util.List;
 import me.jessyan.autosize.utils.AutoSizeUtils;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 
+
+import com.github.tvbox.osc.bean.ApiModel;
+import com.github.tvbox.osc.util.SourceUtil;
+
 /**
  * 描述
  *
@@ -40,16 +45,26 @@ import com.github.tvbox.osc.ui.activity.HomeActivity;
 public class ApiDialog extends BaseDialog {
     private final ImageView ivQRCode;
     private final TextView tvAddress;
-    private final EditText inputApi;
+    
+   
 //taka epg 直播地址
+   private final EditText inputApi;  
    private final EditText inputLive;
-    private final EditText inputEPG;
-     private final EditText inputApiName;
+
+   private final EditText inputEPG;
+   private final EditText inputApiName; 
+
    
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
             inputApi.setText((String) event.obj);
+            
+            inputApiName.setText((String) event.obj);
+            ApiModel apiModel = (ApiModel) event.obj;
+            inputApiName.setText(apiModel.getName());
+            inputApi.setText(apiModel.getUrl());
+ 
         }
           if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
             inputLive.setText((String) event.obj);
@@ -60,10 +75,43 @@ public class ApiDialog extends BaseDialog {
     }
 
     public ApiDialog(@NonNull @NotNull Context context) {
+        
+        
         super(context);
         setContentView(R.layout.dialog_api);
-        setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(true);
+        ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
+        tvAddress = (TextView) findViewById(R.id.tvAddress);
+        EditText editText = (EditText) findViewById(R.id.input);
+        
+        inputApi = editText;
+        String str = "";
+        editText = (EditText) findViewById(R.id.input);
+        editText.setText((CharSequence) Hawk.get("api_url", str));
+        
+        editText = (EditText) findViewById(R.id.inputApiName);
+        inputApiName = editText;
+        editText.setText((CharSequence) Hawk.get("api_name", str));
+        
+        editText = (EditText) findViewById(R.id.input_live);
+        inputLive = editText;
+        editText.setText((CharSequence) Hawk.get("live_url", str));
+        
+        editText = (EditText) findViewById(R.id.input_epg);
+        inputEPG = editText;
+        editText.setText((CharSequence) Hawk.get("epg_url", str));
+        
+        
+        
+        /*
+        super(context);
+        setContentView(R.layout.dialog_api);
+        setCanceledOnTouchOutside(true);
         ivQRCode = findViewById(R.id.ivQRCode);
+
+        tvAddress = findViewById(R.id.tvAddress);       
+        //内置网络接口在此处添加          
+
         tvAddress = findViewById(R.id.tvAddress);
        
         
@@ -71,22 +119,114 @@ public class ApiDialog extends BaseDialog {
         //内置网络接口在此处添加   
         inputApiName = findViewById(R.id.inputApiName);
         inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+
         inputApi = findViewById(R.id.input);
         inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
+        
+        inputApiName = findViewById(R.id.inputApiName);
+        inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
         // takagen99: Add Live & EPG Address
         inputLive = findViewById(R.id.input_live);
         inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
         inputEPG = findViewById(R.id.input_epg);
         inputEPG.setText(Hawk.get(HawkConfig.EPG_URL, ""));
         
-        
+       */ 
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
+            
+         
+
+    public void onClick(View view) {
+        ArrayList arrayList;
+                String trim = inputApi.getText().toString().trim();
+                String trim2 = inputApiName.getText().toString().trim();
+                String trim3 = inputLive.getText().toString().trim();
+                String trim4 = inputEPG.getText().toString().trim();
+        
+       // String trim = ApiDialog.access$000(this.this$0).getText().toString().trim();
+       // String trim2 = ApiDialog.access$100(this.this$0).getText().toString().trim();
+       // String trim3 = ApiDialog.access$200(this.this$0).getText().toString().trim();
+       // String trim4 = ApiDialog.access$300(this.this$0).getText().toString().trim();
+        String str = "file://";
+        String str2 = "clan://localhost/";
+        if (trim.startsWith(str)) {
+            trim = trim.replace(str, str2);
+        } else {
+            str = "./";
+            if (trim.startsWith(str)) {
+                trim = trim.replace(str, str2);
+            }
+        }
+        if (!trim.isEmpty()) {
+            if (trim2.isEmpty()) {
+                trim2 = trim;
+            }
+            ApiModel apiModel = new ApiModel();
+            apiModel.setUrl(trim);
+            apiModel.setName(trim2);
+           // SourceUtil.setCurrentApi(apiModel);
+            //SourceUtil.addHistory(apiModel);
+            
+              ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
+                    if (!history.contains(trim))
+                        history.add(0, trim);
+                    if (history.size() > 30)
+                        history.remove(30);
+                    Hawk.put(HawkConfig.API_HISTORY, history);
+            
+            listener.onchange(trim);
+            dismiss();
+        }
+        Hawk.put("live_url", trim3);
+        if (!trim3.isEmpty()) {
+            String str3 = "live_history";
+            arrayList = (ArrayList) Hawk.get(str3, new ArrayList());
+            if (!arrayList.contains(trim3)) {
+                arrayList.add(0, trim3);
+            }
+            if (arrayList.size() > 20) {
+                arrayList.remove(20);
+            }
+            Hawk.put(str3, arrayList);
+        }
+        Hawk.put("epg_url", trim4);
+        if (!trim4.isEmpty()) {
+            trim3 = "epg_history";
+            arrayList = (ArrayList) Hawk.get(trim3, new ArrayList());
+            if (!arrayList.contains(trim4)) {
+                arrayList.add(0, trim4);
+            }
+            if (arrayList.size() > 20) {
+                arrayList.remove(20);
+            }
+            Hawk.put(trim3, arrayList);
+        }
+    }
+
+   });          
+            
+           /* 
+            
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                ArrayList arrayList;
                 String newApi = inputApi.getText().toString().trim();
-                 String newLive = inputLive.getText().toString().trim();
+                String newApiName = inputApiName.getText().toString().trim();
+                String newLive = inputLive.getText().toString().trim();
                 String newEPG = inputEPG.getText().toString().trim();
+
                 if (!newApi.isEmpty()) {
+                    if (!newApiName.isEmpty()) {
+               newApiName = newApi;
+            }
+  
+            ApiModel apiModel = new ApiModel();
+             apiModel.setUrl(newApi);
+            apiModel.setName(newApiName);
+            SourceUtil.setCurrentApi(apiModel);
+            SourceUtil.addHistory(apiModel);
+
+                
                     ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
                     if (!history.contains(newApi))
                         history.add(0, newApi);
@@ -118,6 +258,10 @@ public class ApiDialog extends BaseDialog {
                 }                             
             }
         });
+        
+        */
+        
+        
         findViewById(R.id.apiHistory).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

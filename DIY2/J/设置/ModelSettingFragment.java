@@ -70,6 +70,7 @@ import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.ui.dialog.HomeIconDialog;
 
 import java.util.Arrays;
+import android.widget.EditText;
 /**
  * @author pj567
  * @date :2020/12/23
@@ -101,6 +102,29 @@ public class ModelSettingFragment extends BaseLazyFragment {
     
      private TextView tvHomeIcon;
     
+    private EditText inputLive;
+    private EditText inputEPG;
+   // private EditText inputApiName;
+   // @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refresh(RefreshEvent event) {
+        
+        //if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
+            //inputApi.setText((String) event.obj);
+       // }
+         //if (event.type == RefreshEvent.TYPE_API_NAME_CHANGE) {
+           //inputApiName.setText((String) event.obj);
+        //}
+        
+          if (event.type == RefreshEvent.TYPE_LIVE_URL_CHANGE) {
+            inputLive.setText((String) event.obj);
+        }
+        if (event.type == RefreshEvent.TYPE_EPG_URL_CHANGE) {
+            inputEPG.setText((String) event.obj);
+        }
+    }
+
+    
+    
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
     }
@@ -116,6 +140,15 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
     @Override
     protected void init() {
+        
+        inputLive = findViewById(R.id.input_live);
+        inputLive.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
+        
+        //inputApiName = findViewById(R.id.inputApiName);
+        //inputApiName.setText(Hawk.get(HawkConfig.API_NAME, ""));
+        
+        
+        
      tvHomeShow = findViewById(R.id.tvHomeShow);
        tvHomeShow.setText(Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false) ? "开启" : "关闭");
          tvPIP = findViewById(R.id.tvPIP);
@@ -205,6 +238,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
         
+  
+        
+        
         //按钮位置
         findViewById(R.id.llHomeIcon).setOnClickListener(new View.OnClickListener() {
             private final boolean oriSearch = Hawk.get(HawkConfig.HOME_SEARCH_POSITION, true);
@@ -255,8 +291,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvPIP.setText(Hawk.get(HawkConfig.PIC_IN_PIC, true) ? "开启" : "关闭");
             }
         });
-        
-        
+
+
           //历史配置列表
      findViewById(R.id.llApiHistory).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -293,7 +329,40 @@ public class ModelSettingFragment extends BaseLazyFragment {
         });
         
         
-       
+       //直播历史列表
+        
+               findViewById(R.id.liveHistory).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
+                if (liveHistory.isEmpty())
+                    return;
+                String current = Hawk.get(HawkConfig.LIVE_URL, "");
+                int idx = 0;
+                if (liveHistory.contains(current))
+                    idx = liveHistory.indexOf(current);
+                ApiHistoryDialog dialog = new ApiHistoryDialog(getContext());
+                //dialog.setTip(HomeActivity.getRes().getString(R.string.dia_history_live));
+               dialog.setTip("历史直播列表");
+                dialog.setAdapter(new ApiHistoryDialogAdapter.SelectDialogInterface() {
+                    @Override
+                    public void click(String liveURL) {
+                        inputLive.setText(liveURL);
+                        Hawk.put(HawkConfig.LIVE_URL, liveURL);
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void del(String value, ArrayList<String> data) {
+                        Hawk.put(HawkConfig.LIVE_HISTORY, data);
+                    }
+                }, liveHistory, idx);
+                dialog.show();
+            }
+        });
+        
+        
+        
         
         
         

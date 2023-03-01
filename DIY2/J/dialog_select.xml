@@ -10,6 +10,9 @@
         android:layout_width="@dimen/vs_480"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:singleLine="true"
+        android:maxLines="1"  
+                                                       
         android:background="@drawable/shape_dialog_bg_main">
 
         <TextView
@@ -19,15 +22,10 @@
             android:lineSpacingExtra="@dimen/ts_40"
             android:lineSpacingMultiplier="0"
             android:padding="@dimen/vs_20"
-    
-                        android:maxWidth="@dimen/vs_10"
-                        android:singleLine="true"
-                        android:ellipsize="marquee"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:maxLines="1" 
-                  
-        
+
+            android:singleLine="true"
+            android:maxLines="1"       
+
             android:text="11111111"
             android:textColor="@color/color_CC000000"
             android:textSize="@dimen/ts_24"
@@ -46,13 +44,11 @@
             android:paddingRight="@dimen/vs_30"
             app:layout_constrainedHeight="true"
 
-                        android:maxWidth="@dimen/vs_0"
-                        android:singleLine="true"
-                        android:ellipsize="marquee"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:maxLines="1" 
-                                                       
+            android:singleLine="true"
+            android:maxLines="1"                                              
+
+        
+
             app:layout_constraintHeight_max="@dimen/vs_410"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -66,14 +62,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/vs_30"
 
-
-                        android:maxWidth="@dimen/vs_0"
-                        android:singleLine="true"
-                        android:ellipsize="marquee"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:maxLines="1" 
-              
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/list" />
