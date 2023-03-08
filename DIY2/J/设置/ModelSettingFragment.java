@@ -399,7 +399,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 ((BaseActivity) requireActivity()).changeWallpaper(true);
             }
         });
-        findViewById(R.id.llHomeApi).setOnClickListener(new View.OnClickListener() {
+        
+            findViewById(R.id.llHomeApi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -448,6 +449,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 }
             }
         });
+        
+       
         findViewById(R.id.llDns).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
