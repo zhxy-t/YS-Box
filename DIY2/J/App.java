@@ -67,9 +67,9 @@ public class App extends MultiDexApplication {
             Hawk.put(HawkConfig.IJK_CODEC, "硬解码");// IJK Render 软解码, 硬解码
             Hawk.put(HawkConfig.HOME_REC, 1);       // Home Rec 0=豆瓣, 1=推荐, 2=历史
             Hawk.put(HawkConfig.HISTORY_NUM, 2);       // History Number
-            Hawk.put(HawkConfig.DOH_URL, 2);        // DNS
+            Hawk.put(HawkConfig.DOH_URL, 0);        // DNS
             Hawk.put(HawkConfig.PLAY_RENDER, 1);        // 渲染
-            Hawk.put(HawkConfig.IJK_CACHE_PLAY, true);        //true=开, false=关  ijk缓存            
+            Hawk.put(HawkConfig.IJK_CACHE_PLAY, false);        //true=开, false=关  ijk缓存            
           Hawk.put(HawkConfig.HOME_SEARCH_POSITION, false);     // 搜索
           Hawk.put(HawkConfig.HOME_MENU_POSITION, true);        // 设置
           Hawk.put(HawkConfig.HOME_HIST_POSITION, false);     // 历史
