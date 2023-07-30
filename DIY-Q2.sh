@@ -20,6 +20,7 @@ echo "RELEASE_KEY_ALIAS=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_STORE_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 
+:<<!
 //点播界面
 cp $CURRENT_DIR/DIY2/J/点播/VodController.java             $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 cp $CURRENT_DIR/DIY2/J/点播/PlayActivity.java             $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/PlayActivity.java
@@ -87,15 +88,7 @@ cp $CURRENT_DIR/DIY2/index.html                         $CURRENT_DIR/$DIR/app/sr
 cp $CURRENT_DIR/DIY2/DetailActivity.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
 cp $CURRENT_DIR/DIY2/J/MyOkhttpDownLoader.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/picasso/MyOkhttpDownLoader.java
 
-//JS内置
-#cp $CURRENT_DIR/DIY2/J/JS/alist.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/alist.min.js
-#cp $CURRENT_DIR/DIY2/J/JS/drpy.min.js                   $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/drpy.min.js
-#cp $CURRENT_DIR/DIY2/J/JS/drpy2.min.js                  $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/drpy.min2.js
-#cp $CURRENT_DIR/DIY2/J/JS/moban.js                      $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/moban.js
-#cp $CURRENT_DIR/DIY2/J/JS/sortName.js                   $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/sortName.js
-#cp $CURRENT_DIR/DIY2/J/JS/模板.js                       $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/模板.js
-#cp $CURRENT_DIR/DIY2/J/JS/mod.js.js                     $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/mod.js.js
-#cp $CURRENT_DIR/DIY2/J/JS/token.txt                     $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/token.txt
+
 //增加字体
 mv $CURRENT_DIR/DIY2/J/字体/advent_pro_extralight.ttf     $CURRENT_DIR/$DIR/app/src/main/res/font/advent_pro_extralight.ttf
 //小窗修改
@@ -221,5 +214,5 @@ sed -i 's/com.github.tvbox.osc/com.YsOne.tv/g' $CURRENT_DIR/$DIR/app/build.gradl
 #sed -i '/public Spider getCSP(SourceBean sourceBean)/a\        if (sourceBean.getApi().startsWith(\"py_\")) {\n        try {\n            return PythonLoader.getInstance().getSpider(sourceBean.getKey(), sourceBean.getExt());\n        } catch (Exception e) {\n            e.printStackTrace();\n            return new SpiderNull();\n        }\n    }' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
 #sed -i '/public Object\[\] proxyLoca/a\    try {\n        if(param.containsKey(\"api\")){\n            String doStr = param.get(\"do\").toString();\n            if(doStr.equals(\"ck\"))\n                return PythonLoader.getInstance().proxyLocal(\"\",\"\",param);\n            SourceBean sourceBean = ApiConfig.get().getSource(doStr);\n            return PythonLoader.getInstance().proxyLocal(sourceBean.getKey(),sourceBean.getExt(),param);\n        }else{\n            String doStr = param.get(\"do\").toString();\n            if(doStr.equals(\"live\")) return PythonLoader.getInstance().proxyLocal(\"\",\"\",param);\n        }\n    } catch (Exception e) {\n        e.printStackTrace();\n    }\n' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
 
-
+！
 echo 'DIY end'
