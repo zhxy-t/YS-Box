@@ -37,6 +37,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
 
-          name: 影视One
+          name: 影视Box
 
           path: ${{ github.workspace }}/apk/*
