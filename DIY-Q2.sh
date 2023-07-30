@@ -91,7 +91,8 @@ cp $CURRENT_DIR/DIY2/J/设置/ApiDialog.java           $CURRENT_DIR/$DIR/app/src
 cp $CURRENT_DIR/DIY2/J/设置/dialog_api.xml           $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_api.xml
 cp $CURRENT_DIR/DIY2/J/设置/SettingActivity.java    $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/SettingActivity.java
 cp $CURRENT_DIR/DIY2/J/直播/LivePlayActivity.java    $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
-
+cp $CURRENT_DIR/DIY2/J/设置/ApiModel.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/bean/ApiModel.java
+cp $CURRENT_DIR/DIY2/J/设置/SourceUtil.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/SourceUtil.java
 
 
 
