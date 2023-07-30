@@ -71,7 +71,19 @@ sed -i 's/10000/6000/g'  $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/os
 #名称修改
 sed -i 's/TVBox/影视Box/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 
+//增加参数
+cp $CURRENT_DIR/DIY2/J/dimens.xml         $CURRENT_DIR/$DIR/app/src/main/res/values/dimens.xml
+cp $CURRENT_DIR/DIY2/J/colors.xml         $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
+cp $CURRENT_DIR/DIY2/J/strings.xml        $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+cp $CURRENT_DIR/DIY2/J/HawkConfig.java    $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/HawkConfig.java
 
+//播放资源 
+cp $CURRENT_DIR/DIY2/J/PlayerUtils.java   $CURRENT_DIR/$DIR/player/src/main/java/xyz/doikki/videoplayer/util/PlayerUtils.java
+
+//增加图标
+cp $CURRENT_DIR/DIY2/J/hm_history.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_history.png
+cp $CURRENT_DIR/DIY2/J/hm_mobile.png    $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_mobile.png
+cp $CURRENT_DIR/DIY2/J/hm_lan.png   $CURRENT_DIR/$DIR/app/src/main/res/drawable/hm_lan.png
 
 //添加直播历史
 cp $CURRENT_DIR/DIY2/J/设置/ApiConfig.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
