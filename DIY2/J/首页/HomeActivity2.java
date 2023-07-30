@@ -89,14 +89,14 @@ public class HomeActivity extends BaseActivity {
     private Handler mHandler = new Handler();
     private long mExitTime = 0;
     private Runnable mRunnable = new Runnable() {
-        @SuppressLint({"DefaultLocale", "SetTextI18n"})
+        @SuppressLint({"DefaultLocale"， "SetTextI18n"})
         @Override
         public void run() {
             Date date = new Date();
             @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("MM/dd aHH:mm:ss");
             tvDate.setText(timeFormat.format(date));
-            mHandler.postDelayed(this, 1000);
+            mHandler.postDelayed(this， 1000);
         }
     };
 
@@ -109,15 +109,15 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        EventBus.getDefault().register(this);
-        ControlManager.get().startServer();
+        EventBus.getDefault()。register(this);
+        ControlManager.get()。startServer();
         initView();
         initViewModel();
         useCacheConfig = false;
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             Bundle bundle = intent.getExtras();
-            useCacheConfig = bundle.getBoolean("useCache", false);
+            useCacheConfig = bundle.getBoolean("useCache"， false);
         }
         initData();
     }
@@ -130,44 +130,44 @@ public class HomeActivity extends BaseActivity {
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
         this.sortAdapter = new SortAdapter();
-        this.mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
+        this.mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0， false));
         this.mGridView.setSpacingWithMargins(0, AutoSizeUtils.dp2px(this.mContext, 10.0f));
         this.mGridView.setAdapter(this.sortAdapter);
         this.mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
-            public void onItemPreSelected(TvRecyclerView tvRecyclerView, View view, int position) {
+            public void onItemPreSelected(TvRecyclerView tvRecyclerView, View 次浏览, int position) {
                 if (view != null && !HomeActivity.this.isDownOrUp) {
                     mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             TextView textView = view.findViewById(R.id.tvTitle);
-                            textView.getPaint().setFakeBoldText(false);
+                            textView.getPaint()。setFakeBoldText(false);
                             if (sortFocused == p) {
-                                view.animate().scaleX(1.1f).scaleY(1.1f).setInterpolator(new BounceInterpolator()).setDuration(300).start();
-                                textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_FFFFFF));
+                                view.animate()。scaleX(1.1f)。scaleY(1.1f)。setInterpolator(new BounceInterpolator())。setDuration(300)。start();
+                                textView.setTextColor(HomeActivity.this。getResources()。getColor(R.color.color_FFFFFF));
                             } else {
-                                view.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).start();
-                                textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_BBFFFFFF));
-                                view.findViewById(R.id.tvFilter).setVisibility(View.GONE);
-                                view.findViewById(R.id.tvFilterColor).setVisibility(View.GONE);
+                                view.animate()。scaleX(1.0f)。scaleY(1.0f)。setDuration(300)。start();
+                                textView.setTextColor(HomeActivity.this。getResources()。getColor(R.color.color_BBFFFFFF));
+                                view.findViewById(R.id.tvFilter)。setVisibility(View.GONE);
+                                view.findViewById(R.id.tvFilterColor)。setVisibility(View.GONE);
                             }
                             textView.invalidate();
                         }
 
                         public View v = view;
                         public int p = position;
-                    }, 10);
+                    }， 10);
                 }
             }
 
-            public void onItemSelected(TvRecyclerView tvRecyclerView, View view, int position) {
+            public void onItemSelected(TvRecyclerView tvRecyclerView, View 次浏览, int position) {
                 if (view != null) {
                     HomeActivity.this.currentView = view;
                     HomeActivity.this.isDownOrUp = false;
                     HomeActivity.this.sortChange = true;
-                    view.animate().scaleX(1.1f).scaleY(1.1f).setInterpolator(new BounceInterpolator()).setDuration(300).start();
+                    view.animate()。scaleX(1.1f)。scaleY(1.1f)。setInterpolator(new BounceInterpolator())。setDuration(300)。start();
                     TextView textView = view.findViewById(R.id.tvTitle);
-                    textView.getPaint().setFakeBoldText(true);
-                    textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_FFFFFF));
+                    textView.getPaint()。setFakeBoldText(true);
+                    textView.setTextColor(HomeActivity.this。getResources()。getColor(R.color.color_FFFFFF));
                     textView.invalidate();
                     MovieSort.SortData sortData = sortAdapter.getItem(position);
                     if (!sortData.filters.isEmpty()) {
@@ -185,7 +185,7 @@ public class HomeActivity extends BaseActivity {
                 if (itemView != null && currentSelected == position) {
                     BaseLazyFragment baseLazyFragment = fragments.get(currentSelected);
                     if ((baseLazyFragment instanceof GridFragment) && !sortAdapter.getItem(position).filters.isEmpty()) {// 弹出筛选
-                        ((GridFragment) baseLazyFragment).showFilter();
+                        ((GridFragment) baseLazyFragment)。showFilter();
                     } else if (baseLazyFragment instanceof UserFragment) {
                         showSiteSwitch();
                     }
@@ -194,7 +194,7 @@ public class HomeActivity extends BaseActivity {
         });
 
         this.mGridView.setOnInBorderKeyEventListener(new TvRecyclerView.OnInBorderKeyEventListener() {
-            public final boolean onInBorderKeyEvent(int direction, View view) {
+            public final boolean onInBorderKeyEvent(int direction, View 次浏览) {
                 if (direction != View.FOCUS_DOWN) {
                     return false;
                 }
@@ -203,7 +203,7 @@ public class HomeActivity extends BaseActivity {
                 if (!(baseLazyFragment instanceof GridFragment)) {
                     return false;
                 }
-                if (!((GridFragment) baseLazyFragment).isLoad()) {
+                if (!((GridFragment) baseLazyFragment)。isLoad()) {
                     return true;
                 }
                 return false;
