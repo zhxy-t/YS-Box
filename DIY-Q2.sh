@@ -38,7 +38,8 @@ mv $CURRENT_DIR/DIY2/原版透明.png $CURRENT_DIR/$DIR/app/src/main/res/drawabl
 
 #背景修改
 cp $CURRENT_DIR/DIY2/背景3.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
-
+#首页时间
+sed -i 's/yyyy/MM/dd HH:mm/MM/dd aHH:mm:ss/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java 
 #首页多排
 sed -i 's/380+200/360+200/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java 
 sed -i 's/380+200/360+200/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
@@ -95,6 +96,11 @@ cp $CURRENT_DIR/DIY2/J/设置/ApiModel.java           $CURRENT_DIR/$DIR/app/src/
 cp $CURRENT_DIR/DIY2/J/设置/SourceUtil.java           $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/SourceUtil.java
 
 
+//其他修改
+cp $CURRENT_DIR/DIY2/J/event/RefreshEvent.java            $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/event/RefreshEvent.java
+cp $CURRENT_DIR/DIY2/index.html                         $CURRENT_DIR/$DIR/app/src/main/res/raw/index.html
+cp $CURRENT_DIR/DIY2/DetailActivity.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
+cp $CURRENT_DIR/DIY2/J/MyOkhttpDownLoader.java          $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/picasso/MyOkhttpDownLoader.java
 
 
 #版本号
