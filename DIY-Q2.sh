@@ -48,7 +48,7 @@ sed -i 's/380+200/340+140/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbo
 sed -i 's/vs_30/vs_15/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
 
 # 默认设置
-cp $CURRENT_DIR/DIY2/J/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java  
+#cp $CURRENT_DIR/DIY2/J/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java  
 
 #自定义epg
 cp $CURRENT_DIR/DIY2/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data.json
