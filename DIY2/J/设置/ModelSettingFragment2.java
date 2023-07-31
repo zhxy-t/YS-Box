@@ -74,7 +74,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvIjkCachePlay;
 
     public static ModelSettingFragment newInstance() {
-        return new ModelSettingFragment().setArguments();
+        return new ModelSettingFragment()。setArguments();
     }
 
     public ModelSettingFragment setArguments() {
@@ -116,12 +116,12 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvHomeRec.setText(getHomeRecName(Hawk.get(HawkConfig.HOME_REC, 0)));
         tvHistoryNum.setText(HistoryHelper.getHistoryNumName(Hawk.get(HawkConfig.HISTORY_NUM, 0)));
         tvSearchView.setText(getSearchView(Hawk.get(HawkConfig.SEARCH_VIEW, 0)));
-        tvHomeApi.setText(ApiConfig.get().getHomeSourceBean().getName());
+        tvHomeApi.setText(ApiConfig.get()。getHomeSourceBean()。getName());
         tvScale.setText(PlayerHelper.getScaleName(Hawk.get(HawkConfig.PLAY_SCALE, 0)));
         tvPlay.setText(PlayerHelper.getPlayerName(Hawk.get(HawkConfig.PLAY_TYPE, 0)));
         tvRender.setText(PlayerHelper.getRenderName(Hawk.get(HawkConfig.PLAY_RENDER, 0)));
         tvIjkCachePlay.setText(Hawk.get(HawkConfig.IJK_CACHE_PLAY, false) ? "开启" : "关闭");
-        findViewById(R.id.llDebug).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llDebug)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -129,7 +129,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "已打开" : "已关闭");
             }
         });
-        findViewById(R.id.llParseWebVew).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llParseWebVew)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -137,7 +137,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 Hawk.put(HawkConfig.PARSE_WEBVIEW, useSystem);
                 tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统自带" : "XWalkView");
                 if (!useSystem) {
-                    Toast.makeText(mContext, "注意: XWalkView只适用于部分低Android版本，Android5.0以上推荐使用系统自带", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "注意: XWalkView只适用于部分低Android版本，Android5.0以上推荐使用系统自带", Toast.LENGTH_LONG)。show();
                     XWalkInitDialog dialog = new XWalkInitDialog(mContext);
                     dialog.setOnListener(new XWalkInitDialog.OnListener() {
                         @Override
@@ -148,7 +148,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 }
             }
         });
-        findViewById(R.id.llBackup).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llBackup)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -156,7 +156,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llAbout)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -164,57 +164,68 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llWp).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llWp)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
                 if (!ApiConfig.get().wallpaper.isEmpty())
-                    OkGo.<File>get(ApiConfig.get().wallpaper).execute(new FileCallback(requireActivity().getFilesDir().getAbsolutePath(), "wp") {
+                    OkGo.<File>get(ApiConfig.get().wallpaper)。execute(new FileCallback(requireActivity()。getFilesDir()。getAbsolutePath()， "wp") {
                         @Override
                         public void onSuccess(Response<File> response) {
-                            ((BaseActivity) requireActivity()).changeWallpaper(true);
+                            ((BaseActivity) requireActivity())。changeWallpaper(true);
                         }
 
                         @Override
                         public void onError(Response<File> response) {
-                            super.onError(response);
+                            super。onError(response);
                         }
 
                         @Override
                         public void downloadProgress(Progress progress) {
-                            super.downloadProgress(progress);
+                            super。downloadProgress(progress);
                         }
                     });
             }
         });
-        findViewById(R.id.llWpRecovery).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llWpRecovery)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                File wp = new File(requireActivity().getFilesDir().getAbsolutePath() + "/wp");
+                File wp = new File(requireActivity()。getFilesDir()。getAbsolutePath() + "/wp");
                 if (wp.exists())
                     wp.delete();
-                ((BaseActivity) requireActivity()).changeWallpaper(true);
+                ((BaseActivity) requireActivity())。changeWallpaper(true);
             }
         });
-        findViewById(R.id.llHomeApi).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llHomeApi)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                List<SourceBean> sites = ApiConfig.get().getSourceBeanList();
+                List<SourceBean> sites = ApiConfig.get()。getSourceBeanList();
                 if (sites.size() > 0) {
                     SelectDialog<SourceBean> dialog = new SelectDialog<>(mActivity);
+                    
+            TvRecyclerView tvRecyclerView = dialog.findViewById(R.id.list);
+            int spanCount;
+            spanCount = (int)Math.floor(sites.size()/1);
+            spanCount = Math.min(spanCount, 2);
+            tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
+            ConstraintLayout cl_root = dialog.findViewById(R.id.cl_root);
+            ViewGroup.LayoutParams clp = cl_root.getLayoutParams();
+            clp.width = AutoSizeUtils.mm2px(dialog.getContext(), 380+200*spanCount);
+                    
+                    
                     dialog.setTip("请选择首页数据源");
                     dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<SourceBean>() {
                         @Override
                         public void click(SourceBean value, int pos) {
-                            ApiConfig.get().setSourceBean(value);
-                            tvHomeApi.setText(ApiConfig.get().getHomeSourceBean().getName());
+                            ApiConfig.get()。setSourceBean(value);
+                            tvHomeApi.setText(ApiConfig.get()。getHomeSourceBean()。getName());
 
                             Intent intent =new Intent(mContext, HomeActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             Bundle bundle = new Bundle();
-                            bundle.putBoolean("useCache", true);
+                            bundle.putBoolean("useCache"， true);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -223,7 +234,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                         public String getDisplay(SourceBean val) {
                             return val.getName();
                         }
-                    }, new DiffUtil.ItemCallback<SourceBean>() {
+                    }， new DiffUtil.ItemCallback<SourceBean>() {
                         @Override
                         public boolean areItemsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
                             return oldItem == newItem;
@@ -231,14 +242,14 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
                         @Override
                         public boolean areContentsTheSame(@NonNull @NotNull SourceBean oldItem, @NonNull @NotNull SourceBean newItem) {
-                            return oldItem.getKey().equals(newItem.getKey());
+                            return oldItem.getKey()。equals(newItem.getKey());
                         }
-                    }, sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
+                    }, sites, sites.indexOf(ApiConfig.get()。getHomeSourceBean()));
                     dialog.show();
                 }
             }
         });
-        findViewById(R.id.llDns).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llDns)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -260,7 +271,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(String val) {
                         return val;
                     }
-                }, new DiffUtil.ItemCallback<String>() {
+                }， new DiffUtil.ItemCallback<String>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull String oldItem, @NonNull @NotNull String newItem) {
                         return oldItem.equals(newItem);
@@ -274,12 +285,12 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llApi).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llApi)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
                 ApiDialog dialog = new ApiDialog(mActivity);
-                EventBus.getDefault().register(dialog);
+                EventBus.getDefault()。register(dialog);
                 dialog.setOnListener(new ApiDialog.OnListener() {
                     @Override
                     public void onchange(String api) {
@@ -290,8 +301,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
-                        ((BaseActivity) mActivity).hideSysBar();
-                        EventBus.getDefault().unregister(dialog);
+                        ((BaseActivity) mActivity)。hideSysBar();
+                        EventBus.getDefault()。unregister(dialog);
                     }
                 });
                 dialog.show();
@@ -300,10 +311,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
 
 
-        findViewById(R.id.llMediaCodec).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llMediaCodec)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<IJKCode> ijkCodes = ApiConfig.get().getIjkCodes();
+                List<IJKCode> ijkCodes = ApiConfig.get()。getIjkCodes();
                 if (ijkCodes == null || ijkCodes.size() == 0)
                     return;
                 FastClickCheckUtil.check(v);
@@ -311,7 +322,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 int defaultPos = 0;
                 String ijkSel = Hawk.get(HawkConfig.IJK_CODEC, "");
                 for (int j = 0; j < ijkCodes.size(); j++) {
-                    if (ijkSel.equals(ijkCodes.get(j).getName())) {
+                    if (ijkSel.equals(ijkCodes.get(j)。getName())) {
                         defaultPos = j;
                         break;
                     }
@@ -322,7 +333,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<IJKCode>() {
                     @Override
                     public void click(IJKCode value, int pos) {
-                        value.selected(true);
+                        value.选中(true);
                         tvMediaCodec.setText(value.getName());
                     }
 
@@ -330,7 +341,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(IJKCode val) {
                         return val.getName();
                     }
-                }, new DiffUtil.ItemCallback<IJKCode>() {
+                }， new DiffUtil.ItemCallback<IJKCode>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull IJKCode oldItem, @NonNull @NotNull IJKCode newItem) {
                         return oldItem == newItem;
@@ -338,13 +349,13 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
                     @Override
                     public boolean areContentsTheSame(@NonNull @NotNull IJKCode oldItem, @NonNull @NotNull IJKCode newItem) {
-                        return oldItem.getName().equals(newItem.getName());
+                        return oldItem.getName()。equals(newItem.getName());
                     }
                 }, ijkCodes, defaultPos);
                 dialog.show();
             }
         });
-        findViewById(R.id.llScale).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llScale)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -369,7 +380,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(Integer val) {
                         return PlayerHelper.getScaleName(val);
                     }
-                }, new DiffUtil.ItemCallback<Integer>() {
+                }， new DiffUtil.ItemCallback<Integer>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
                         return oldItem.intValue() == newItem.intValue();
@@ -383,7 +394,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llPlay).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llPlay)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -413,7 +424,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                         Integer playerType = players.get(val);
                         return PlayerHelper.getPlayerName(playerType);
                     }
-                }, new DiffUtil.ItemCallback<Integer>() {
+                }， new DiffUtil.ItemCallback<Integer>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
                         return oldItem.intValue() == newItem.intValue();
@@ -427,7 +438,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llRender).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llRender)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -449,7 +460,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(Integer val) {
                         return PlayerHelper.getRenderName(val);
                     }
-                }, new DiffUtil.ItemCallback<Integer>() {
+                }， new DiffUtil.ItemCallback<Integer>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
                         return oldItem.intValue() == newItem.intValue();
@@ -463,7 +474,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llHomeRec).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llHomeRec)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -485,7 +496,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(Integer val) {
                         return getHomeRecName(val);
                     }
-                }, new DiffUtil.ItemCallback<Integer>() {
+                }， new DiffUtil.ItemCallback<Integer>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
                         return oldItem.intValue() == newItem.intValue();
@@ -499,7 +510,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-        findViewById(R.id.llSearchView).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llSearchView)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -520,7 +531,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(Integer val) {
                         return getSearchView(val);
                     }
-                }, new DiffUtil.ItemCallback<Integer>() {
+                }， new DiffUtil.ItemCallback<Integer>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
                         return oldItem.intValue() == newItem.intValue();
@@ -537,11 +548,11 @@ public class ModelSettingFragment extends BaseLazyFragment {
         SettingActivity.callback = new SettingActivity.DevModeCallback() {
             @Override
             public void onChange() {
-                findViewById(R.id.llDebug).setVisibility(View.VISIBLE);
+                findViewById(R.id.llDebug)。setVisibility(View.VISIBLE);
             }
         };
 
-        findViewById(R.id.showPreview).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.showPreview)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -549,7 +560,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvShowPreviewText.setText(Hawk.get(HawkConfig.SHOW_PREVIEW, true) ? "开启" : "关闭");
             }
         });
-        findViewById(R.id.llHistoryNum).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llHistoryNum)。setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
@@ -571,7 +582,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     public String getDisplay(Integer val) {
                         return HistoryHelper.getHistoryNumName(val);
                     }
-                }, new DiffUtil.ItemCallback<Integer>() {
+                }， new DiffUtil.ItemCallback<Integer>() {
                     @Override
                     public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
                         return oldItem.intValue() == newItem.intValue();
