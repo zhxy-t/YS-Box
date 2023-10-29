@@ -1,4 +1,4 @@
-name: APK-DIY
+name: APK-Q1
 
 于:
 #  push:
@@ -18,8 +18,8 @@ jobs:
         run: git clone -b main --depth=1 https://github.com/q215613905/TVBoxOS.git
       - name: DIY
         run: |
-          chmod +x DIY-Q2.sh
-          bash ${{ github.workspace }}/DIY-Q2.sh
+          chmod +x DIY-DIY-Q2.sh
+          bash ${{ github.workspace }}/DIY-DIY-Q2.sh
       - name: Build With Gradle
         run: |
           num=$(find ${{ github.workspace }} -name gradlew  | awk -F"/" '{print NF-1}')
@@ -36,7 +36,5 @@ jobs:
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         包含:
-
           name: 影视Box
-
           path: ${{ github.workspace }}/apk/*
