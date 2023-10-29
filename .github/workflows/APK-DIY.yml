@@ -1,21 +1,21 @@
 name: APK-DIY
 
-on:
+于:
 #  push:
 #    branches:
 #      - main
 #  pull_request:
-  workflow_dispatch:
+  工作流程调度:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
+        包含:
           fetch-depth: 0
       - name: Clone Project
-        run: git clone -b main --depth=1 https://github.com/zhxy-t/TVBoxOS-Q.git
+        run: git clone -b main --depth=1 https://github.com/q215613905/TVBoxOS.git
       - name: DIY
         run: |
           chmod +x DIY-Q2.sh
@@ -35,7 +35,7 @@ jobs:
           done
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
-        with:
+        包含:
 
           name: 影视Box
 
